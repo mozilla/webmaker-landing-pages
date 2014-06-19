@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.10'
+deploy:
+  provider: s3
+  access_key_id: AKIAI3MGOBZWQXTII3QQ
+  secret_access_key:
+    secure: AcC649sB4oEKQeSTYv4rqbmMG60T5P74GydLKTLpLg4kFAkj9/lYvw43lsgMDCdrKCA12Z97CIwrmku1jnA9e/n/a09k6cbi8gq4E337Sz7e9v5xTP0aPqv4vE5gsQ7FvCbUROSE6tgYQIzqliisBBeM6iAc8+aPv3DSGTg+zWI=
+  bucket: welcome.webmaker.org
+  skip_cleanup: true
+  on:
+    repo: mozilla/webmaker-snippet-landing-page

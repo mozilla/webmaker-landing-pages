@@ -1,1 +1,2 @@
-resources/vendors
+/node_modules
+/resources/vendors
