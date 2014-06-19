@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Welcome to Webmaker</title>
+
+  <link rel="stylesheet" href="resources/vendors/makerstrap/dist/makerstrap.min.css">
+  <link rel="stylesheet" href="/resources/vendors/font-awesome/css/font-awesome.min.css" >
+  <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" />
+
+  <!-- Optimizely needs to be loaded before the layout is rendered -->
+  <script src="//cdn.optimizely.com/js/206878104.js"></script>
+
+</head>
+<body>
+
+  <!-- Tabzilla here -->
+  <a href="/en-US/" id="tabzilla" data-infobar="translation">Mozilla</a>
+    <div class="container">
+
+     <div class="navbar-header">
+         <a class="navbar-brand" rel="home" href="https://webmaker.org">
+             <img class="logo webmaker-logo" src="resources/img/logo.png" alt="webmaker.org">
+         </a>
+     </div>
+
+    </div>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="text-center">
+        We believe anyone can be a tinkerer, creator, builder of the web.
+        <strong class="including-you">Including you.</strong>
+      </h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>
+      Learn more about Mozilla Webmaker and participating in Maker Party, our global, 3 month celebration of teachin and learning the Web.
+    </h3>
+    <div class="form-section">
+      <form role="form">
+         <div class="form-group">
+           <input type="email" class="form-control" id="field1" placeholder="&#xf0e0; Your e-mail address">
+           <button type="submit" class="btn btn-primary">Sign up</button>
+           <input class="pull-left input-left" type="checkbox"><p class="help-block">Yes! I want to receive email updates about Mozilla's projects and campaigns and I'm okay with you handling this info as you explain in your <a href="http://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
+         </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer section -->
+  <nav class="navbar navbar-no-header-xs navbar-tertiary">
+    <div class="container">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="mailto:help@webmaker.org">Contact</a></li>
+          <li><a href="https://sendto.mozilla.org/page/contribute/join-mozilla?source=join_link">Donate</a></li>
+          <li><a href="https://webmaker.org/privacy" target="_self">Privacy</a></li>
+          <li><a href="https://webmaker.org/terms" target="_self">Legal</a></li>
+          <li><a href="https://support.mozilla.org/products/webmaker">Help</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://twitter.com/webmaker"><span class="fa fa-twitter"></span> @webmaker</a></li>
+          <li><a href="https://plus.google.com/u/2/communities/106022863174952221205"><span class="fa fa-google-plus"></span> google+</a></li>
+          <li><a href="http://blog.webmaker.org"><span class="fa fa-file-text-o"></span> Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Tabzilla script file -->
+  <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
+
+  <!-- Google analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35433268-12']);
+    _gaq.push(['_setDomainName', 'webmaker.org']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script src="https://stuff.webmaker.org/webmaker-rid/webmaker-rid.js" async></script>
+</body>
+</html>
