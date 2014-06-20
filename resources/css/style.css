@@ -7,6 +7,10 @@ body {
   font-size: 1.6rem;
 }
 
+strong {
+  font-family: 'Open Sans';
+}
+
 .navbar-header {
   height: 100px;
 }
@@ -20,7 +24,6 @@ body {
 }
 
 .jumbotron {
-  height: 295px;
   padding-top: 50px;
 }
 
@@ -34,7 +37,7 @@ body {
 
 .including-you {
   white-space: nowrap;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 5rem;
 }
 
@@ -44,22 +47,21 @@ h3 {
   line-height: 1.3;
   padding: 2px 0;
   width: 675px;
-  margin: 20px auto;
+  margin: 0 auto 20px;
   text-align: center;
+}
+
+.buttonBottom {
+  padding-top: 10px;
 }
 
 .form-section, button {
   width: 345px;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 input.input-left {
   margin: 9px 7px 0 0;
-}
-
-input {
-  font-family: 'FontAwesome';
-  text-align: center;
 }
 
 .navbar.navbar-tertiary {
@@ -90,7 +92,7 @@ input {
     line-height: 1.2;
     padding: 2px 0;
     width: 275px;
-    margin: 20px auto;
+    margin: 0 auto;
     text-align: left;
   }
 

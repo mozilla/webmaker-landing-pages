@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/resources/vendors/font-awesome/css/font-awesome.min.css" >
   <link rel="stylesheet" href="resources/css/style.css">
   <link rel="stylesheet" href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" />
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
 
   <!-- Optimizely needs to be loaded before the layout is rendered -->
   <script src="//cdn.optimizely.com/js/206878104.js"></script>
@@ -43,8 +44,13 @@
     <div class="form-section">
       <form role="form">
          <div class="form-group">
-           <input type="email" class="form-control" id="field1" placeholder="&#xf0e0; Your e-mail address">
-           <button type="submit" class="btn btn-primary">Sign up</button>
+         <div class="input-group">
+           <span class="input-group-addon"><span class="fa fa-envelope"></span></span>
+           <input type="email" class="form-control" id="field1" placeholder="Your e-mail address">
+         </div>
+          <p class="buttonBottom">
+            <button type="submit" class="btn btn-primary">Sign up</button>
+          </p>
            <input class="pull-left input-left" type="checkbox"><p class="help-block">Yes! I want to receive email updates about Mozilla's projects and campaigns and I'm okay with you handling this info as you explain in your <a href="http://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
          </div>
       </form>
