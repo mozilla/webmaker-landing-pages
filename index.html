@@ -44,15 +44,17 @@
     <div class="form-section">
       <form role="form" method="post" action="https://sendto.mozilla.org/page/s/snippet-test">
          <div class="form-group">
-            <div class="input-group">
+            <div class="email input-group">
               <span class="input-group-addon"><span class="fa fa-envelope"></span></span>
               <input type="email" class="form-control" id="field1" name="email" size="48" placeholder="Your e-mail address" required>
             </div>
             <p class="buttonBottom">
               <button type="submit" class="btn btn-primary">Sign up</button>
             </p>
-            <input id="allow_email" class="pull-left input-left" type="checkbox" required>
-            <label for="allow_email" class="help-block">Yes! I want to receive email updates about Mozilla's projects and campaigns and I'm okay with you handling this info as you explain in your <a href="http://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</label>
+            <div class="accept input-group">
+              <input id="allow_email" class="pull-left input-left" type="checkbox" required>
+              <label for="allow_email" class="help-block">Yes! I want to receive email updates about Mozilla's projects and campaigns and I'm okay with you handling this info as you explain in your <a href="http://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</label>
+            </div>
          </div>
       </form>
     </div>
@@ -93,5 +95,32 @@
     })();
   </script>
   <script src="https://stuff.webmaker.org/webmaker-rid/webmaker-rid.js" async></script>
+  <script>
+    (function() {
+      var email = document.querySelector("#field1");
+      var email_container = document.querySelector("div.email.input-group");
+
+      email.addEventListener("invalid", function() {
+        email_container.classList.add("has-error");
+      });
+      email.addEventListener("input", function() {
+        if (email_container.classList.contains("has-error")) {
+          email_container.classList.remove("has-error");
+        }
+      });
+
+      var accept = document.querySelector("#allow_email")
+      var accept_container = document.querySelector("div.accept.input-group");
+
+      accept.addEventListener("invalid", function() {
+        accept_container.classList.add("has-error");
+      });
+      accept.addEventListener("change", function() {
+        if (accept_container.classList.contains("has-error")) {
+          accept_container.classList.remove("has-error");
+        }
+      });
+    }());
+  </script>
 </body>
 </html>
