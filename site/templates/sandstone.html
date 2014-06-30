@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="//cdn.optimizely.com/js/206878104.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>{{ title }}</title>
+
+  <!-- build:css /resources/css/sandstone.css -->
+  <link rel="stylesheet" href="/resources/compiled/sandstone.css"/>
+  <!-- endbuild -->
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600"/>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35433268-12']);
+    _gaq.push(['_setDomainName', 'webmaker.org']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script src="https://stuff.webmaker.org/webmaker-rid/webmaker-rid.js" async></script>
+</head>
+
+<body class="sandstone-landing">
+<div class="container">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <hgroup class="mission">
+      <h1>We are <span class="mozilla">mozilla</span></h1>
+
+      <h2 class="tagline">Doing good is part of our code</h2>
+    </hgroup>
+    <p>
+      <strong>From July to September,
+        <a href="https://party.webmaker.org/en-US/">Mozilla Webmaker</a> is
+        hosting free events around the world.</strong> Join us to teach and
+      learn everything from coding and web design to protecting online privacy
+      and more.
+    </p>
+  </div>
+</div>
+
+<div id="content_area" role="main">
+  {{ contents }}
+</div>
+
+<!-- build:js /resources/js/sandstone.js -->
+<script type="text/javascript" src="/resources/vendors/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/resources/js/scripts.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

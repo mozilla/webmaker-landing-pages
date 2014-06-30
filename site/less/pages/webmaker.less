@@ -1,0 +1,113 @@
+@import "../base/all";
+@import "../components/all";
+
+.webmaker-landing {
+  font-weight: 300;
+  .navbar-header {
+    height: 10rem;
+  }
+
+  .logo {
+    width: 23rem;
+  }
+
+  .wm-footer {
+    background: #013E5F;
+  }
+
+  .jumbotron {
+    padding-top: 5rem;
+    h1, h2 {
+      font-size: 5rem;
+      font-weight: 300;
+      margin: 0;
+      padding: 0;
+      line-height: 1.2;
+    }
+  }
+
+  .including-you {
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 5rem;
+  }
+
+  h3 {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.3;
+    padding: 0.2rem 0;
+    width: 67.5rem;
+    margin: 0 auto 2rem;
+    text-align: center;
+  }
+
+  .navbar {
+    &.navbar-tertiary {
+      background: #013E5F;
+      font-weight: normal;
+      font-size: 1.3rem;
+      margin: 9rem 0 0 0;
+      .nav {
+        & > li {
+          & > a {
+            color: rgba(255, 255, 255, 0.8);
+          }
+          & > a:hover {
+            background: none;
+            color: @white;
+          }
+          &.active > a {
+            color: @white;
+          }
+        }
+        .open {
+          & > a, & > a:hover, & > a:focus {
+            background-color: #1a1aff;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 650px) {
+    h3 {
+      font-size: 3rem;
+      line-height: 1.2;
+      padding: 0.2rem 0;
+      width: 27.5rem;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .logo {
+      width: 19rem;
+    }
+
+    .jumbotron {
+      h1, h2 {
+      font-size: 3rem;
+      font-weight: lighter;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+      text-align: left;
+      }
+    }
+
+    .including-you {
+      white-space: nowrap;
+      font-weight: 900;
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .logo {
+      width: 14rem;
+    }
+
+    .jumbotron h1, h2 {
+      line-height: 1.2;
+    }
+  }
+}
