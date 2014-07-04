@@ -1,15 +1,9 @@
 {
   "globals": {
-    "module": true,
-    "define": true,
-    "requirejs": true,
-    "require": true,
-    "console": true,
-    "$": true,
-    "angular": true,
-    "window": true
+    "jQuery": true
   },
   "bitwise": true,
+  "browser": true,
   "curly": true,
   "eqeqeq": true,
   "freeze": true,

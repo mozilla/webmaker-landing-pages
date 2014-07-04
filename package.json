@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "Landing page for the Firefox snippet",
   "scripts": {
+    "build": "grunt build",
     "postinstall": "bower install",
-    "test": "echo \"no test specified\"",
-    "build": "grunt build"
+    "test": "grunt validate && npm run build"
   },
   "repository": {
     "type": "git",

@@ -2,10 +2,8 @@
 
 (function ($, doc, win) {
   "use strict";
-  var
-    $body = ('body'),
-    $win = $(win);
 
+  var $win = $(win);
 
   function retinaImage() {
 
@@ -57,11 +55,7 @@
     });
   }
 
-  function listeners() {
-  }
-
   function init(callback) {
-//    listeners();
     retinaImage();
     validateSignup();
     if (callback) {
