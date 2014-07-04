@@ -20,6 +20,3 @@ deploy:
     on:
       branch: production
       repo: mozilla/webmaker-landing-pages
-after_deploy:
-- test "$TRAVIS_BRANCH" == "master" && echo "Deployed master to https://welcome.mofostaging.net"
-- test "$TRAVIS_BRANCH" == "production" && echo "Deployed production to https://welcome.webmaker.org"
