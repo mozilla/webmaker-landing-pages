@@ -10,7 +10,7 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
-      repo: mozilla/webmaker-snippet-landing-page
+      repo: mozilla/webmaker-landing-pages
   - provider: s3
     access_key_id: AKIAJV6EBEENN6SY6BNQ
     secret_access_key:
@@ -19,4 +19,4 @@ deploy:
     skip_cleanup: true
     on:
       branch: production
-      repo: mozilla/webmaker-snippet-landing-page
+      repo: mozilla/webmaker-landing-pages
