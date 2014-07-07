@@ -6,12 +6,6 @@
   background: url("/resources/img/sandstone/bg-gradient-sand.png") repeat-x, url("/resources/img/sandstone/bg-sand.png") repeat, @mozillaSand;
   color: @black;
   line-height: 1.5;
-  padding-bottom: 4.4rem;
-  padding-top: 4.4rem;
-  @media screen and (min-width: @screen-sm-min) {
-    padding-bottom: 3rem;
-    padding-top: 3rem;
-  }
 
   a {
     &:link, &:visited {
@@ -101,10 +95,19 @@
     }
   }
   .banner {
-    height: auto;
-    width: 100%;
+    max-height: 27rem;
+    overflow: hidden;
+    img {
+      height: auto;
+      width: 100%;
+    }
   }
   .cta-copy {
+    margin-top: 1.6rem;
     text-align: center;
+  }
+
+  .form-section {
+    margin-bottom: 1.6rem;
   }
 }

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/resources/compiled/sandstone.css"/>
   <!-- endbuild -->
 
+  <link rel="stylesheet" href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600"/>
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -26,6 +27,9 @@
 </head>
 
 <body class="sandstone-landing">
+<!-- Tabzilla here -->
+<a href="/en-US/" id="tabzilla" data-infobar="translation">Mozilla</a>
+
 <div class="container">
   <div class="col-xs-12 col-md-10 col-md-offset-1">
     <hgroup class="mission">
@@ -46,6 +50,9 @@
 <div id="content_area" role="main">
   {{ contents }}
 </div>
+
+<!-- Tabzilla script file -->
+<script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
 
 <!-- build:js /resources/js/sandstone.js -->
 <script type="text/javascript" src="/resources/vendors/jquery/dist/jquery.min.js"></script>
