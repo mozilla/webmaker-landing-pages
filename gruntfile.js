@@ -1,58 +1,107 @@
 module.exports = function (grunt) {
-  var
-    jsLocation = 'site/resources/js/**/*.js';
 
-  grunt.loadNpmTasks('grunt-metalsmith');
   require('time-grunt')(grunt);
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin'
   });
 
   grunt.initConfig({
+    landingpages: {
+      // store commonly used directories in case we change them later
+      app: 'site',
+      buildTarget: 'build',
+      serverTarget: '.server',
+      jsLocation: 'resources/js/**/*.js'
+    },
     metalsmith: {
-      landingPages: {
+      server: {
         options: {
           clean: false,
           metadata: {
-            title: "Mozilla Webmaker"
+            title: 'Mozilla Webmaker'
           },
           plugins: {
-            "metalsmith-markdown": {
+            'metalsmith-markdown': {
               smartypants: true
             },
-            "metalsmith-permalinks": {
-              pattern: "from/:slug"
+            'metalsmith-permalinks': {
+              pattern: 'from/:slug'
             },
-            "metalsmith-templates": {
-              engine: "nunjucks",
-              directory: "site/templates"
+            'metalsmith-templates': {
+              engine: 'nunjucks',
+              directory: '<%= landingpages.app %>/templates'
             }
           }
         },
-        src: 'site/src',
-        dest: 'build'
+        src: '<%= landingpages.app %>/src',
+        dest: '<%= landingpages.serverTarget %>'
+      },
+      build: {
+        options: {
+          clean: false,
+          metadata: {
+            title: 'Mozilla Webmaker'
+          },
+          plugins: {
+            'metalsmith-markdown': {
+              smartypants: true
+            },
+            'metalsmith-permalinks': {
+              pattern: 'from/:slug'
+            },
+            'metalsmith-templates': {
+              engine: 'nunjucks',
+              directory: '<%= landingpages.app %>/templates'
+            }
+          }
+        },
+        src: '<%= landingpages.app %>/src',
+        dest: '<%= landingpages.buildTarget %>'
       }
     },
     copy: {
-      fonts: {
-        cwd: 'site/resources/vendors/font-awesome/fonts/',
+      fontsServer: {
+        cwd: '<%= landingpages.app %>/resources/vendors/font-awesome/fonts/',
         expand: true,
         src: '**',
-        dest: 'build/resources/fonts/'
+        dest: '<%= landingpages.serverTarget %>/resources/fonts/'
       },
-      img: {
-        cwd: 'site/',
+      imgServer: {
+        cwd: '<%= landingpages.app %>/',
         expand: true,
         src: ['resources/img/**/*'],
-        dest: 'build/'
+        dest: '<%= landingpages.serverTarget %>/'
+      },
+      javascript: {
+        cwd: '<%= landingpages.app %>/',
+        expand: true,
+        src: ['resources/js/**/*'],
+        dest: '<%= landingpages.serverTarget %>/'
+      },
+      vendor: {
+        cwd: '<%= landingpages.app %>/',
+        expand: true,
+        src: ['resources/vendors/**/*'],
+        dest: '<%= landingpages.serverTarget %>/'
+      },
+      fontsBuild: {
+        cwd: '<%= landingpages.app %>/resources/vendors/font-awesome/fonts/',
+        expand: true,
+        src: '**',
+        dest: '<%= landingpages.buildTarget %>/resources/fonts/'
+      },
+      imgBuild: {
+        cwd: '<%= landingpages.app %>/',
+        expand: true,
+        src: ['resources/img/**/*'],
+        dest: '<%= landingpages.buildTarget %>/'
       }
     },
     less: {
       styles: {
         files: {
-          'build/resources/css/style.css': 'site/less/style.less',
-          'site/resources/compiled/webmaker.css': 'site/less/pages/webmaker.less',
-          'site/resources/compiled/sandstone.css': 'site/less/pages/sandstone.less'
+          '<%= landingpages.app %>/resources/compiled/webmaker.css': '<%= landingpages.app %>/less/pages/webmaker.less',
+          '<%= landingpages.app %>/resources/compiled/sandstone.css': '<%= landingpages.app %>/less/pages/sandstone.less'
         }
       }
     },
@@ -60,36 +109,43 @@ module.exports = function (grunt) {
       options: {
         browsers: ['last 2 versions']
       },
-      styles: {
-        src: 'build/resources/css/*.css'
+      server: {
+        expand: true,
+        cwd: '<%= landingpages.app %>/resources/compiled/',
+        src: '*.css',
+        dest: '<%= landingpages.serverTarget %>/resources/compiled/'
+      },
+      build: {
+        src: '<%= landingpages.buildTarget %>/resources/css/*.css'
       }
     },
     watch: {
       options: {
         spawn: false
       },
-      img : {
+      img: {
         files: ['resources/img/**/*'],
-        tasks: ['copy:img']
+        tasks: ['copy:imgServer']
+      },
+      javascript: {
+        files: ['resources/js/**/*'],
+        tasks: ['copy:javascript']
       },
       html: {
-        files: ['site/templates/**/*', 'site/src/**/*', 'site/resources/**/*'],
+        files: [
+          '<%= landingpages.app %>/templates/**/*',
+          '<%= landingpages.app %>/src/**/*',
+          '<%= landingpages.app %>/resources/**/*'
+        ],
         tasks: [
-          'metalsmith:landingPages',
-          'useminPrepare',
-          'usemin'
+          'metalsmith:server'
         ]
       },
       styles: {
-        files: 'site/less/**/*.less',
+        files: '<%= landingpages.app %>/less/**/*.less',
         tasks: [
           'less:styles',
-          'autoprefixer:styles',
-          'useminPrepare',
-          'concat',
-          'uglify',
-          'cssmin',
-          'usemin'
+          'autoprefixer:server'
         ]
       }
     },
@@ -97,12 +153,12 @@ module.exports = function (grunt) {
       server: {
         options: {
           port: '9006',
-          base: 'build'
+          base: '<%= landingpages.serverTarget %>'
         }
       }
     },
     jshint: {
-      files: jsLocation,
+      files: '<%= landingpages.app %>/<%= landingpages.jsLocation %>',
       options: grunt.file.readJSON('.jshintrc')
     },
     imagemin: {
@@ -114,21 +170,21 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: "build/resources/img/",
-            src: ["**/*.{png,jpg,gif}"]
+            cwd: '<%= landingpages.buildTarget %>/resources/img/',
+            src: ['**/*.{png,jpg,gif}']
           }
         ]
       }
     },
     jsbeautifier: {
       modify: {
-        src: jsLocation,
+        src: '<%= landingpages.app %>/<%= landingpages.jsLocation %>',
         options: {
           config: '.jsbeautifyrc'
         }
       },
       verify: {
-        src: jsLocation,
+        src: '<%= landingpages.app %>/<%= landingpages.jsLocation %>',
         options: {
           mode: 'VERIFY_ONLY',
           config: '.jsbeautifyrc'
@@ -136,10 +192,10 @@ module.exports = function (grunt) {
       }
     },
     useminPrepare: {
-      html: 'build/**/*.html',
+      html: '<%= landingpages.buildTarget %>/**/*.html',
       options: {
-        root: 'site',
-        dest: 'build'
+        root: '<%= landingpages.app %>',
+        dest: '<%= landingpages.buildTarget %>'
       }
     },
     htmlmin: {
@@ -147,18 +203,18 @@ module.exports = function (grunt) {
         options: {
           collapseBooleanAttributes: true
         },
-        files:  __dirname + 'build/**/*.html'
+        files: __dirname + '<%= landingpages.buildTarget %>/**/*.html'
       },
       lint: {
         options: {
           lint: true
         },
-        files: 'build/**/*.html'
+        files: '<%= landingpages.buildTarget %>/**/*.html'
       }
     },
     usemin: {
-      html: ['build/**/*.html'],
-      css: ['build/resources/css/**/*.css']
+      html: ['<%= landingpages.buildTarget %>/**/*.html'],
+      css: ['<%= landingpages.buildTarget %>/resources/css/**/*.css']
     },
     // Usemin adds files to concat
     concat: {},
@@ -171,19 +227,26 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'less:styles',
-    'autoprefixer:styles',
-    'metalsmith:landingPages',
-    'copy',
+    'metalsmith:build',
+    'copy:imgBuild',
+    'copy:fontsBuild',
     'useminPrepare',
     'concat',
     'uglify',
     'cssmin',
     'htmlmin:build',
-    'usemin'
+    'usemin',
+    'autoprefixer:build'
   ]);
 
   grunt.registerTask('dev', [
-    'build',
+    'less:styles',
+    'autoprefixer:server',
+    'metalsmith:server',
+    'copy:fontsServer',
+    'copy:imgServer',
+    'copy:javascript',
+    'copy:vendor',
     'connect:server',
     'watch'
   ]);
