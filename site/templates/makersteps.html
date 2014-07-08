@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="//cdn.optimizely.com/js/206878104.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>{{ title }}</title>
+
+  <!-- build:css /resources/css/makersteps.css -->
+  <link rel="stylesheet" href="/resources/compiled/makersteps.css"/>
+  <!-- endbuild -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600"/>
+
+  <script src="https://stuff.webmaker.org/webmaker-rid/webmaker-rid.js" async></script>
+</head>
+<body class="makersteps-landing">
+<nav class="navbar navbar-default navbar-webmaker ng-scope">
+  <div class="container">
+    <figure class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <a href="https://webmaker.org/en-US" class="logo webmaker-logo"><img src="/resources/img/logo.png"></a>
+    </figure>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="mwc-top">
+        {{ contents }}
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-5 col-md-4 col-md-offset-1 col-lg-3"
+         id="make-gallery" data-make-id="{{ makeid }}"></div>
+    <div class="col-xs-12 col-sm-7 col-md-6 col-lg-7">
+      <h3 class="get-started">Get started</h3>
+      <ol>
+        <li>
+          <figure>
+            <figcaption class="col-xs-12">
+              <p>
+                <strong>Click the &ldquo;remix&rdquo; button.</strong> This will
+                open Thimble. You&rsquo;ll see this make we created to get you
+                started.</p>
+            </figcaption>
+            <div class="col-xs-12">
+              <a data-remix-link="{{ makeid }}" href="#">
+                <noscript>
+                  <img src="/resources/img/makersteps/graphic_remix.png" alt=""/>
+                </noscript>
+                <img src="#" alt=""
+                     data-src-1x="/resources/img/makersteps/graphic_remix.png"
+                     data-src-2x="/resources/img/makersteps/graphic_remix@2x.png"/>
+              </a>
+            </div>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <figcaption class="col-xs-12">
+              <p>
+                <strong>Follow the steps in the tutorial.</strong> The tutorial
+                will walk you through how to make changes to the code.
+              </p>
+            </figcaption>
+            <div class="col-xs-12">
+              <noscript>
+                <img alt="" src="/resources/img/makersteps/graphic_thimble.png"/>
+              </noscript>
+              <img src="#" alt=""
+                   data-src-1x="/resources/img/makersteps/graphic_thimble.png"
+                   data-src-2x="/resources/img/makersteps/graphic_thimble@2x.png"/>
+            </div>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <figcaption class="col-xs-12">
+              <p>
+                <strong>Done!</strong> Once you&rsquo;re finished, you can save
+                your work and share it. Log in to Webmaker and hit &ldquo;Save.&rdquo;
+              </p>
+            </figcaption>
+          </figure>
+          <div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- build:js /resources/js/makersteps.min.js -->
+<script type="text/javascript" src="/resources/vendors/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/resources/vendors/mustache/mustache.js"></script>
+<script type="text/javascript" src="/resources/vendors/makeapi-client/src/make-api.js"></script>
+<script type="text/javascript" src="/resources/js/find-a-make.js"></script>
+<script type="text/javascript" src="/resources/js/scripts.js"></script>
+<!-- endbuild -->
+
+<!-- Google analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35433268-12']);
+  _gaq.push(['_setDomainName', 'webmaker.org']);
+  _gaq.push(['_trackPageview']);
+  (function () {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

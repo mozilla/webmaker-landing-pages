@@ -2,7 +2,7 @@
 
 ### TL;DR
 
-1. `git clone https://github.com/mozilla/webmaker-snippet-landing-page/`
+1. `git clone https://github.com/mozilla/webmaker-landing-pages/`
 2. `npm install`
 3. `grunt dev` (this will build the site & launch the local server on port 9006)
 
@@ -17,10 +17,10 @@
 
 - `npm install`
 - To run server: `grunt dev` (launch browser, <http://localhost:9006/>)
-- [WIP] Lint before committing. Read-only with `grunt validate`, or take your  
+- [WIP] Lint before committing. Read-only with `grunt validate`, or take your
 chances on `grunt`.
-- Caveat: because server is just running build over and over again, you'll
-occasionally have to stop and restart it so the usemin config can reset itself
+- Caveat: Either `grunt watch` or `grunt connect:server` are running hot, so you
+may wish to watch your processor temp/fan speed closely
 
 #### Grunt Tasks
 
@@ -34,10 +34,13 @@ occasionally have to stop and restart it so the usemin config can reset itself
 - `grunt build`
 - Sync `/build` to the S3 bucket of your choice.
 
-## TODO
+## TODO, a potentially incomplete list (see [bugzilla [landingpages][techdebt]](https://bugzilla.mozilla.org/buglist.cgi?list_id=10687679&status_whiteboard_type=allwordssubstr&query_format=advanced&status_whiteboard=[landingpages]%20[techdebt]&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED))
 
-- [ ] Re-figure travis deploys
+- [ ] [Test linting and whatnot](https://bugzilla.mozilla.org/show_bug.cgi?id=1036445)
+- [ ] [Refactor `grunt watch` &/or `grunt connect:server` to run a little cooler](https://bugzilla.mozilla.org/show_bug.cgi?id=1036189)
+- [ ] [Implement partials for signup forms](https://bugzilla.mozilla.org/show_bug.cgi?id=1036447)
+- [ ] [Implement "server-side" makeapi nunjucks rendering of sample makes](https://bugzilla.mozilla.org/show_bug.cgi?id=1036456)
+- [ ] Localisation? (a girl can dream!)
+- [x] Re-figure travis deploys
 - [x] Decide whether or not to commit compiled site
-- [ ] Test linting and whatnot
-- [ ] Implement partials for signup forms
-- [ ] Set up server to run in a `.tmp/` directory without usemin
+- [x] Set up server to run in a `.server/` directory without usemin

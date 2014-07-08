@@ -24,9 +24,7 @@ module.exports = function (grunt) {
             'metalsmith-markdown': {
               smartypants: true
             },
-            'metalsmith-permalinks': {
-              pattern: 'from/:slug'
-            },
+            'metalsmith-permalinks': {},
             'metalsmith-templates': {
               engine: 'nunjucks',
               directory: '<%= landingpages.app %>/templates'
@@ -75,7 +73,7 @@ module.exports = function (grunt) {
       javascript: {
         cwd: '<%= landingpages.app %>/',
         expand: true,
-        src: ['resources/js/**/*'],
+        src: '<%= landingpages.jsLocation %>',
         dest: '<%= landingpages.serverTarget %>/'
       },
       vendor: {
@@ -101,7 +99,8 @@ module.exports = function (grunt) {
       styles: {
         files: {
           '<%= landingpages.app %>/resources/compiled/webmaker.css': '<%= landingpages.app %>/less/pages/webmaker.less',
-          '<%= landingpages.app %>/resources/compiled/sandstone.css': '<%= landingpages.app %>/less/pages/sandstone.less'
+          '<%= landingpages.app %>/resources/compiled/sandstone.css': '<%= landingpages.app %>/less/pages/sandstone.less',
+          '<%= landingpages.app %>/resources/compiled/makersteps.css': '<%= landingpages.app %>/less/pages/makersteps.less'
         }
       }
     },
@@ -124,18 +123,17 @@ module.exports = function (grunt) {
         spawn: false
       },
       img: {
-        files: ['resources/img/**/*'],
+        files: '<%= landingpages.app %>/img/**/*',
         tasks: ['copy:imgServer']
       },
       javascript: {
-        files: ['resources/js/**/*'],
+        files: '<%= landingpages.app %>/<%= landingpages.jsLocation %>',
         tasks: ['copy:javascript']
       },
       html: {
         files: [
           '<%= landingpages.app %>/templates/**/*',
-          '<%= landingpages.app %>/src/**/*',
-          '<%= landingpages.app %>/resources/**/*'
+          '<%= landingpages.app %>/src/**/*'
         ],
         tasks: [
           'metalsmith:server'
@@ -150,9 +148,12 @@ module.exports = function (grunt) {
       }
     },
     connect: {
+      options: {
+        port: 9006,
+        hostname: 'localhost'
+      },
       server: {
         options: {
-          port: '9006',
           base: '<%= landingpages.serverTarget %>'
         }
       }
