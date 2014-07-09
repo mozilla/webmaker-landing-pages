@@ -199,17 +199,26 @@ module.exports = function (grunt) {
       }
     },
     htmlmin: {
-      build: {
-        options: {
-          collapseBooleanAttributes: true
-        },
-        files: __dirname + '<%= landingpages.buildTarget %>/**/*.html'
+      options: {
+        collapseBooleanAttributes: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        keepClosingSlash: true
+      },
+      modify: {
+        files: [
+          '<%= landingpages.app %>/src/**/*.html',
+          '<%= landingpages.app %>/templates/**/*.html'
+        ]
       },
       lint: {
         options: {
           lint: true
         },
-        files: '<%= landingpages.buildTarget %>/**/*.html'
+        files: [
+          '<%= landingpages.app %>/src/**/*.html',
+          '<%= landingpages.app %>/templates/**/*.html'
+        ]
       }
     },
     usemin: {
@@ -255,13 +264,8 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'jsbeautifier:modify',
     'jshint',
-    'imagemin',
-    'useminPrepare',
-    'concat',
-    'uglify',
-    'htmlmin:build',
-    'cssmin',
-    'usemin'
+    'htmlmin:modify',
+    'imagemin'
   ]);
 
   // Verify code (Read only)
