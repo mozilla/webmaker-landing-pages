@@ -1,9 +1,11 @@
 {
-  "name": "webmaker-snippet-landing-page",
+  "name": "webmaker-landing-pages",
   "dependencies": {
     "jquery": "2.1.1",
-    "makerstrap": "0.1.8",
-    "font-awesome": "4.1.0"
+    "makerstrap": "~0.2.0",
+    "font-awesome": "4.1.0",
+    "makeapi-client": "~0.5.26",
+    "mustache": "~0.8.2"
   },
   "version": "0.0.1"
 }

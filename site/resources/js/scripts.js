@@ -57,7 +57,10 @@
 
   function init(callback) {
     retinaImage();
-    validateSignup();
+
+    if ($('.form-section').length > 0) {
+      validateSignup();
+    }
     if (callback) {
       callback();
     }
