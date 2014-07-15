@@ -13,6 +13,9 @@ module.exports = function (grunt) {
       serverTarget: '.server',
       jsLocation: 'resources/js/**/*.js'
     },
+    clean : {
+      build: '<%= landingpages.buildTarget %>'
+    },
     metalsmith: {
       server: {
         options: {
@@ -108,19 +111,13 @@ module.exports = function (grunt) {
       options: {
         browsers: ['last 2 versions']
       },
-      server: {
-        expand: true,
-        cwd: '<%= landingpages.app %>/resources/compiled/',
-        src: '*.css',
-        dest: '<%= landingpages.serverTarget %>/resources/compiled/'
-      },
       build: {
         src: '<%= landingpages.buildTarget %>/resources/css/*.css'
       }
     },
     watch: {
       options: {
-        spawn: false
+        atBegin: true
       },
       img: {
         files: '<%= landingpages.app %>/img/**/*',
@@ -142,8 +139,7 @@ module.exports = function (grunt) {
       styles: {
         files: '<%= landingpages.app %>/less/**/*.less',
         tasks: [
-          'less:styles',
-          'autoprefixer:server'
+          'less:styles'
         ]
       }
     },
@@ -200,10 +196,10 @@ module.exports = function (grunt) {
       }
     },
     htmlmin: {
+      options: {
+        collapseBooleanAttributes: true
+      },
       build: {
-        options: {
-          collapseBooleanAttributes: true
-        },
         files: __dirname + '<%= landingpages.buildTarget %>/**/*.html'
       },
       lint: {
@@ -227,6 +223,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build', [
+    'clean',
     'less:styles',
     'metalsmith:build',
     'copy:imgBuild',
@@ -241,12 +238,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('dev', [
-    'less:styles',
-    'autoprefixer:server',
-    'metalsmith:server',
     'copy:fontsServer',
-    'copy:imgServer',
-    'copy:javascript',
     'copy:vendor',
     'connect:server',
     'watch'
@@ -256,13 +248,8 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'jsbeautifier:modify',
     'jshint',
-    'imagemin',
-    'useminPrepare',
-    'concat',
-    'uglify',
     'htmlmin:build',
-    'cssmin',
-    'usemin'
+    'imagemin'
   ]);
 
   // Verify code (Read only)
