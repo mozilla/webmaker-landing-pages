@@ -1,3 +1,4 @@
+/* global Make, Mustache */
 (function ($) {
   function generateGravatar(hash) {
     var

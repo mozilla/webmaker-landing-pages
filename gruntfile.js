@@ -167,8 +167,7 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= landingpages.buildTarget %>/resources/img/',
-            src: ['**/*.{png,jpg,gif}']
+            src: ['<%= landingpages.buildTarget %>/resources/img/**/*.{png,jpg,gif}']
           }
         ]
       }
