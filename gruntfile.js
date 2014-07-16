@@ -96,6 +96,12 @@ module.exports = function (grunt) {
         expand: true,
         src: ['resources/img/**/*'],
         dest: '<%= landingpages.buildTarget %>/'
+      },
+      styles: {
+        cwd: '<%= landingpages.app %>/',
+        expand: true,
+        src: ['resources/compiled/**/*'],
+        dest: '<%= landingpages.serverTarget %>/'
       }
     },
     less: {
@@ -103,7 +109,8 @@ module.exports = function (grunt) {
         files: {
           '<%= landingpages.app %>/resources/compiled/webmaker.css': '<%= landingpages.app %>/less/pages/webmaker.less',
           '<%= landingpages.app %>/resources/compiled/sandstone.css': '<%= landingpages.app %>/less/pages/sandstone.less',
-          '<%= landingpages.app %>/resources/compiled/makersteps.css': '<%= landingpages.app %>/less/pages/makersteps.less'
+          '<%= landingpages.app %>/resources/compiled/makersteps.css': '<%= landingpages.app %>/less/pages/makersteps.less',
+          '<%= landingpages.app %>/resources/compiled/white.css': '<%= landingpages.app %>/less/pages/white.less'
         }
       }
     },
@@ -139,14 +146,15 @@ module.exports = function (grunt) {
       styles: {
         files: '<%= landingpages.app %>/less/**/*.less',
         tasks: [
-          'less:styles'
+          'less:styles',
+          'copy:styles'
         ]
       }
     },
     connect: {
       options: {
         port: 9006,
-        hostname: 'localhost'
+        hostname: '0.0.0.0'
       },
       server: {
         options: {
