@@ -2,7 +2,7 @@
 @import "../components/all";
 
 .white-landing {
-  color: @mozillaCharcoal;
+  color: @mozilla-charcoal;
   padding-top: 1.6rem;
 
   header {
@@ -53,11 +53,11 @@
       @media screen and  (min-width: @screen-sm-min) {
         line-height: 1.3;
         max-width: 66rem;
-        top: -2.9rem;
+        top: -2.3rem;
       }
     }
-    &[for="email"] {
-      color: lighten(@mozillaCharcoal, 35%);
+    &[for="email-address"] {
+      color: lighten(@mozilla-charcoal, 35%);
       display: block;
       position: relative;
       span {
@@ -72,8 +72,8 @@
       }
     }
   }
-
   input {
+    border: none;
     &[type="radio"], &[type="checkbox"] {
       margin-right: 0.5rem;
       position: relative;
@@ -81,6 +81,7 @@
       zoom: 2;
     }
     &[type="email"] {
+      border: @mozilla-charcoal solid 0.1rem;
       max-width: 100%;
       width: 100%;
       padding: 0.8rem 0.8rem 0.8rem 4rem;
@@ -95,7 +96,9 @@
     }
     &[type="radio"] {
       cursor: pointer;
+      position: relative;
       margin-top: 0;
+      top: -0.2rem;
 
       &::before, &::after {
         border-radius: 50%;
@@ -105,11 +108,10 @@
         position: absolute;
       }
       &::before {
-        border: solid 0.1rem lighten(@mozillaCharcoal, 50%);
+        border: solid 0.1rem lighten(@mozilla-charcoal, 50%);
         box-shadow: inset 0 0 2rem 2rem @white;
         height: 2.8rem;
         left: -0.2rem;
-        top: -0.2rem;
         width: 2.8rem;
       }
       &:checked {
@@ -119,7 +121,7 @@
           height: 1.8rem;
           width: 1.8rem;
           left: 0.3rem;
-          top: 0.3rem;
+          top: 0.5rem;
         }
       }
     }
@@ -143,11 +145,16 @@
         float: right;
         margin-top: 0;
         width: 12rem;
-        padding: 1.3rem 0;
+        padding: 1.2rem 0;
       }
       &:hover {
         background: darken(@brand-primary, 4%);
       }
+    }
+  }
+  .radio-buttons {
+    label {
+      margin-left: 1.4rem;
     }
   }
   .email-set {

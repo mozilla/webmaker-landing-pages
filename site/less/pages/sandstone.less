@@ -2,18 +2,18 @@
 @import "../components/all";
 
 .sandstone-landing {
-  background: @mozillaSand url("/resources/img/sandstone/bg-gradient-sand.png") repeat-x;
-  background: url("/resources/img/sandstone/bg-gradient-sand.png") repeat-x, url("/resources/img/sandstone/bg-sand.png") repeat, @mozillaSand;
+  background: @mozilla-sand url("/resources/img/sandstone/bg-gradient-sand.png") repeat-x;
+  background: url("/resources/img/sandstone/bg-gradient-sand.png") repeat-x, url("/resources/img/sandstone/bg-sand.png") repeat, @mozilla-sand;
   color: @black;
   line-height: 1.5;
 
   a {
     &:link, &:visited {
-      color: @sandstoneLink;
+      color: @sandstone-link;
       text-decoration: none;
     }
     &:hover, &:active, &:focus {
-      color: @sandstoneHover;
+      color: @sandstone-hover;
       text-decoration: underline;
     }
   }
@@ -23,7 +23,7 @@
   }
 
   h1, h2, h3, h4, h5, h6, legend, .huge, .large, legend {
-    color: @mozillaCharcoal;
+    color: @mozilla-charcoal;
     font-weight: 300;
     text-shadow: 0 0.1rem 0 rgba(255, 255, 255, 0.75);
   }
@@ -45,7 +45,7 @@
       max-width: 100%;
     }
     h1 {
-      color: @mozillaRed;
+      color: @mozilla-red;
       font-size: 3.6rem;
       font-weight: 300;
       line-height: 0.9;
