@@ -8,6 +8,7 @@
   position: relative;
 
   h1, h2, h3 {
+    font-weight: 300;
     margin-bottom: 2.5rem;
   }
 
@@ -234,6 +235,19 @@
     margin-bottom: 4rem;
     @media screen and (min-width: @screen-sm-min) {
       margin-top: 1.3rem;
+    }
+  }
+
+  &.no-logo {
+    .mwc-top {
+      @media screen and (min-width: @screen-sm-min) {
+        padding-right: 0;
+
+        h1, h2, p {
+          margin-right: auto;
+          max-width: 33em;
+        }
+      }
     }
   }
 
