@@ -1,17 +1,14 @@
 // little helper functions until we need something more organized
 
 (function ($, doc, win) {
-  "use strict";
-
-  var $win = $(win);
 
   function retinaImage() {
-
     function renderImage($image, source) {
       $image.attr('src', source);
     }
 
     var
+      $win = $(win),
       retinaImages = $('img'),
       totalImages = retinaImages.length;
 
@@ -55,14 +52,34 @@
     });
   }
 
-  function init(callback) {
-    retinaImage();
+  function setRedirect() {
+    var
+      baseUrl = 'https://' + win.location.host,
+      mentorPath = '/for/mentors/',
+      learnerPath = '/for/learners/';
 
-    if ($('.form-section').length > 0) {
-      validateSignup();
+    function togglePath() {
+      var response = $('[name="custom-2722"]').val();
+      if (response === 'Mentor' || response === 'Educator') {
+        $('[name="redirect_url"]').val(baseUrl + mentorPath);
+      } else {
+        $('[name="redirect_url"]').val(baseUrl + learnerPath);
+      }
     }
-    if (callback) {
-      callback();
+    $('#guided-landing-2014').on('change', '[name="custom-2722"]', togglePath);
+  }
+
+  function init() {
+    if (doc.querySelectorAll('img') !== null) {
+      retinaImage();
+    }
+
+    if (doc.getElementById('guided-landing-2014') !== null) {
+      setRedirect();
+    }
+
+    if (doc.getElementsByClassName('form-section') !== null) {
+      validateSignup();
     }
   }
 
