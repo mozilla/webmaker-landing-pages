@@ -1,0 +1,113 @@
+@import "../base/all";
+@import "../components/all";
+
+.sandstone-landing {
+  background: @mozillaSand url("/resources/img/sandstone/bg-gradient-sand.png") repeat-x;
+  background: url("/resources/img/sandstone/bg-gradient-sand.png") repeat-x, url("/resources/img/sandstone/bg-sand.png") repeat, @mozillaSand;
+  color: @black;
+  line-height: 1.5;
+
+  a {
+    &:link, &:visited {
+      color: @sandstoneLink;
+      text-decoration: none;
+    }
+    &:hover, &:active, &:focus {
+      color: @sandstoneHover;
+      text-decoration: underline;
+    }
+  }
+
+  strong, b {
+    font-weight: 600;
+  }
+
+  h1, h2, h3, h4, h5, h6, legend, .huge, .large, legend {
+    color: @mozillaCharcoal;
+    font-weight: 300;
+    text-shadow: 0 0.1rem 0 rgba(255, 255, 255, 0.75);
+  }
+
+  h1 {
+    font-size: 4.8rem;
+    letter-spacing: -0.2rem;
+  }
+
+  #outer-wrapper {
+    border-top: 0.2rem;
+    height: 100%;
+  }
+
+  .mission {
+    margin: 2rem auto;
+    max-width: 26rem;
+    @media screen and (min-width: @screen-sm-min) {
+      max-width: 100%;
+    }
+    h1 {
+      color: @mozillaRed;
+      font-size: 3.6rem;
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      margin: 0 0 0.05em;
+      text-align: left;
+
+      @media screen and (min-width: @screen-sm-min) {
+        font-size: 8.4rem;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    .mozilla {
+      .text-hide();
+      background-image: url('/resources/img/sandstone/mozilla-wordmark-red.png');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 100% auto;
+      display: block;
+      height: 7.1rem;
+      margin: 0 auto;
+      max-width: 100%;
+      width: 26rem;
+      @media screen and (min-width: @screen-sm-min) {
+        bottom: -0.4rem;
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+      }
+    }
+  }
+  .tagline {
+    color: @black;
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin: 0;
+    text-align: center;
+
+    @media screen and (min-width: @screen-sm-min) {
+      font-size: 4.2rem;
+    }
+    @media screen and (min-width: @screen-md-min) {
+      font-size: 5.5rem;
+    }
+  }
+  .banner {
+    max-height: 27rem;
+    overflow: hidden;
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+  .cta-copy {
+    margin-top: 1.6rem;
+    text-align: center;
+  }
+
+  .form-section {
+    margin-bottom: 1.6rem;
+  }
+}

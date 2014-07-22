@@ -1,2 +1,6 @@
-/node_modules
-/resources/vendors
+/node_modules/
+/site/resources/vendors/
+.tmp/
+build/
+/site/resources/compiled/
+.server/

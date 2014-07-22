@@ -8,6 +8,7 @@ deploy:
       secure: "b6MBRNgbHDGIsHHrTYxKQQ8xSyvqzkUjFynzn3lirkYvG5wkT1BGsAQLxrZBHkFD+H6pMlIha+SXHo4+8iqDbSvVLp9n3nhKfuUBwNORjwy5/Rf/sZtzKqf+CKh6c70t7f/62cH6wtgOXZEN56c8Ip2r3WZQZ3lyMVDnf2qw9z0="
     bucket: welcome.mofostaging.net
     skip_cleanup: true
+    local-dir: build
     on:
       branch: master
       repo: mozilla/webmaker-landing-pages
@@ -17,6 +18,7 @@ deploy:
       secure: "hIl3P8jKhn8VLE8h3BvW/b9Uaaz2KFlyoleK4VbivzAyd+oNSlUrLE3srAgHK//FCLvsoA1kZmAvkiHBB6JMBe/dqbfkBC+rTC16S9aG1UQtr8zmXpoQWfeJrLnC1brSQ0voTke2D+bhFgZkIuofwX5DnQi0a4JcWTlkWuupyjM="
     bucket: welcome.webmaker.org
     skip_cleanup: true
+    local-dir: build
     on:
       branch: production
       repo: mozilla/webmaker-landing-pages
