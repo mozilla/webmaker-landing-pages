@@ -41,6 +41,17 @@
     margin: 1rem auto 2rem;
   }
 
+  input {
+    border: none;
+  }
+
+  label {
+    cursor: pointer;
+    display: inline;
+    font-size: 75%;
+    font-weight: 400;
+  }
+
   p {
     line-height: 1.8;
   }
@@ -148,6 +159,7 @@
 
       .make-thumbnail {
         opacity: 0.9;
+        padding-bottom: 0;
         transition: opacity 100ms;
         &:hover {
           opacity: 1;
@@ -240,15 +252,13 @@
 
   &.no-logo {
     .mwc-top {
-      @media screen and (min-width: @screen-sm-min) {
+      @media screen and (min-width: 37em) {
+        min-height: 0;
         padding-right: 0;
-
-        h1, h2, p {
-          margin-right: auto;
-          max-width: 33em;
-        }
       }
     }
   }
-
 }
+
+@import "../components/mad-libs";
+@import "../components/greet";
