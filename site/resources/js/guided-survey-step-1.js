@@ -35,7 +35,7 @@
         redirect_url: $('[name="redirect_url"]').val()
       },
       request = $.ajax({
-        type: 'get',
+        type: 'post',
         url: 'https://sendto.webmaker.org/page/signup/webmaker-firefox-snippet-survey',
         data: payload
       }),
