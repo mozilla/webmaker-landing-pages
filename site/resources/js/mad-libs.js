@@ -1,5 +1,7 @@
 /* global analytics */
 (function ($, doc, win) {
+  win.webmaker = win.webmaker || {};
+
   var
     $win = $(win),
     $greet = $('#greet'),
@@ -7,25 +9,13 @@
     $madLibForm = $('#mad-lib-form'),
     $signupForm = $('#guided-landing-2014');
 
-  function parseQueryString() {
-    var
-      i, qsKeyValue,
-      queryString = {},
-      queryStringRaw = win.location.search.substr(1).split('&');
-    for (i = 0; i < queryStringRaw.length; i++) {
-      qsKeyValue = queryStringRaw[i].split('=');
-      queryString[qsKeyValue[0]] = qsKeyValue[1];
-    }
-    return queryString;
-  }
-
   function hideSignup() {
     $greet.slideUp(400);
     win.setTimeout($greet.remove, 400);
   }
 
   function retrieveEmailAddress() {
-    contributorEmail = parseQueryString().email || sessionStorage.getItem('wmEmail') || 'privatecontributor@webmaker.org';
+    contributorEmail = win.webmaker.parseQueryString().email || sessionStorage.getItem('wmEmail') || 'privatecontributor@webmaker.org';
     if (contributorEmail === 'privatecontributor@webmaker.org') {
       $greet.slideDown();
     } else {
@@ -145,7 +135,7 @@
   }
 
   function initMadLib() {
-    win.submitMadLibs = submitMadLibs;
+    win.webmaker.submitMadLibs = submitMadLibs;
     $('.makersteps-list').hide();
     $('.post-mad-lib').hide();
     $('#greet').hide();

@@ -1,31 +1,70 @@
 // little helper functions until we need something more organized
 
-(function ($, doc, win) {
+(function (doc, win) {
+  win.webmaker = win.webmaker || {};
 
   function retinaImage() {
-    function renderImage($image, source) {
-      $image.attr('src', source);
+    function renderImage(image, source) {
+      if (source !== null) {
+        image.setAttribute('src', source);
+      }
     }
 
     var
-      $win = $(win),
-      retinaImages = $('img'),
+      retinaImages = doc.getElementsByTagName('img'),
       totalImages = retinaImages.length;
 
     while (totalImages--) {
-      var $currentImage = $(retinaImages[totalImages]);
-      if ($win.devicePixelRatio !== undefined && $win.devicePixelRatio >= 1.5) {
-        renderImage($currentImage, $currentImage.attr('data-src-2x'));
+      var
+        currentImage = retinaImages[totalImages];
+      if (win.devicePixelRatio !== undefined && win.devicePixelRatio >= 1.5) {
+        renderImage(currentImage, currentImage.getAttribute('data-src-2x'));
       } else {
-        renderImage($currentImage, $currentImage.attr('data-src-1x'));
+        renderImage(currentImage, currentImage.getAttribute('data-src-1x'));
+      }
+    }
+  }
+
+  function parseQueryString() {
+    var
+      i, qsKeyValue,
+      queryString = {},
+      queryStringRaw = win.location.search.substr(1).split('&');
+    for (i = 0; i < queryStringRaw.length; i++) {
+      qsKeyValue = queryStringRaw[i].split('=');
+      queryString[qsKeyValue[0]] = qsKeyValue[1];
+    }
+    return queryString;
+  }
+
+  function applySourceCodes() {
+    var
+      bsdForms = doc.getElementsByClassName('bsd-form'),
+      totalBsdForms = bsdForms.length,
+      queryString = parseQueryString(),
+      createHiddenInput = function (key, value) {
+        var
+          input = doc.createElement('input');
+
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('name', key);
+        input.setAttribute('value', value);
+        return input;
+      };
+    while (totalBsdForms--) {
+      if (queryString.source) {
+        bsdForms[totalBsdForms].appendChild(createHiddenInput('source', queryString.source));
+      }
+      if (queryString.subsource) {
+        bsdForms[totalBsdForms].appendChild(createHiddenInput('subsource', queryString.subsource));
       }
     }
   }
 
   function validateSignup() {
     var
-      email = document.querySelector('#field1'),
-      email_container = document.querySelector('div.email.input-group');
+      email = doc.getElementById('field1'),
+      email_container = doc.querySelector('div.email.input-group');
 
     email.addEventListener('invalid', function () {
       email_container.classList.add('has-error');
@@ -38,8 +77,8 @@
     });
 
     var
-      accept = document.querySelector('#allow_email'),
-      accept_container = document.querySelector('div.accept.input-group');
+      accept = doc.getElementById('allow_email'),
+      accept_container = doc.querySelector('div.accept.input-group');
 
     accept.addEventListener('invalid', function () {
       accept_container.classList.add('has-error');
@@ -53,7 +92,11 @@
   }
 
   function init() {
-    if (doc.querySelectorAll('img') !== null) {
+    win.webmaker.parseQueryString = parseQueryString;
+
+    applySourceCodes();
+
+    if (doc.getElementsByTagName('img').length > 0) {
       retinaImage();
     }
 
@@ -64,4 +107,4 @@
 
   init();
 
-})(jQuery, document, window);
+})(document, window);
