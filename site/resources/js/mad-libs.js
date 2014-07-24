@@ -1,3 +1,4 @@
+/* global analytics */
 (function ($, doc, win) {
   var
     $win = $(win),
@@ -90,7 +91,7 @@
         $('body').append('<form id="backup-madlib-form" method="post" action="https://sendto.webmaker.org/page/signup/2014-wm-ff-snippet-low-bar-cta-contributors"><input type="hidden" value="' + payload.email + '" name="email" /><input type="hidden" value="1" name="custom-2843" /></form>');
         $('#backup-madlib-form').submit();
       };
-
+    analytics.event('Clicked Getting Started on Low Bar CTA');
     if ($email.val() !== '' && $optInChecked.length > 0) {
       submitSignup();
       request.then(success, error);
