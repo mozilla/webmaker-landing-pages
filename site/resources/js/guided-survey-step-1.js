@@ -8,7 +8,7 @@
 
   function setRedirectUrl() {
     var
-      response = $('[name="custom-2722"]').val();
+      response = $('[name="custom-2722"]:checked').val();
     if (response === 'yeshelplearn' || response === 'yesproteacher') {
       $('[name="redirect_url"]').val(baseUrl + mentorPath);
     } else {
@@ -18,7 +18,7 @@
 
   function setNextStep() {
     var
-      response = $('[name="custom-2722"]').val();
+      response = $('[name="custom-2722"]:checked').val();
     if (response === 'yeshelplearn' || response === 'yesproteacher') {
       return baseUrl + mentorPath;
     } else {
@@ -30,7 +30,7 @@
     var
       payload = {
         email: $('#email-address').val(),
-        'custom-2722': $('[name="custom-2722"]').val(),
+        'custom-2722': $('[name="custom-2722"]:checked').val(),
         opt_in: 1,
         redirect_url: $('[name="redirect_url"]').val()
       },
