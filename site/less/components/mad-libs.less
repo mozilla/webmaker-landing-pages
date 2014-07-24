@@ -1,0 +1,100 @@
+.mad-lib {
+  button {
+    display: inline;
+    font-size: inherit;
+    padding: 0;
+    vertical-align: inherit;
+    width: auto;
+  }
+  figcaption {
+    text-align: center;
+    a {
+      &:link, &:visited {
+        color: @grey;
+      }
+      &:hover, &:active, &:focus {
+        color: @black;
+        text-decoration: none;
+      }
+    }
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  small {
+    font-size: 60%;
+  }
+
+  .hivephoto {
+    figcaption {
+      font-size: 1.3rem;
+    }
+    img {
+      margin-bottom: 0.8rem;
+    }
+    @media screen and (max-width: @screen-sm) {
+      figcaption {
+        max-width: 20rem;
+      }
+
+      img {
+        margin: 1rem auto 0.8rem 0;
+        max-width: 20rem;
+      }
+    }
+  }
+}
+
+.mad-lib-page {
+  background: #E1EBEF;
+  display: block;
+  line-height: 2.5;
+  margin: 2rem auto;
+  max-width: 100%;
+  padding: 2.5rem;
+  text-align: center;
+  input {
+    display: inline;
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.5;
+    min-width: 18rem;
+    padding: 0.5rem 0;
+    text-align: center;
+    width: 35%;
+    &::-moz-placeholder {
+      color: @grey;
+      font-size: 90%;
+    }
+    @media screen and (min-width: @screen-sm-min) {
+      width: 26rem;
+    }
+    @media screen and (min-width: @screen-md-min) {
+      width: 32rem;
+    }
+    @media screen and (min-width: @screen-lg-min) {
+      width: 42rem;
+    }
+    &.mad-lib-name {
+      @media screen and (min-width: @screen-sm-min) {
+        width: 18rem;
+      }
+      @media screen and (min-width: @screen-lg-min) {
+        width: 22rem;
+      }
+    }
+  }
+}
+
+.submit-mad-lib {
+  border: none;
+  display: block;
+  font-size: 2.7rem;
+  font-weight: 300;
+  margin: 0 auto;
+  padding: 2rem 6rem;
+  text-align: center;
+}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" itemscope itemtype="http://schema.org/Article">
+<html lang="en" itemscope itemtype="https://schema.org/Article">
 <head>
   <script src="//cdn.optimizely.com/js/206878104.js"></script>
   <meta charset="utf-8">
@@ -38,11 +38,11 @@
   <!-- build:css /resources/css/makersteps.css -->
   <link rel="stylesheet" href="/resources/compiled/makersteps.css"/>
   <!-- endbuild -->
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600"/>
 
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600"/>
   <script src="https://stuff.webmaker.org/webmaker-rid/webmaker-rid.js" async></script>
 </head>
-<body class="makersteps-landing">
+<body class="makersteps-landing no-logo">
 <nav class="navbar navbar-default navbar-webmaker">
   <div class="container">
     <figure class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
@@ -58,7 +58,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row makersteps-list">
     <div class="col-xs-12 col-sm-5 col-md-4 col-md-offset-1 col-lg-3"
          id="make-gallery" data-make-id="{{ makeid }}"></div>
     <div class="col-xs-12 col-sm-7 col-md-6 col-lg-7">
@@ -121,11 +121,14 @@
   </div>
 </div>
 
-<!-- build:js /resources/js/makersteps.min.js -->
+<!-- build:js /resources/js/makersteps-no-logo.min.js -->
 <script type="text/javascript" src="/resources/vendors/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="/resources/vendors/mustache/mustache.js"></script>
+<script type="text/javascript" src="/resources/vendors/webmaker-analytics/analytics.js"></script>
+<script type="text/javascript" src="/resources/vendors/tabletop/src/tabletop.js"></script>
 <script type="text/javascript" src="/resources/vendors/makeapi-client/src/make-api.js"></script>
 <script type="text/javascript" src="/resources/js/find-a-make.js"></script>
+<script type="text/javascript" src="/resources/js/mad-libs.js"></script>
 <script type="text/javascript" src="/resources/js/scripts.js"></script>
 <!-- endbuild -->
 
