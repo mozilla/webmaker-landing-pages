@@ -1,4 +1,11 @@
 .mad-lib {
+  button {
+    display: inline;
+    font-size: inherit;
+    padding: 0;
+    vertical-align: inherit;
+    width: auto;
+  }
   figcaption {
     text-align: center;
     a {
@@ -22,14 +29,19 @@
   }
 
   .hivephoto {
+    figcaption {
+      font-size: 1.3rem;
+    }
+    img {
+      margin-bottom: 0.8rem;
+    }
     @media screen and (max-width: @screen-sm) {
       figcaption {
-        text-align: left;
+        max-width: 20rem;
       }
 
       img {
-        margin-right: auto;
-        margin-left: 0;
+        margin: 1rem auto 0.8rem 0;
         max-width: 20rem;
       }
     }
@@ -46,26 +58,37 @@
   text-align: center;
   input {
     display: inline;
-    font-size: 80%;
+    font-size: 1.3rem;
     font-style: italic;
     line-height: 1.5;
-    max-width: 100%;
+    min-width: 18rem;
     padding: 0.5rem 0;
     text-align: center;
+    width: 35%;
     &::-moz-placeholder {
       color: @grey;
       font-size: 90%;
     }
     @media screen and (min-width: @screen-sm-min) {
-      width: 34rem;
+      width: 26rem;
     }
-  }
-  .madlibname {
-    @media screen and (min-width: @screen-sm-min) {
-      width: 18rem;
+    @media screen and (min-width: @screen-md-min) {
+      width: 32rem;
+    }
+    @media screen and (min-width: @screen-lg-min) {
+      width: 42rem;
+    }
+    &.mad-lib-name {
+      @media screen and (min-width: @screen-sm-min) {
+        width: 18rem;
+      }
+      @media screen and (min-width: @screen-lg-min) {
+        width: 22rem;
+      }
     }
   }
 }
+
 .submit-mad-lib {
   border: none;
   display: block;

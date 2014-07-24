@@ -53,10 +53,24 @@
     request.then(success, error).always(complete);
   }
 
+  function displayMakersteps() {
+    if ($greet.length > 0) {
+      hideSignup();
+    }
+    $('.mad-lib').hide();
+    $('.post-mad-lib').slideDown();
+    $('.makersteps-list').show();
+    $win.scrollTop(0);
+  }
+
   function submitContributors() {
     var
+      friendname = $('[name="friendname"]').val(),
       $optInChecked = $('[name="opt_in"]:checked'),
       $email = $('[name="email"]'),
+      alertTemplate = function (name) {
+        return '<div class="alert alert-success"><p><span class="fa fa-check"></span> Great! We hope you' + (name ? ' and ' + name : '') + ' enjoy making together. Now get started with Step 1 below.</p></div>';
+      },
       payload = {
         // double-check if a person is attempting to submit the email form and
         // the mad lib form at the same time
@@ -69,14 +83,10 @@
         data: payload
       }),
       success = function (data, status, jqXHR) {
-        if ($greet.length > 0) {
-          hideSignup();
-        }
-        $('.post-mad-lib').slideDown();
-        $('.makersteps-list').show();
-        $win.scrollTop(0);
+        displayMakersteps();
+        $('.post-mad-lib').prepend(alertTemplate(friendname));
       },
-      error = function (data, status, jqXHR) {
+      error = function (jqXHR, status, error) {
         $('body').append('<form id="backup-madlib-form" method="post" action="https://sendto.webmaker.org/page/signup/2014-wm-ff-snippet-low-bar-cta-contributors"><input type="hidden" value="' + payload.email + '" name="email" /><input type="hidden" value="1" name="custom-2843" /></form>');
         $('#backup-madlib-form').submit();
       };
@@ -85,7 +95,7 @@
       submitSignup();
       request.then(success, error);
     } else {
-      request.then(success, error);
+      request.then(success, error).always(success);
     }
   }
 
@@ -108,28 +118,20 @@
     request.then(success, error).always(complete);
   }
 
-  function moveToMakersteps() {
-    var
-      friendname = $('[name="friendname"]').val(),
-      alertTemplate = function (name) {
-        return '<div class="alert alert-success"><p><span class="fa fa-check"></span> Great! We hope you' + (name ? ' and ' + name : '') + ' enjoy making together. Now get started with Step 1 below.</p></div>';
-      };
-    submitContributors();
-    // we currently aren't storing *any* mad lib data because we need to find
-    // a safer, more anonymous place to put it, but if we were:
-    //    win.submitMadLibs();
-    $('.mad-lib').hide(0);
-    $('.post-mad-lib').prepend(alertTemplate(friendname));
-  }
-
   function applyListeners() {
     $madLibForm.on('submit', function (e) {
       e.preventDefault();
-      moveToMakersteps();
+      submitContributors();
+
+      // we currently aren't storing *any* mad lib data because we need to find
+      // a safer, more anonymous place to put it, but if we were:
+      //    win.submitMadLibs();
+
     });
-    $('[rel="close-mad-lib"]').on('click', function (e) {
+    $('[rel="dismiss-mad-lib"]').on('click', function (e) {
       e.preventDefault();
-      moveToMakersteps();
+      $('.mad-lib').hide();
+      displayMakersteps();
     });
     $signupForm.on('click', '[rel="dismiss-signup"]', function (e) {
       e.preventDefault();
@@ -143,9 +145,9 @@
 
   function initMadLib() {
     win.submitMadLibs = submitMadLibs;
-    $('.makersteps-list').hide(0);
-    $('.post-mad-lib').hide(0);
-    $('#greet').hide(0);
+    $('.makersteps-list').hide();
+    $('.post-mad-lib').hide();
+    $('#greet').hide();
     retrieveEmailAddress();
     applyListeners();
   }

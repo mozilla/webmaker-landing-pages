@@ -11,8 +11,12 @@ makeid: "539f57af553a77203f000173"
 
     <h3>Welcome!</h3>
 
-    <p>We don’t seem to recognize you, would you mind sharing your
-      <input type="email" name="email" placeholder="email address"/> with us?
+    <p>
+      <label for="email-address">
+        We don&rsquo;t seem to recognize you. Would you mind sharing your
+      </label>
+      <input id="email-address" type="email" name="email" placeholder=" email address"/>
+      <label for="email-address">with us?</label>
     </p>
     <input type="submit" value="Sure" class="btn btn-primary" />
     <a href="#" class="btn btn-link" rel="dismiss-signup">No thanks</a>
@@ -54,11 +58,11 @@ makeid: "539f57af553a77203f000173"
     <div class="row mad-lib-body">
       <div class="col-xs-12">
         <fieldset class="mad-lib-page">
-          <input type="text" class="mad-lib-text madlibname" placeholder="Your name" name="mentorname"/>
+          <input type="text" class="mad-lib-text mad-lib-name" placeholder="Your name" name="mentorname"/>
           and
-          <input type="text" class="mad-lib-text madlibname" placeholder="a friend's name or email" name="friendname"/>
+          <input type="text" class="mad-lib-text mad-lib-name" placeholder="a friend’s name" name="friendname"/>
           got together one day at
-          <input type="text" class="mad-lib-text madlibname" placeholder="a silly place" name="placename"/>
+          <input type="text" class="mad-lib-text mad-lib-name" placeholder="a silly place" name="placename"/>
           to learn about
           <input type="text" class="mad-lib-text whattolearn" placeholder="something on the web" name="whattolearn"/>.
           Making and learning about the web is awesome because
@@ -68,8 +72,8 @@ makeid: "539f57af553a77203f000173"
     </div>
     <div class="row">
       <p class="col-xs-12 col-sm-6 col-md-8 now-build">
-        <strong>Now build a silly web page together.</strong> On your own?
-        <a href="#" rel="close-mad-lib">Try it anyway</a>.
+        <strong>Now build a silly web page together.</strong><br/>
+        On your own? <button class="btn btn-link" rel="dismiss-mad-lib">Try it anyway</button>.
       </p>
 
       <div class="col-xs-12 col-sm-6 col-md-4">
@@ -96,9 +100,10 @@ makeid: "539f57af553a77203f000173"
     <p class="col-sm-9 col-md-8">
       <strong>Creating things on the web together is fun.</strong> This page
       makes it easy for you to teach someone a bit of HTML, the language that
-      makes up the web—even if they’re a total beginner and have never seen a
-      line of code before. Together, you’ll make your own “meme” page. It’s fun
-      and easy to learn step-by-step as you go.
+      makes up the web&mdash;even if they&rsquo;re a total beginner and have
+      never seen a line of code before. Together, you&rsquo;ll make your
+      own &ldquo;meme&rdquo; page. It&rsquo;s fun and easy to learn step-by-step
+      as you go.
     </p>
   </div>
 </div>
