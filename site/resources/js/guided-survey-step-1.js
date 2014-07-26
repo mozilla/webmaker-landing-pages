@@ -29,7 +29,7 @@
   function postEmailAddress() {
     var
       payload = {
-        email: $('#email-address').val(),
+        email: $('[name="email"]').val(),
         'custom-2722': $('[name="custom-2722"]:checked').val(),
         opt_in: 1,
         redirect_url: $('[name="redirect_url"]').val()
@@ -39,15 +39,17 @@
         url: 'https://sendto.webmaker.org/page/signup/webmaker-firefox-snippet-survey',
         data: payload
       }),
-      success = function (data, status, jqXHR) {},
-      error = function (data, status, jqXHR) {
+      success = function () {
+        win.location = setNextStep();
+      },
+      error = function () {
         $form.off().submit();
       },
       complete = function () {
         sessionStorage.setItem('wmEmail', payload.email);
-        win.location = setNextStep();
       };
-    request.then(success, error).always(complete);
+    $('input[type="submit"]').prop('disabled', 'disabled').val(' Loading…');
+    request.always(complete).then(success, error);
   }
 
   function init() {
@@ -55,6 +57,7 @@
     $form.on('change', '[name="custom-2722"]', setRedirectUrl);
     $form.on('submit', function (e) {
       e.preventDefault();
+      $('button[type="submit"]').prop('disabled', 'disabled').text('Loading…');
       win.postEmailAddress();
     });
   }

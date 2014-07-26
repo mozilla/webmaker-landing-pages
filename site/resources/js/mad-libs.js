@@ -7,7 +7,8 @@
     $greet = $('#greet'),
     contributorEmail = '',
     $madLibForm = $('#mad-lib-form'),
-    $signupForm = $('#guided-landing-2014');
+    $signupForm = $('#guided-landing-2014'),
+    queryString = win.webmaker.parseQueryString();
 
   function hideSignup() {
     $greet.slideUp(400);
@@ -15,7 +16,7 @@
   }
 
   function retrieveEmailAddress() {
-    contributorEmail = win.webmaker.parseQueryString().email || sessionStorage.getItem('wmEmail') || 'privatecontributor@webmaker.org';
+    contributorEmail = queryString.email || sessionStorage.getItem('wmEmail') || 'privatecontributor@webmaker.org';
     if (contributorEmail === 'privatecontributor@webmaker.org') {
       $greet.slideDown();
     } else {
@@ -59,6 +60,7 @@
       friendname = $('[name="friendname"]').val(),
       $optInChecked = $('[name="opt_in"]:checked'),
       $email = $('[name="email"]'),
+      target = 'https://sendto.webmaker.org/page/signup/2014-wm-ff-snippet-low-bar-cta-contributors',
       alertTemplate = function (name) {
         return '<div class="alert alert-success"><p><span class="fa fa-check"></span> Great! We hope you' + (name ? ' and ' + name : '') + ' enjoy making together. Now get started with Step 1 below.</p></div>';
       },
@@ -70,15 +72,15 @@
       },
       request = $.ajax({
         type: 'post',
-        url: 'https://sendto.webmaker.org/page/signup/2014-wm-ff-snippet-low-bar-cta-contributors',
+        url: target,
         data: payload
       }),
-      success = function (data, status, jqXHR) {
+      success = function () {
         displayMakersteps();
         $('.post-mad-lib').prepend(alertTemplate(friendname));
       },
-      error = function (jqXHR, status, error) {
-        $('body').append('<form id="backup-madlib-form" method="post" action="https://sendto.webmaker.org/page/signup/2014-wm-ff-snippet-low-bar-cta-contributors"><input type="hidden" value="' + payload.email + '" name="email" /><input type="hidden" value="1" name="custom-2843" /></form>');
+      error = function () {
+        $('body').append('<form id="backup-madlib-form" method="post" action="' + target + '"><input type="hidden" value="' + payload.email + '" name="email" /><input type="hidden" value="1" name="custom-2843" /></form>');
         $('#backup-madlib-form').submit();
       };
     analytics.event('Clicked Getting Started on Low Bar CTA');
@@ -86,7 +88,7 @@
       submitSignup();
       request.then(success, error);
     } else {
-      request.then(success, error).always(success);
+      request.then(success, error);
     }
   }
 
@@ -112,6 +114,7 @@
   function applyListeners() {
     $madLibForm.on('submit', function (e) {
       e.preventDefault();
+      $('button[type="submit"]').prop('disabled', 'disabled').text(' Loading…').prepend('<span class="fa fa-cog fa-spin"></span>');
       submitContributors();
 
       // we currently aren't storing *any* mad lib data because we need to find
@@ -135,12 +138,17 @@
   }
 
   function initMadLib() {
-    win.webmaker.submitMadLibs = submitMadLibs;
-    $('.makersteps-list').hide();
-    $('.post-mad-lib').hide();
-    $('#greet').hide();
-    retrieveEmailAddress();
-    applyListeners();
+    if (queryString.action_code) {
+      // if the person is redirected after a traditional POST (probably because
+      // the ajax error function fired) send 'em straight to the instructions
+      displayMakersteps();
+    } else {
+      win.webmaker.submitMadLibs = submitMadLibs;
+      $('.post-mad-lib').hide();
+      $('.makersteps-list').hide();
+      retrieveEmailAddress();
+      applyListeners();
+    }
   }
 
   if (doc.getElementsByClassName('mad-lib').length > 0) {
