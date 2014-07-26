@@ -29,7 +29,8 @@
       payload = {
         email: $('[name="email"]').val(),
         'custom-2722': $('[name="custom-2722"]').val(),
-        opt_in: 1
+        opt_in: 1,
+        subsource: 'madlib'
       },
       request = $.ajax({
         type: 'post',
@@ -68,7 +69,8 @@
         // double-check if a person is attempting to submit the email form and
         // the mad lib form at the same time
         email: ($email.val() !== '' && $optInChecked.length > 0) ? $email.val() : contributorEmail,
-        'custom-2843': 1
+        'custom-2843': 1,
+        subsource: 'madlib'
       },
       request = $.ajax({
         type: 'post',
@@ -106,7 +108,7 @@
         data: payload
       }),
       success = function (data, status, jqXHR) {},
-      error = function (data, status, jqXHR) {},
+      error = function (jqXHR, status, error) {},
       complete = function () {};
     request.then(success, error).always(complete);
   }
@@ -138,7 +140,7 @@
   }
 
   function initMadLib() {
-    if (queryString.action_code) {
+    if (queryString.prevstep === 'madlib') {
       // if the person is redirected after a traditional POST (probably because
       // the ajax error function fired) send 'em straight to the instructions
       displayMakersteps();
