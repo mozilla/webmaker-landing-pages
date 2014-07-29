@@ -1,5 +1,6 @@
 /* global analytics */
 (function ($, doc, win) {
+  win.webmaker = win.webmaker || {};
 
   var
     baseUrl = win.location.protocol + '//' + win.location.host,
