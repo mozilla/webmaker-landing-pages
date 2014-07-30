@@ -1,3 +1,4 @@
+/* global analytics */
 // little helper functions until we need something more organized
 
 (function (doc, win) {
@@ -102,6 +103,14 @@
 
     if (doc.getElementsByClassName('form-section').length > 0) {
       validateSignup();
+    }
+
+    var queryString = parseQueryString();
+    if (queryString.prevstep) {
+      analytics.event('Email Sign Up', {
+        label: 'Learn More About Webmaker'
+      });
+      analytics.conversionGoal('WebmakerEmailSignUp');
     }
   }
 

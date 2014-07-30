@@ -1,10 +1,20 @@
+/* global analytics */
 (function ($, doc, win) {
 
   var
     baseUrl = win.location.protocol + '//' + win.location.host,
-    mentorPath = '/for/mentors/',
-    learnerPath = '/for/learners/',
+    previousStep = '?prevstep=webmaker_snippet_survey',
+    mentorPath = '/for/mentors/' + previousStep,
+    learnerPath = '/for/learners/' + previousStep,
     $form = $('#guided-landing-2014');
+
+  function recordSelected() {
+    var
+      response = $('[name="custom-2722"]:checked').val();
+    analytics.event('Selected a welcome survey option', {
+      label: response
+    });
+  }
 
   function setRedirectUrl() {
     var
@@ -47,6 +57,7 @@
       },
       complete = function () {
         sessionStorage.setItem('wmEmail', payload.email);
+        recordSelected();
       };
     $('input[type="submit"]').prop('disabled', 'disabled').val(' Loading…');
     request.always(complete).then(success, error);
