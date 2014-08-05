@@ -1,0 +1,72 @@
+#signup-page-info {
+  background: @brand-info;
+  color: @white;
+  font-weight: 200;
+  padding: 2.5rem 0;
+  text-align: center;
+  @media (min-width: @screen-sm-min) {
+    padding: 5rem 0;
+    text-align: left;
+  }
+  a {
+    color: @white;
+    text-decoration: none;
+  }
+  b {
+    font-weight: 400;
+  }
+  h1 {
+    line-height: 1;
+    @media (min-width: @screen-sm-min) {
+      font-size: 6rem;
+    }
+  }
+  p {
+    margin: 2rem 0;
+  }
+  .btn {
+    font-size: 1.8rem;
+    padding: 1.8rem 6.5rem;
+    width: 100%;
+    @media screen and (min-width: @screen-xs-min) {
+      margin-right: 4rem;
+      width: auto;
+    }
+  }
+  .log-in-link {
+    display: inline-block;
+    padding-top: 2rem;
+    @media screen and (min-width: @screen-xs-min) {
+      padding-top: 0;
+    }
+  }
+}
+
+.signup-list {
+  h1 {
+    @media (max-width: @screen-sm-min) {
+      font-size: 2.5rem;
+    }
+  }
+  .list-info-header {
+    padding-bottom: 1.5rem;
+    text-align: left;
+  }
+  ul {
+    padding-left: 0;
+  }
+  li {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 1.5rem;
+    text-align: left;
+    .fa {
+      font-size: 2.6rem;
+    }
+    &:nth-child(odd) {
+      background: darken(@white, 2%);
+      border-bottom: 0.1rem solid darken(@white, 11%);
+      border-top: 0.1rem solid darken(@white, 11%);
+    }
+  }
+}
