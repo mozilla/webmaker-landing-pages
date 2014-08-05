@@ -1,30 +1,60 @@
 ---
-template: webmaker.html
-title: 'Welcome to Webmaker'
-description: 'Mozilla’s open source education project, where you can teach and learn the web through making.'
-jumbotron: 'Welcome to Webmaker, Mozilla’s open source education project, where you can teach and learn the web through making. <strong class="including-you">Join us today.</strong>'
+template: white.html
+title: "Teach and learn the web with Mozilla"
+description: "Webmaker can help you teach and learn how to code, design and create on the web."
 ---
-<h3>
-  Learn more about Mozilla Webmaker and our global Maker Party, a celebration of teaching and learning the Web.
-</h3>
-<div class="form-section">
-  <form role="form" method="post" action="https://sendto.mozilla.org/page/s/snippet-test">
-    <div class="form-group">
-      <div class="email input-group">
-        <span class="input-group-addon"><span class="fa fa-envelope"></span></span>
-        <input type="email" class="form-control" id="field1" name="email" size="48" placeholder="Your e-mail address" required>
-      </div>
-      <p class="buttonBottom">
-        <button type="submit" class="btn btn-primary">Register</button>
-      </p>
-      <div class="accept input-group">
-        <input id="allow_email" class="pull-left input-left" type="checkbox" required>
-        <label for="allow_email" class="help-block">Yes! I want to receive email
-          updates about Mozilla&rsquo;s projects and campaigns and I&rsquo;m
-          okay with you handling this info as you explain in your
-          <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy
-            policy</a>.</label>
-      </div>
-    </div>
-  </form>
-</div>
+<header>
+  <h1>What can Webmaker do for you?</h1>
+
+  <p>
+    Take a second to let us know your interests so we can help you get started.
+  </p>
+</header>
+
+<form name="signup" method="post" id="guided-landing-2014"
+      action="https://sendto.webmaker.org/page/signup/webmaker-firefox-snippet-survey">
+  <fieldset class="radio-buttons">
+    <ul>
+      <li>
+        <input id="yeshelplearn" name="custom-2722" value="yeshelplearn" required type="radio"/>
+        <label for="yeshelplearn">I like helping others learn.</label>
+      </li>
+      <li>
+        <input id="yesproteacher" name="custom-2722" value="yesproteacher" required type="radio"/>
+        <label for="yesproteacher">I&rsquo;m a teacher&mdash;I help people learn for a living.</label>
+      </li>
+      <li>
+        <input id="learneronly" name="custom-2722" value="learneronly" required type="radio"/>
+        <label for="learneronly">I just like learning new things.</label>
+      </li>
+      <li>
+        <input id="justlooking" name="custom-2722" value="justlooking" required type="radio"/>
+        <label for="justlooking">None of these, just looking.</label>
+      </li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="email-set">
+    <label for="email"><span class="fa fa-envelope"></span></label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email to stay in touch"/>
+    <input type="submit" value="Submit"/>
+    <input type="hidden" name="subsource" value="webmaker_snippet_survey"/>
+  </fieldset>
+
+  <fieldset>
+    <input id="opt_in" name="opt_in" type="checkbox" value="1" required/>
+    <label for="opt_in">
+      <strong>Yes!</strong> I want to receive email updates about Mozilla&rsquo;s
+      projects and campaigns and I&rsquo;m okay with you handling this info as
+      you explain in your
+      <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy
+        policy</a>.
+    </label>
+  </fieldset>
+  <input type="hidden" name="redirect_url" value=""/>
+</form>
+<p class="bypass-survey">
+  <a href="/for/learners/">
+    No thanks, but I’d like to see what Webmaker is!
+  </a>
+</p>
