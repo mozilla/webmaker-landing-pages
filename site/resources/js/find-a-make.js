@@ -1,5 +1,7 @@
 /* global Make, Mustache */
-(function ($) {
+(function ($, win) {
+  win.webmaker = win.webmaker || {};
+
   function generateGravatar(hash) {
     var
       defaultAvatar = "https%3A%2F%2Fstuff.webmaker.org%2Favatars%2Fwebmaker-avatar-44x44.png",
@@ -108,4 +110,4 @@
     updateRemixLinks(selectedMake);
   });
 
-})(jQuery);
+})(jQuery, window);

@@ -16,8 +16,8 @@
   }
 
   function retrieveEmailAddress() {
-    contributorEmail = queryString.email || sessionStorage.getItem('wmEmail') || 'privatecontributor@webmaker.org';
-    if (contributorEmail === 'privatecontributor@webmaker.org') {
+    contributorEmail = queryString.email || sessionStorage.getItem('wmEmail') || win.webmaker.ANONYMOUS_CONTRIBUTOR_EMAIL;
+    if (contributorEmail === win.webmaker.ANONYMOUS_CONTRIBUTOR_EMAIL) {
       $greet.slideDown();
     } else {
       hideSignup();
