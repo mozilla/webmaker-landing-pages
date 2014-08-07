@@ -7,7 +7,8 @@
     previousStep = '?prevstep=webmaker_snippet_survey',
     mentorPath = '/for/mentors/' + previousStep,
     learnerPath = '/for/learners/' + previousStep,
-    $form = $('#guided-landing-2014');
+    $formEmail = $('#guided-landing-2014'),
+    $formNoEmail = $('#guided-landing-noemail');
 
   function recordSelected() {
     var
@@ -54,7 +55,7 @@
         win.location = setNextStep();
       },
       error = function () {
-        $form.off().submit();
+        $formEmail.off().submit();
       },
       complete = function () {
         sessionStorage.setItem('wmEmail', payload.email);
@@ -64,18 +65,36 @@
     request.always(complete).then(success, error);
   }
 
-  function init() {
+  function goToNextPage() {
+    recordSelected();
+    win.location = setNextStep();
+  }
+
+  function initFormEmail() {
     win.postEmailAddress = postEmailAddress;
-    $form.on('change', '[name="custom-2722"]', setRedirectUrl);
-    $form.on('submit', function (e) {
+    $formEmail.on('change', '[name="custom-2722"]', setRedirectUrl);
+    $formEmail.on('submit', function (e) {
       e.preventDefault();
       $('button[type="submit"]').prop('disabled', 'disabled').text('Loading…');
       win.postEmailAddress();
     });
   }
 
+  function initFormNavigation() {
+    win.goToNextPage = goToNextPage;
+    $formNoEmail.on('submit', function (e) {
+      e.preventDefault();
+      $('button[type="submit"]').prop('disabled', 'disabled').text('Loading…');
+      win.goToNextPage();
+    });
+  }
+
   if (doc.getElementById('guided-landing-2014') !== null) {
-    init();
+    initFormEmail();
+  }
+
+  if (doc.getElementById('guided-landing-noemail') !== null) {
+    initFormNavigation();
   }
 
 })(jQuery, document, window);
