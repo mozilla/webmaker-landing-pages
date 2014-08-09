@@ -8,11 +8,12 @@
     mentorPath = '/for/mentors/' + previousStep,
     learnerPath = '/for/learners/' + previousStep,
     $formEmail = $('#guided-landing-2014'),
-    $formNoEmail = $('#guided-landing-noemail');
+    $formNoEmail = $('#guided-landing-noemail'),
+    surveyQuestions = $formEmail.length > 0 ? 'custom-2722' : $formNoEmail.length > 0 ? 'custom-2861' : '';
 
   function recordSelected() {
     var
-      response = $('[name="custom-2722"]:checked').val();
+      response = $('[name="' + surveyQuestions + '"]:checked').val();
     analytics.event('Selected a welcome survey option', {
       label: response
     });
@@ -20,7 +21,7 @@
 
   function setRedirectUrl() {
     var
-      response = $('[name="custom-2722"]:checked').val();
+      response = $('[name="' + surveyQuestions + '"]:checked').val();
     if (response === 'yeshelplearn' || response === 'yesproteacher') {
       $('[name="redirect_url"]').val(baseUrl + mentorPath);
     } else {
@@ -30,7 +31,7 @@
 
   function setNextStep() {
     var
-      response = $('[name="custom-2722"]:checked').val();
+      response = $('[name="' + surveyQuestions + '"]:checked').val();
     if (response === 'yeshelplearn' || response === 'yesproteacher') {
       return baseUrl + mentorPath;
     } else {
