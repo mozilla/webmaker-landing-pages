@@ -137,7 +137,6 @@
       transition: background 150ms;
       width: 100%;
       @media screen and (min-width: @screen-sm-min) {
-        float: right;
         margin-top: 0;
         width: 12rem;
         padding: 1.2rem 0;
@@ -162,6 +161,9 @@
     width: 36rem;
     @media screen and (min-width: @screen-sm-min) {
       width: 100%;
+      [type="submit"] {
+        float: right;
+      }
     }
     @media screen and (min-width: @screen-md-min) {
       width: 69rem;
@@ -175,3 +177,5 @@
     }
   }
 }
+
+@import "../campaigns/signup-pages";

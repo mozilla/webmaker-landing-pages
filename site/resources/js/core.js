@@ -4,6 +4,9 @@
 (function (doc, win) {
   win.webmaker = win.webmaker || {};
 
+  // Define some constants.
+  win.webmaker.ANONYMOUS_CONTRIBUTOR_EMAIL = 'privatecontributor@webmaker.org';
+
   function retinaImage() {
     function renderImage(image, source) {
       if (source !== null) {
