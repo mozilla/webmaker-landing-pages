@@ -1,8 +1,11 @@
+var
+  rewriteRulesSnippet = require('grunt-connect-rewrite/lib/utils').rewriteRequest;
 module.exports = function (grunt) {
 
   require('time-grunt')(grunt);
   require('jit-grunt')(grunt, {
-    useminPrepare: 'grunt-usemin'
+    useminPrepare: 'grunt-usemin',
+    configureRewriteRules: 'grunt-connect-rewrite'
   });
 
   grunt.initConfig({
@@ -152,9 +155,26 @@ module.exports = function (grunt) {
       }
     },
     connect: {
+      rules: [
+        {
+          from: '^\/signup\/login\/?$',
+          to: 'http://localhost:7777/signup/login',
+          redirect: 'permanent'
+        },
+        {
+          from: '^\/signup\/new-account\/?$',
+          to: 'http://localhost:7777/signup/new-account',
+          redirect: 'permanent'
+        }
+      ],
       options: {
         port: 9006,
-        hostname: '0.0.0.0'
+        hostname: '0.0.0.0',
+        middleware: function (connect, options) {
+          var middlewares = [];
+          middlewares.push(rewriteRulesSnippet);
+          return middlewares;
+        }
       },
       server: {
         options: {
@@ -247,6 +267,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dev', [
     'copy:fontsServer',
     'copy:vendor',
+    'configureRewriteRules',
     'connect:server',
     'watch'
   ]);
