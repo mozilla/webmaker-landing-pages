@@ -9,6 +9,26 @@
     $login = $('#log-in-button'),
     $signup = $('#create-account-button');
 
+  function continueSignupPath() {
+    // upon successful login or completed signup redirect to corresponding
+    // explore page or redirect page from template
+
+    var
+      path = [],
+      pathname,
+      $body = $('body');
+
+    if ($body.data('redirect') !== undefined) {
+      pathname = $body.data('redirect');
+    } else {
+      path = win.location.pathname.split('/');
+      path.shift();
+      pathname = '/explore/' + path[1];
+    }
+
+    win.location.href = win.location.protocol + '//' + win.location.host + pathname;
+  }
+
   function webmakerAuth() {
     var
       auth = new WebmakerAuthClient({
@@ -29,7 +49,7 @@
       win.webmaker.person = userData;
 
       if (message === undefined || 'user created') {
-        console.log('// Continue signup path here');
+        continueSignupPath();
       }
     });
 
