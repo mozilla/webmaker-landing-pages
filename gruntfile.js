@@ -15,7 +15,8 @@ module.exports = function (grunt) {
       jsLocation: 'resources/js/**/*.js'
     },
     clean : {
-      build: '<%= landingpages.buildTarget %>'
+      build: '<%= landingpages.buildTarget %>',
+      server: '<%= landingpages.serverTarget %>'
     },
     shell: {
       server: {
@@ -243,6 +244,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('dev', [
+    'clean:server',
     'copy:fontsServer',
     'copy:vendor',
     'shell:server',
