@@ -1,6 +1,6 @@
 {
   "globals": {
-    "jQuery": true
+    "jQuery": false
   },
   "bitwise": true,
   "browser": true,
@@ -11,6 +11,7 @@
   "indent": 2,
   "latedef": true,
   "newcap": true,
+  "node": true,
   "noempty": true,
   "trailing": true,
   "undef": true,
