@@ -1,6 +1,6 @@
 {
   "name": "webmaker-snippet-landing-page",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Landing page for the Firefox snippet",
   "scripts": {
     "build": "grunt build",
@@ -9,14 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mozilla/webmaker-snippet-landing-page.git"
+    "url": "https://github.com/mozilla/webmaker-landing-pages.git"
   },
   "author": "Mozilla Webmaker",
   "license": "MPL-2.0",
   "devDependencies": {
-    "bower": "^1.3.5",
+    "bower": "^1.3.8",
+    "express": "^3.4.8",
     "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^0.8.1",
+    "grunt-autoprefixer": "^0.8.2",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-concat": "^0.4.0",
@@ -24,20 +25,30 @@
     "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-htmlmin": "^0.3.0",
-    "grunt-contrib-imagemin": "^0.7.1",
+    "grunt-contrib-imagemin": "^0.7.2",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-less": "^0.11.3",
     "grunt-contrib-uglify": "^0.5.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-jsbeautifier": "^0.2.7",
     "grunt-metalsmith": "0.0.1",
+    "grunt-shell-spawn": "^0.3.0",
     "grunt-usemin": "^2.3.0",
-    "jit-grunt": "^0.7.0",
-    "metalsmith": "^0.8.0",
+    "jit-grunt": "^0.7.1",
+    "metalsmith": "^0.8.1",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-permalinks": "^0.3.2",
     "metalsmith-templates": "^0.5.1",
     "nunjucks": "^1.0.5",
     "time-grunt": "^0.3.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.6.3",
+    "bower": "^1.3.8",
+    "compression": "^1.0.11",
+    "express": "^4.8.3",
+    "habitat": "^1.1.0",
+    "morgan": "^1.2.2",
+    "webmaker-auth": "^0.1.3"
   }
 }

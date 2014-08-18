@@ -4,12 +4,42 @@
 
   var
     baseUrl = win.location.protocol + '//' + win.location.host,
-    previousStep = '?prevstep=webmaker_snippet_survey',
-    mentorPath = '/for/mentors/' + previousStep,
-    learnerPath = '/for/learners/' + previousStep,
+    previousStep = 'prevstep=webmaker_snippet_survey',
+    mentorPath = '/for/mentors/?' + previousStep,
+    learnerPath = '/for/learners/?' + previousStep,
     $formEmail = $('#guided-landing-2014'),
     $formNoEmail = $('#guided-landing-noemail'),
+    formDestinationLearners = $('[name=destinationlearners]').val(),
+    formDestinationMentors = $('[name=destinationmentors]').val(),
     surveyQuestions = $formEmail.length > 0 ? 'custom-2722' : $formNoEmail.length > 0 ? 'custom-2861' : '';
+
+  function appendExistingURLParameters(s) {
+    if (!window.location.search) {
+      return s;
+    }
+    if (s.indexOf('?') === -1) {
+      // the target URL does not have a ?
+      // append existing params 'as is'
+      return s + window.location.search;
+    } else {
+      // the target URL does have a ?
+      return s + window.location.search.replace('?', '&');
+    }
+  }
+
+  function getBaseURLLearner() {
+    if (formDestinationLearners) {
+      return appendExistingURLParameters(formDestinationLearners);
+    }
+    return baseUrl + learnerPath;
+  }
+
+  function getBaseURLMentor() {
+    if (formDestinationMentors) {
+      return appendExistingURLParameters(formDestinationMentors);
+    }
+    return baseUrl + mentorPath;
+  }
 
   function recordSelected() {
     var
@@ -29,13 +59,13 @@
     }
   }
 
-  function setNextStep() {
+  function getNextStepURL() {
     var
       response = $('[name="' + surveyQuestions + '"]:checked').val();
     if (response === 'yeshelplearn' || response === 'yesproteacher') {
-      return baseUrl + mentorPath;
+      return getBaseURLMentor();
     } else {
-      return baseUrl + learnerPath;
+      return getBaseURLLearner();
     }
   }
 
@@ -53,7 +83,7 @@
         data: payload
       }),
       success = function () {
-        win.location = setNextStep();
+        win.location = getNextStepURL();
       },
       error = function () {
         $formEmail.off().submit();
@@ -68,7 +98,7 @@
 
   function goToNextPage() {
     recordSelected();
-    win.location = setNextStep();
+    win.location = getNextStepURL();
   }
 
   function initFormEmail() {

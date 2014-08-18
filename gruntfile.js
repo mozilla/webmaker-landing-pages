@@ -2,7 +2,8 @@ module.exports = function (grunt) {
 
   require('time-grunt')(grunt);
   require('jit-grunt')(grunt, {
-    useminPrepare: 'grunt-usemin'
+    useminPrepare: 'grunt-usemin',
+    shell: 'grunt-shell-spawn'
   });
 
   grunt.initConfig({
@@ -15,6 +16,14 @@ module.exports = function (grunt) {
     },
     clean : {
       build: '<%= landingpages.buildTarget %>'
+    },
+    shell: {
+      server: {
+        options: {
+          async: true
+        },
+        command: 'node app'
+      }
     },
     metalsmith: {
       server: {
@@ -151,17 +160,6 @@ module.exports = function (grunt) {
         ]
       }
     },
-    connect: {
-      options: {
-        port: 9006,
-        hostname: '0.0.0.0'
-      },
-      server: {
-        options: {
-          base: '<%= landingpages.serverTarget %>'
-        }
-      }
-    },
     jshint: {
       files: '<%= landingpages.app %>/<%= landingpages.jsLocation %>',
       options: grunt.file.readJSON('.jshintrc')
@@ -247,7 +245,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dev', [
     'copy:fontsServer',
     'copy:vendor',
-    'connect:server',
+    'shell:server',
     'watch'
   ]);
 
