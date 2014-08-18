@@ -4,3 +4,4 @@
 build/
 /site/resources/compiled/
 .server/
+.env
