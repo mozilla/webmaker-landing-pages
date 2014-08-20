@@ -57,7 +57,7 @@
   </script>
 </head>
 
-<body class="white-landing">
+<body class="white-landing"{% if redirect %} data-redirect="{{ redirect }}"{% endif %}>
 <nav>
   <div class="container">
     <figure class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
