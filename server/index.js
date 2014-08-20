@@ -26,11 +26,11 @@ module.exports = function(config) {
   app.use(login.cookieParser());
   app.use(login.cookieSession());
 
-  app.post('/verify', login.handlers.verify);
-  app.post('/authenticate', login.handlers.authenticate);
-  app.post('/create', login.handlers.create);
-  app.post('/logout', login.handlers.logout);
-  app.post('/check-username', login.handlers.exists);
+  app.post('/auth/authenticate', login.handlers.authenticate);
+  app.post('/auth/check-username', login.handlers.exists);
+  app.post('/auth/create', login.handlers.create);
+  app.post('/auth/logout', login.handlers.logout);
+  app.post('/auth/verify', login.handlers.verify);
 
   app.use('/', express.static(path.join(__dirname, '../.server')));
 

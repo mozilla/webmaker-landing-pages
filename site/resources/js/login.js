@@ -34,10 +34,11 @@
       auth = new WebmakerAuthClient({
         host: '',
         paths: {
-          authenticate: '/authenticate',
-          create: '/create',
-          verify: '/verify',
-          logout: '/logout'
+          authenticate: '/auth/authenticate',
+          checkUsername: '/auth/check-username',
+          create: '/auth/create',
+          logout: '/auth/logout',
+          verify: '/auth/verify'
         },
         audience: window.location.origin,
         prefix: 'webmaker-', // for local storage
