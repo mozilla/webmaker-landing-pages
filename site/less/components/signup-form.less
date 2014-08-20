@@ -1,17 +1,15 @@
-.form-section, button {
+.snippet-test, .nn-form, .moz-form {
   margin: 0 auto;
-  max-width: 100%;
   width: 34.5rem;
-}
 
-.form-section {
   .buttonBottom {
     padding-top: 1rem;
   }
 
   button {
-    width: 345px;
     margin: 0 auto;
+    max-width: 100%;
+    width: 34.5rem;
   }
 
   input.input-left {
@@ -36,5 +34,50 @@
   label {
     font-size: 1.6rem;
     font-weight: 400;
+  }
+}
+
+#webmaker-login-new-user {
+  .modal-backdrop {
+    opacity: 0.5;
+    &.fade {
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
+
+    &.in {
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+    }
+  }
+
+  .modal-dialog {
+    z-index: 1041;
+  }
+
+  label {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: inherit;
+
+  }
+  .checkbox label {
+    display: inline;
+    font-weight: normal;
+  }
+
+  .has-error .username {
+    color: @state-danger-text;
+  }
+  input[name="username"] {
+    border: 0.1rem solid lighten(black, 80%);
+  }
+
+  input[type="radio"], input[type="checkbox"] {
+    margin-right: 0;
+    position: static;
+    -moz-transform: none;
+    zoom: 1;
   }
 }
