@@ -17,8 +17,16 @@
   }
   h1 {
     line-height: 1;
+    margin-top: 0;
     @media (min-width: @screen-sm-min) {
       font-size: 6rem;
+    }
+  }
+
+  h5 {
+    margin-top: 3rem;
+    @media screen and (min-width: @screen-lg-min) {
+      margin-top: 0.5rem;
     }
   }
   p {
@@ -26,16 +34,32 @@
   }
   .btn {
     font-size: 1.8rem;
-    padding: 1.8rem 6.5rem;
+    padding-bottom: 1.8rem;
+    padding-top: 1.8rem;
     width: 100%;
     @media screen and (min-width: @screen-xs-min) {
-      margin-right: 4rem;
+      padding: 1.8rem 3.9rem;
       width: auto;
+    }
+    @media screen and (min-width: @screen-sm-min) {
+      padding: 1.8rem 4.3rem;
+    }
+    @media screen and (min-width: @screen-md-min) {
+      padding: 1.8rem 6.5rem;
+    }
+  }
+  #create-account-button {
+    @media screen and (min-width: @screen-xs-min) {
+      margin-right: 4rem;
     }
   }
   .log-in-link {
     color: @white;
     font-weight: 300;
+  }
+
+  .caption {
+    margin-bottom: 1.6rem;
   }
 }
 
