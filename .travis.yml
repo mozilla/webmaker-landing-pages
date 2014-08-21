@@ -22,3 +22,11 @@ deploy:
     on:
       branch: production
       repo: mozilla/webmaker-landing-pages
+  - provider: heroku
+    api_key:
+      secure: "SWqDL0m1lhzObKiMy3yN/mDwxu4784qmr2jFPMmWIoH53AHygwyl0B9VGy43BY7FBwDXu6ho1lfx9wPyxQ2r7hcEvSmZH2p/zY07+kdJuFBsL8ccvT5ar0d/BFf6YU3PwIMOTxPGODBpEKxpEkjxHpuA1LVAcE3z0w9FEMXsV4I="
+    app:
+      master: webmaker-landing-pages-staging
+      production: webmaker-landing-pages-prod
+    on:
+      repo: mozilla/webmaker-landing-pages

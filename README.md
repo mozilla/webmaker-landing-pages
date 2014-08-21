@@ -5,7 +5,8 @@
 1. `git clone https://github.com/mozilla/webmaker-landing-pages/`
 2. `cd webmaker-landing-pages`
 3. `npm install`
-4. `grunt dev` (this will build the site & launch the local server on port 9006)
+4. `cp env.dist .env`
+5. `grunt dev` (this will build the site & launch the local server on port 9006)
 
 
 ### Dev Dependencies
@@ -13,10 +14,12 @@
 - Node.js >= 0.10.0 & `npm`
 - `bower` (via `npm install -g bower`)
 - `grunt` (via `npm install -g grunt-cli`)
+- [Webmaker Login Server](https://github.com/mozilla/login.webmaker.org)
 
 ## Development
 
-- `npm install`
+- `npm install && cp env.dist .env`
+- Launch login.webmaker.org
 - To run server: `grunt dev` (launch browser, <http://localhost:9006/>)
 - Lint before committing. Read-only with `grunt validate`, or take your chances
 on `grunt`.
@@ -26,7 +29,8 @@ on `grunt`.
 - `grunt` Cleans and verifies code.
 - `grunt validate` Read-only version of above.
 - `grunt build` Builds the static site in `/build/`.
-- `grunt dev` Builds the site, watches the folder, and launches the server.
+- `grunt dev` Builds the site into a temp directory, watches the folder, and
+launches the server.
 
 ### To Deploy
 
@@ -34,7 +38,7 @@ Travis takes care of that `;)`
 
 Deploying relies on parallel deploys that both live behind the same CloudFront
 distribution. One is the express server that runs here on your local dev, the
-other is to an S3 bucket hosting the static pages.
+other is to an S3 bucket hosting the static pages (the result of `grunt build`).
 
 ## TODO, a potentially incomplete list (see [bugzilla [landingpages][techdebt]](https://bugzilla.mozilla.org/buglist.cgi?list_id=10687679&status_whiteboard_type=allwordssubstr&query_format=advanced&status_whiteboard=[landingpages]%20[techdebt]&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED))
 

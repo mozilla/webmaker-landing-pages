@@ -4,11 +4,11 @@ Habitat.load();
 
 var env = new Habitat();
 var config = {
-  LOGIN_URL: env.get('LOGIN_URL'),
-  SECRET_KEY: env.get('SECRET_KEY'),
-  AUTH_LOGIN_URL: env.get('AUTH_LOGIN_URL'),
-  DOMAIN: env.get('COOKIE_DOMAIN'), // default undefined
-  FORCE_SSL: env.get('FORCE_SSL') // default false
+  loginURL: env.get('LOGIN_URL'),
+  secretKey: env.get('SECRET_KEY'),
+  authLoginURL: env.get('AUTH_LOGIN_URL'),
+  domain: env.get('COOKIE_DOMAIN'), // default undefined
+  forceSSL: env.get('FORCE_SSL') // default false
 };
 
 var server = require('./server')(config);

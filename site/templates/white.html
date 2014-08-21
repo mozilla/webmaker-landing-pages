@@ -39,7 +39,6 @@
   <!-- endbuild -->
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600"/>
-  <script src="https://stuff.webmaker.org/webmaker-rid/webmaker-rid.js" async></script>
 
   <!-- Google analytics -->
   <script type="text/javascript">
@@ -58,7 +57,7 @@
   </script>
 </head>
 
-<body class="white-landing">
+<body class="white-landing"{% if redirect %} data-redirect="{{ redirect }}"{% endif %}>
 <nav>
   <div class="container">
     <figure class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
@@ -68,10 +67,16 @@
 </nav>
 {{ contents }}
 
+<script src="https://login.persona.org/include.js"></script>
+
 <!-- build:js /resources/js/white.min.js -->
 <script type="text/javascript" src="/resources/vendors/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/resources/vendors/cookie-js/cookie.js"></script>
+<script type="text/javascript" src="/resources/vendors/eventEmitter/EventEmitter.js"></script>
 <script type="text/javascript" src="/resources/vendors/webmaker-analytics/analytics.js"></script>
-<script type="text/javascript" src="/resources/js/scripts.js"></script>
+<script type="text/javascript" src="/resources/vendors/webmaker-auth-client/webmaker-auth-client.js"></script>
+<script type="text/javascript" src="/resources/js/core.js"></script>
+<script type="text/javascript" src="/resources/js/login.js"></script>
 <script type="text/javascript" src="/resources/js/guided-survey-step-1.js"></script>
 <!-- endbuild -->
 
