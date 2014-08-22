@@ -17,7 +17,6 @@
   }
   h1 {
     line-height: 1;
-    margin-top: 0;
     @media (min-width: @screen-sm-min) {
       font-size: 6rem;
     }
@@ -38,28 +37,26 @@
     padding-top: 1.8rem;
     width: 100%;
     @media screen and (min-width: @screen-xs-min) {
-      padding: 1.8rem 3.9rem;
+      padding: 1.8rem 6.5rem;
+      display: block;
+      margin: 0 auto;
       width: auto;
     }
     @media screen and (min-width: @screen-sm-min) {
       padding: 1.8rem 4.3rem;
+      display: inline-block;
     }
     @media screen and (min-width: @screen-md-min) {
-      padding: 1.8rem 6.5rem;
     }
   }
   #create-account-button {
-    @media screen and (min-width: @screen-xs-min) {
+    @media screen and (min-width: @screen-sm-min) {
       margin-right: 4rem;
     }
   }
   .log-in-link {
     color: @white;
     font-weight: 300;
-  }
-
-  .caption {
-    margin-bottom: 1.6rem;
   }
 }
 
@@ -79,15 +76,21 @@
   li {
     list-style: none;
     margin-bottom: 0;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 1.5rem 4rem;
+    position: relative;
     text-align: left;
     .fa {
       font-size: 2.6rem;
+      left: 0.5rem;
+      position: absolute;
     }
     &:nth-child(odd) {
       background: darken(@white, 2%);
       border-bottom: 0.1rem solid darken(@white, 11%);
       border-top: 0.1rem solid darken(@white, 11%);
     }
+  }
+  strong {
+    margin-left: 0.8rem;
   }
 }
