@@ -1,5 +1,8 @@
 #signup-page-info {
   background: @brand-info;
+  &.success {
+    background: @darkgreen;
+  }
   color: @white;
   font-weight: 200;
   padding: 2.5rem 0;
@@ -57,6 +60,48 @@
   .log-in-link {
     color: @white;
     font-weight: 300;
+  }
+  form {
+    &.pledge {
+      input[type="checkbox"],
+      input[type="radio"] {
+        margin-right: 1.5rem;
+      }
+      input[type="email"] {
+        padding: 21px 15px;
+        border: 0;
+        height: 64px;
+      }
+      .help-block {
+        color: #FFF;
+        font-size: 1.8rem;
+      }
+      .input-group-btn {
+        @media (max-width: @screen-sm-min) {
+          width: auto;
+        }
+      }
+    }
+  }
+  &.teach {
+    h3 {
+      margin-bottom: 20px;
+    }
+    ul, ol {
+      padding-left: 40px;
+      li {
+        margin-bottom: 1rem;
+      }
+    }
+    ul {
+      list-style-type: disc;
+    }
+  }
+  .wm-badge {
+    h5 {
+      text-align: center;
+      margin-top: 20px;
+    }
   }
 }
 
