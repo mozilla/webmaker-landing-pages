@@ -1,0 +1,211 @@
+.start-page {
+  text-rendering: optimizeLegibility;
+  background: @brand-primary;
+  background: linear-gradient(to bottom, @brand-primary 0%, fadeout(@brand-primary, 50%) 100%);
+  font-family: avenir, @font-family-sans-serif;
+  height: auto;
+  min-height: 100%;
+
+  form {
+    text-align: center;
+  }
+
+  fieldset[role="textbox"] {
+    padding: 0 0 2%;
+  }
+
+  label {
+    color: @white;
+    display: block;
+    font-size: 3rem;
+    font-weight: 500;
+    padding: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  input {
+    border: 0.2rem solid transparent;
+    line-height: 2.9;
+    min-width: 50%;
+    padding: 0.5rem;
+    &::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder {
+      color: fadeout(@black, 40%);
+    }
+    &:focus, &:active {
+      outline: none;
+      border: 0.2rem solid @darkgreen;
+    }
+
+    &[type="text"], &[type="number"], &#datepicker {
+      background-color: fadeout(@white, 60%);
+      color: @grey;
+    }
+
+    &[type="submit"] {
+      font-size: 2.2rem;
+      margin: 0 auto;
+      min-height: 4.2rem;
+      text-transform: uppercase;
+      &:focus, &:active {
+        border: 0.2rem solid @white;
+      }
+    }
+  }
+
+  a[href="/auth/login"] {
+    border: 0.2rem solid transparent;
+    font-size: 2.2rem;
+    line-height: 2.9;
+    margin: 0 auto;
+    min-height: 4.2rem;
+    min-width: 50%;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    &::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder {
+      color: fadeout(@black, 40%);
+    }
+    &:focus, &:active {
+      outline: none;
+      border: 0.2rem solid @white;
+    }
+  }
+
+  button[type="submit"] {
+    border: none;
+    line-height: 2.9;
+    max-width: 30rem;
+    padding: 1rem;
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  .datepicker, .duration {
+    position: relative;
+    &::after {
+      bottom: 2.8rem;
+      color: black;
+      font-size: 1.5em;
+      position: absolute;
+      right: 28%;
+      z-index: -1;
+    }
+  }
+
+  .datepicker {
+    &::after {
+      .icon(@fa-calendar);
+    }
+  }
+
+  .duration {
+    &::after {
+      content: 'hours';
+    }
+  }
+
+  .steps {
+    counter-reset: steps;
+    list-style: none;
+    padding: 0;
+    .step {
+      counter-increment: big-numbers;
+      &::before {
+        border: 0.2rem solid white;
+        box-shadow: 0.3rem 0.3rem 0 0 @white;
+        color: @white;
+        content: counter(big-numbers);
+        display: block;
+        font-size: 4rem;
+        margin: 3rem auto;
+        max-width: 8.5rem;
+        min-width: 4.5rem;
+        padding: 0.5rem;
+        text-align: center;
+        width: 7%;
+      }
+    }
+  }
+
+  .type-container {
+    height: 50%;
+    text-align: center;
+    width: 100%;
+    @media screen and (min-width: @screen-xs-min) {
+      height: auto;
+      position: relative;
+    }
+  }
+
+  .type {
+    background-color: @yellow;
+    height: 100%;
+    padding: 2rem;
+    position: relative;
+    &:nth-of-type(2) {
+      border-top: 0.2rem dotted @brand-primary;
+      border-bottom: 0.2rem dotted @brand-primary;
+    }
+    .overlay-on-hover {
+      visibility: visible;
+    }
+    @media screen and (min-width: @screen-xs-min) {
+      width: 33.33%;
+      &:nth-of-type(2), &:nth-of-type(3) {
+        bottom: 0;
+        position: absolute;
+        top: 0;
+      }
+      &:nth-of-type(2) {
+        border-right: 0.2rem dotted @brand-primary;
+        border-left: 0.2rem dotted @brand-primary;
+        border-top: none;
+        border-bottom: none;
+        left: 33.333%;
+      }
+      &:nth-of-type(3) {
+        left: 66.666%;
+      }
+
+        &:hover {
+        background-color: @white;
+        .overlay-on-hover {
+          visibility: visible;
+        }
+        .fa-times, .fa-video-camera, .fa-umbrella {
+          color: @literacy-color-security;
+        }
+      }
+
+      .overlay-on-hover {
+        visibility: hidden;
+        color: @literacy-color-security;
+      }
+    }
+  }
+
+  .fa-times, .fa-video-camera, .fa-umbrella {
+    font-size: 10rem;
+    padding: 2rem;
+  }
+}
+
+.dropdown-menu.bootstrap-datetimepicker-widget {
+  padding: 2rem;
+  li {
+    margin-bottom: 0;
+  }
+
+  .day {
+    &.active {
+      background: @brand-primary;
+    }
+  }
+}
+
+#sign-in-form {
+  a {
+    &::after {
+      .icon(@fa-var-chevron-right);
+    }
+  }
+}
