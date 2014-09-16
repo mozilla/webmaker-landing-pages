@@ -7,8 +7,8 @@
     environment = 'dev',
     eventsAPI = {
       dev: 'http://localhost:1989/events',
-      staging: 'https://events-api.mofostaging.net',
-      production: 'https://events-api.webmaker.org'
+      staging: 'https://events-api.mofostaging.net/events',
+      production: 'https://events-api.webmaker.org/events'
     },
     eventsFrontEnd = {
       dev: 'http://localhost:1981/events/',
