@@ -11,22 +11,14 @@
 
   function continueSignupPath() {
     // upon successful login or completed signup redirect to corresponding
-    // explore page or redirect page from template
+    // redirect page from template
 
     var
-      path = [],
-      pathname,
       $body = $('body');
 
     if ($body.data('redirect') !== undefined) {
-      pathname = $body.data('redirect');
-    } else {
-      path = win.location.pathname.split('/');
-      path.shift();
-      pathname = '/explore/' + path[1];
+      win.location.href = win.location.protocol + '//' + win.location.host + $body.data('redirect');
     }
-
-    win.location.href = win.location.protocol + '//' + win.location.host + pathname;
   }
 
   function webmakerAuth() {
@@ -48,10 +40,7 @@
 
     auth.on('login', function (userData, message) {
       win.webmaker.person = userData;
-
-      if (message === undefined || 'user created') {
-        continueSignupPath();
-      }
+      continueSignupPath();
     });
 
     auth.on('logout', function () {
@@ -62,10 +51,11 @@
   }
 
   function init() {
-    webmakerAuth();
     $login.add($signup).on('click', win.webmaker.auth.login);
-    $(doc).on('load', win.webmaker.auth.verify);
   }
+
+  webmakerAuth();
+  win.webmaker.auth.verify();
 
   if (doc.getElementById('signup-page-info') !== null) {
     init();
