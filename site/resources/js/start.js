@@ -61,24 +61,34 @@
     event.preventDefault();
 
     var
-      $estimatedAttendees = $('#attendees'),
+      $estimatedAttendees = $('select[name="estimatedAttendees"]'),
       $address = $('#address'),
-      webmakerLogin = JSON.parse(localStorage['webmaker-login']),
+      webmakerLogin = function safeGetWebmakerLogin() {
+        try {
+          return JSON.parse(localStorage['webmaker-login']);
+        } catch (e) {
+          return null;
+        }
+      },
       $context = $(this),
       formFields = {};
+
+    $('#submit-event').prop('disabled', true);
 
     $('input[name="beginDate"]').val(moment($('#datepicker').val(), 'MM/DD/YYYY h:mm A'));
 
     if ($address.val() === '') {
+      handleErrors();
       return false;
     }
 
-    if ($estimatedAttendees.val() === '') {
+    if ($estimatedAttendees.find('option:selected').val() === '0') {
+      handleErrors();
       return false;
     }
 
-    $context.append('<input type="hidden" name="organizer" value="' + webmakerLogin.email + '" />');
-    $context.append('<input type="hidden" name="organizerID" value="' + webmakerLogin.username + '" />');
+    $context.append('<input type="hidden" name="organizer" value="' + webmakerLogin().email + '" />');
+    $context.append('<input type="hidden" name="organizerID" value="' + webmakerLogin().username + '" />');
 
     function compileInputs() {
       formFields[$(this).prop('name')] = $(this).val();
@@ -89,12 +99,35 @@
     $('input[type="number"]').each(compileInputs);
 
     formFields.isEventPublic = false;
+    formFields.estimatedAttendees = $estimatedAttendees.find('option:selected').val();
 
+    deployPayload(JSON.stringify(formFields));
+  }
+
+  function handleErrors() {
+    var
+      $estimatedAttendees = $('select[name="estimatedAttendees"]'),
+      $address = $('#address');
+
+    if ($address.val() === '') {
+      $address.addClass('error');
+    }
+
+    if ($estimatedAttendees.find('option:selected').val() === '0') {
+      $estimatedAttendees.addClass('error');
+    }
+    $('#submit-event').prop('disabled', false);
+  }
+
+  function deployPayload(payload) {
     $.ajax(eventsAPI[environment], {
-      data: JSON.stringify(formFields),
+      data: payload,
       contentType: 'application/json',
-      error: function (xhr, textStatus, error) {
-        console.error('error: ' + textStatus);
+      error: function () {
+        $('#start-event-submission').prepend(
+          '<p class="form-error">Something went wrong with the form submission. Please wait a moment and try again.</p>'
+        );
+        $('#submit-event').prop('disabled', false);
       },
       type: 'POST',
       xhrFields: {

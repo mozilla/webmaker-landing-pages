@@ -23,6 +23,20 @@
     text-transform: uppercase;
   }
 
+  select {
+    background: fadeout(@white, 60%);
+    border: 0.2rem solid transparent;
+    border-radius: 0;
+    height: 6rem;
+    padding: 1.6rem;
+    position: relative;
+    width: 50%;
+    &:focus, &:active {
+      outline: none;
+      border: 0.2rem solid @darkgreen;
+    }
+  }
+
   input {
     border: 0.2rem solid transparent;
     line-height: 2.9;
@@ -52,6 +66,23 @@
     }
   }
 
+  .error {
+    border-color: @brand-danger;
+    &:focus, &:active {
+      border-color: @brand-danger;
+    }
+  }
+
+  .form-error {
+    color: @brand-danger;
+    background-color: fadeout(@white, 60%);
+    border: 0.2rem solid transparent;
+    margin: 0 auto;
+    padding: 1.6rem;
+    width: 50%;
+    .error;
+  }
+
   a[href="/auth/login"] {
     border: 0.2rem solid transparent;
     font-size: 2.2rem;
@@ -79,27 +110,30 @@
     width: 100%;
   }
 
-  .datepicker, .duration {
+  .datepicker {
     position: relative;
     &::after {
-      bottom: 2.8rem;
+      .icon(@fa-calendar);
       color: black;
       font-size: 1.5em;
       position: absolute;
-      right: 28%;
       z-index: -1;
-    }
-  }
-
-  .datepicker {
-    &::after {
-      .icon(@fa-calendar);
-    }
-  }
-
-  .duration {
-    &::after {
-      content: 'hours';
+      bottom: 2rem;
+      right: 25%;
+      @media screen and (min-width: @screen-xs-min) {
+        right: 28%;
+      }
+      @media screen and (min-width: @screen-sm-min) {
+        bottom: 2.7rem;
+        right: 27.5%;
+      }
+      @media screen and (min-width: @screen-md-min) {
+        bottom: 3.1rem;
+        right: 27%;
+      }
+      @media screen and (min-width: @screen-lg-min) {
+        bottom: 3.6rem;
+      }
     }
   }
 
@@ -206,6 +240,7 @@
   a {
     &::after {
       .icon(@fa-var-chevron-right);
+      padding-left: 1rem;
     }
   }
 }

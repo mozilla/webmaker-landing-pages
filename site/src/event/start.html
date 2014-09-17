@@ -25,8 +25,7 @@ description: "Follow these easy steps to put together your Maker Party today"
 
               <fieldset class="hidden meme">
                 <input type="hidden" name="title" value="Hack Your High School"/>
-                <input type="hidden" na
-                       me="description" value="<p>Remix your school’s web site with our Xray Goggles tool. It’s as easy as going to your school’s website and changing some text to announce summer’s coming early, or adding an image making Justin Bieber the new school mascot.</p><p><a class='btn btn-primary btn-lg' href='https://blog.webmaker.org/hack-your-school'>Begin!</a></p>"/>
+                <input type="hidden" name="description" value="<p>Remix your school’s web site with our Xray Goggles tool. It’s as easy as going to your school’s website and changing some text to announce summer’s coming early, or adding an image making Justin Bieber the new school mascot.</p><p><a class='btn btn-primary btn-lg' href='https://blog.webmaker.org/hack-your-school'>Begin!</a></p>"/>
                 <input type="hidden" name="tags" value=""/>
               </fieldset>
               <button type="submit" id="meme" class="btn btn-primary">
@@ -89,7 +88,7 @@ description: "Follow these easy steps to put together your Maker Party today"
           </fieldset>
         </form>
 
-        <form action="http://localhost:1989/events" method="post" id="start-event-submission">
+        <form action="#" method="post" id="start-event-submission">
           <fieldset role="textbox" class="datepicker">
             <label for="datepicker">Event Date</label>
             <input id="datepicker">
@@ -102,17 +101,92 @@ description: "Follow these easy steps to put together your Maker Party today"
 
           <fieldset role="textbox">
             <label for="estimatedAttendees"># of Attendees</label>
-            <input type="number" id="estimatedAttendees" name="estimatedAttendees" min="1" max="1000" placeholder="e.g. 10">
+            <select name="estimatedAttendees" id="estimatedAttendees">
+              <option value="0" selected disabled>Select…</option>
+              <option value="5">Under 10</option>
+              <option value="15">10-20</option>
+              <option value="35">20-50</option>
+              <option value="75">50-100</option>
+              <option value="150">100-200</option>
+              <option value="350">200-500</option>
+              <option value="500">500+</option>
+            </select>
           </fieldset>
           <fieldset role="textbox">
-            <input type="submit" value="Create Event" disabled class="btn btn-primary"/>
+            <input type="submit" value="Create Event" disabled class="btn btn-primary" id="submit-event"/>
           </fieldset>
-
           <input type="hidden" name="beginDate"/>
         </form>
       </li>
       <li class="step step-3 hidden">
       </li>
     </ol>
+  </div>
+</div>
+
+
+<div
+    class="modal fade"
+    id="webmaker-login-new-user"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="createNewWebmakerUser"
+    aria-hidden="true">
+
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Welcome to Webmaker!</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form">
+          <div class="form-group username-group">
+            <div class="row">
+              <div class="col-sm-6">
+                <label for="username">Choose a username</label>
+              </div>
+              <div class="col-sm-6">
+                <input id="username" name="username" class="form-control" required>
+                <span class="help-block username-taken-error hidden">That
+                  username is taken</span>
+                <span class="help-block username-required-error hidden">You must
+                  choose a username</span>
+                <span class="help-block username-invalid-error hidden">Invalid
+                  username. All usernames must be between 1-20 characters, and
+                  only include &ldquo;-&rdquo; and alphanumeric characters</span>
+              </div>
+            </div>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input name="mailingList" type="checkbox"> Send me email updates
+              about Mozilla Webmaker and other projects
+            </label>
+          </div>
+          <div class="checkbox form-group agree-group">
+            <label>
+              <input name="agreeToTerms" type="checkbox"> I agree to your
+              <a href="https://webmaker.org/en-US/terms">terms</a> and
+              <a href="https://webmaker.org/en-US/privacy">conditions</a>
+            </label>
+            <span class="help-block agree-error hidden">
+              You must agree to our terms and conditions.
+            </span>
+          </div>
+          <input type="hidden" name="supportedLocales" value="en-US"/>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Cancel
+        </button>
+        <button class="create-user btn btn-primary" type="button">Create
+          Account
+        </button>
+      </div>
+    </div>
   </div>
 </div>
