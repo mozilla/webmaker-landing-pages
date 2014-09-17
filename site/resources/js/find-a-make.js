@@ -18,7 +18,7 @@
     while (totalTags--) {
       var context = tags[totalTags];
       if (!context.match(filter)) {
-        resultArray.push(context);
+        resultArray.push(decodeURIComponent(context));
       }
     }
     return resultArray;
