@@ -117,10 +117,7 @@ module.exports = function (grunt) {
     less: {
       styles: {
         files: {
-          '<%= landingpages.app %>/resources/compiled/webmaker.css': '<%= landingpages.app %>/less/pages/webmaker.less',
-          '<%= landingpages.app %>/resources/compiled/sandstone.css': '<%= landingpages.app %>/less/pages/sandstone.less',
-          '<%= landingpages.app %>/resources/compiled/makersteps.css': '<%= landingpages.app %>/less/pages/makersteps.less',
-          '<%= landingpages.app %>/resources/compiled/white.css': '<%= landingpages.app %>/less/pages/white.less'
+          '<%= landingpages.app %>/resources/compiled/core.css': '<%= landingpages.app %>/less/core.less'
         }
       }
     },
@@ -129,7 +126,7 @@ module.exports = function (grunt) {
         browsers: ['last 2 versions']
       },
       build: {
-        src: '<%= landingpages.buildTarget %>/resources/css/*.css'
+        src: '<%= landingpages.buildTarget %>/resources/compiled/core.css'
       }
     },
     watch: {
@@ -217,7 +214,7 @@ module.exports = function (grunt) {
     },
     usemin: {
       html: ['<%= landingpages.buildTarget %>/**/*.html'],
-      css: ['<%= landingpages.buildTarget %>/resources/css/**/*.css']
+      css: ['<%= landingpages.buildTarget %>/resources/compiled/*.css']
     },
     // Usemin adds files to concat
     concat: {},

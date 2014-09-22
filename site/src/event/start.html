@@ -1,0 +1,192 @@
+---
+template: white.html
+title: "Get started with a Maker Party"
+description: "Follow these easy steps to put together your Maker Party today"
+---
+
+<div class="start-page">
+  <div class="container">
+    <ol class="steps">
+
+      <li class="step step-1">
+        <div class="type-container clearfix">
+          <div class="type overlay">
+            <i class="fa fa-umbrella"></i>
+
+            <div class="overlay-on-hover">
+              <h3>Hack Your High School</h3>
+
+              <p>
+                Get a group of youth together to remix their schools’ web site.
+                With our Xray Goggles tool, it's as easy as going to a school's
+                website and changing some text to announce Summer's coming early
+                or adding an image making Justin Bieber the new school mascot.
+              </p>
+
+              <fieldset class="hidden meme">
+                <input type="hidden" name="title" value="Hack Your High School"/>
+                <input type="hidden" name="description" value="<p>Remix your school’s web site with our Xray Goggles tool. It’s as easy as going to your school’s website and changing some text to announce summer’s coming early, or adding an image making Justin Bieber the new school mascot.</p><p><a class='btn btn-primary btn-lg' href='https://blog.webmaker.org/hack-your-school'>Begin!</a></p>"/>
+                <input type="hidden" name="tags" value=""/>
+              </fieldset>
+              <button type="submit" id="meme" class="btn btn-primary">
+                Build Event
+              </button>
+            </div>
+          </div>
+          <div class="type overlay">
+            <i class="fa fa-video-camera"></i>
+
+            <div class="overlay-on-hover">
+              <h3>YouTube Karaoke</h3>
+
+              <p>
+                Participants will pick their favorite song from YouTube,
+                lip-sync their own version on camera, and mash the two
+                together to create their very own music video. Who knows?
+                Maybe you'll discover the next YouTube sensation.
+              </p>
+              <fieldset class="hidden video">
+                <input type="hidden" name="title" value="YouTube Karaoke"/>
+                <input type="hidden" name="description" value="<p>Pick your favorite song from YouTube, lip-sync your own version on camera, and mash the two together to create your very own music video. Who knows? Maybe you’ll be the next YouTube sensation.</p><p><a href='https://blog.webmaker.org/music_video' class='btn btn-primary btn-lg'>Begin!</a>"/>
+                <input type="hidden" name="tags" value=""/>
+              </fieldset>
+              <button type="submit" id="video" class="btn btn-primary">
+                Build Event
+              </button>
+            </div>
+          </div>
+          <div class="type overlay">
+            <i class="fa fa-times"></i>
+
+            <div class="overlay-on-hover">
+              <h3>Private Eye</h3>
+
+              <p>
+                Participants will create their own Wizard of Oz moment by
+                pulling back the curtain to see who's watching us on the Web.
+                Turn on our Lightbeam tool, visit a handful of websites, and
+                reveal who's tracking you. You'll never look at the Web the same
+                way again.
+              </p>
+
+              <fieldset class="hidden privacy">
+                <input type="hidden" name="title" value="Private Eye"/>
+                <input type="hidden" name="description" value="<p>Create your own Wizard of Oz moment by pulling back the curtain to see who’s watching us on the Web. Turn on our Lightbeam tool, visit a handful of websites, and reveal who’s tracking you. You’ll never look at the Web the same way again.</p><p><a href='https://laura.makes.org/thimble/lightbeam-activity' class='btn btn-primary btn-lg'>Begin!</a></p>"/>
+                <input type="hidden" name="tags" value=""/>
+              </fieldset>
+              <button type="submit" id="privacy" class="btn btn-primary">
+                Build Event
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="step step-2 hidden">
+        <form action="#" id="sign-in-form">
+          <fieldset role="textbox">
+            <a href="/auth/login" class="btn btn-primary btn-lg">Log in</a>
+          </fieldset>
+        </form>
+
+        <form action="#" method="post" id="start-event-submission">
+          <fieldset role="textbox" class="datepicker">
+            <label for="datepicker">Event Date</label>
+            <input id="datepicker">
+          </fieldset>
+
+          <fieldset role="textbox">
+            <label for="address">Event Location</label>
+            <input type="text" id="address" name="address"/>
+          </fieldset>
+
+          <fieldset role="textbox">
+            <label for="estimatedAttendees"># of Attendees</label>
+            <select name="estimatedAttendees" id="estimatedAttendees">
+              <option value="0" selected disabled>Select…</option>
+              <option value="5">Under 10</option>
+              <option value="15">10-20</option>
+              <option value="35">20-50</option>
+              <option value="75">50-100</option>
+              <option value="150">100-200</option>
+              <option value="350">200-500</option>
+              <option value="500">500+</option>
+            </select>
+          </fieldset>
+          <fieldset role="textbox">
+            <input type="submit" value="Create Event" disabled class="btn btn-primary" id="submit-event"/>
+          </fieldset>
+          <input type="hidden" name="beginDate"/>
+        </form>
+      </li>
+      <li class="step step-3 hidden">
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<div
+    class="modal fade"
+    id="webmaker-login-new-user"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="createNewWebmakerUser"
+    aria-hidden="true">
+
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Welcome to Webmaker!</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form">
+          <div class="form-group username-group">
+            <div class="row">
+              <div class="col-sm-6">
+                <label for="username">Choose a username</label>
+              </div>
+              <div class="col-sm-6">
+                <input id="username" name="username" class="form-control" required>
+                <span class="help-block username-taken-error hidden">That
+                  username is taken</span>
+                <span class="help-block username-required-error hidden">You must
+                  choose a username</span>
+                <span class="help-block username-invalid-error hidden">Invalid
+                  username. All usernames must be between 1-20 characters, and
+                  only include &ldquo;-&rdquo; and alphanumeric characters</span>
+              </div>
+            </div>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input name="mailingList" type="checkbox"> Send me email updates
+              about Mozilla Webmaker and other projects
+            </label>
+          </div>
+          <div class="checkbox form-group agree-group">
+            <label>
+              <input name="agreeToTerms" type="checkbox"> I agree to your
+              <a href="https://webmaker.org/en-US/terms">terms</a> and
+              <a href="https://webmaker.org/en-US/privacy">conditions</a>
+            </label>
+            <span class="help-block agree-error hidden">
+              You must agree to our terms and conditions.
+            </span>
+          </div>
+          <input type="hidden" name="supportedLocales" value="en-US"/>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Cancel
+        </button>
+        <button class="create-user btn btn-primary" type="button">Create
+          Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

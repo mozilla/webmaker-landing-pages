@@ -52,62 +52,69 @@
     }
   }
 
-  var
-    makeapi = new Make({
-      apiURL: "https://makeapi.webmaker.org"
-    }),
-    template = '<article class="make sample-make">' +
-    '<a href="{{ url }}">' +
-    '<img src="{{ thumbnail }}" alt="{{ title }}" class="make-thumbnail"/>' +
-    '</a>' +
-    '<div class="gallery-info">' +
-    '<h3>' +
-    '<a class="title" href="{{ url }}">' +
-    '{{ title }}' +
-    '</a>' +
-    '</h3>' +
-    '<div class="make-meta">' +
-    '<img class="data-avatar pull-left" alt="{{ username }}" src="' + generateGravatar('{{ emailHash }}') + '" data-email-hash="{{ emailHash }}"/>' +
-    '<p>' +
-    'Created by ' +
-    '<a class="author" href="https://webmaker.org/u/{{ username }}">' +
-    '@{{ username }}' +
-    '</a>' +
-    '<time class="date" datetime="{{ createdAt }}"></time>, ' +
-    '{{ likes }}'.length + ' ' + likeNoun('{{ likes }}') +
-    '</p>' +
-    '<p>{{ description }}</p>' +
-    '</div>' +
-    '<div class="tag-container">' +
-    '<span class="fa fa-tags"></span>' +
-    '{{ #tags }}' +
-    '<a class="tag" href="https://webmaker.org/t/{{ . }}">{{ . }}</a>' +
-    '{{ /tags }}' +
-    '</div>' +
-    '<div class="make-actions btn-container">' +
-    '<a class="btn btn-primary" href="{{ remixurl }}">' +
-    '<span class="fa fa-code-fork"></span> Remix' +
-    '</a> ' +
-    '<a class="btn btn-primary" href="{{ url }}">Details</a>' +
-    '</div>' +
-    '</div>' +
-    '</article>',
-    $makeGallery = $('#make-gallery');
-
-  makeapi.id($makeGallery.data('make-id')).then(function (error, makes) {
-    if (error) {
-      return;
-    }
-
+  function findMake() {
     var
-      selectedMake, output;
+      makeapi = new Make({
+        apiURL: "https://makeapi.webmaker.org"
+      }),
+      template = '<article class="make sample-make">' +
+      '<a href="{{ url }}">' +
+      '<img src="{{ thumbnail }}" alt="{{ title }}" class="make-thumbnail"/>' +
+      '</a>' +
+      '<div class="gallery-info">' +
+      '<h3>' +
+      '<a class="title" href="{{ url }}">' +
+      '{{ title }}' +
+      '</a>' +
+      '</h3>' +
+      '<div class="make-meta">' +
+      '<img class="data-avatar pull-left" alt="{{ username }}" src="' + generateGravatar('{{ emailHash }}') + '" data-email-hash="{{ emailHash }}"/>' +
+      '<p>' +
+      'Created by ' +
+      '<a class="author" href="https://webmaker.org/u/{{ username }}">' +
+      '@{{ username }}' +
+      '</a>' +
+      '<time class="date" datetime="{{ createdAt }}"></time>, ' +
+      '{{ likes }}'.length + ' ' + likeNoun('{{ likes }}') +
+      '</p>' +
+      '<p>{{ description }}</p>' +
+      '</div>' +
+      '<div class="tag-container">' +
+      '<span class="fa fa-tags"></span>' +
+      '{{ #tags }}' +
+      '<a class="tag" href="https://webmaker.org/t/{{ . }}">{{ . }}</a>' +
+      '{{ /tags }}' +
+      '</div>' +
+      '<div class="make-actions btn-container">' +
+      '<a class="btn btn-primary" href="{{ remixurl }}">' +
+      '<span class="fa fa-code-fork"></span> Remix' +
+      '</a> ' +
+      '<a class="btn btn-primary" href="{{ url }}">Details</a>' +
+      '</div>' +
+      '</div>' +
+      '</article>',
+      $makeGallery = $('#make-gallery');
 
-    selectedMake = makes[0];
-    selectedMake.tags = filterTags(selectedMake.tags);
+    makeapi.id($makeGallery.data('make-id')).then(function (error, makes) {
+      if (error) {
+        return;
+      }
 
-    output = Mustache.render(template, selectedMake);
-    $makeGallery.html(output);
-    updateRemixLinks(selectedMake);
-  });
+      var
+        selectedMake, output;
 
+      selectedMake = makes[0];
+      selectedMake.tags = filterTags(selectedMake.tags);
+
+      output = Mustache.render(template, selectedMake);
+      $makeGallery.html(output);
+      updateRemixLinks(selectedMake);
+    });
+  }
+
+  if ($('#make-gallery').length > 0) {
+    findMake();
+  }
+
+  win.findMake = findMake;
 })(jQuery, window);

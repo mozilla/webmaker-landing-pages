@@ -1,0 +1,24 @@
+// Variables
+// -------------
+
+@fa-calendar: "\f073";
+@fa-sort: "\f0dc";
+
+// Mixins
+// ------
+
+// I actually dk if these are included in fa 4 anymore but they're *incredibly*
+// useful so we may want to move them back into mixins when we upgrade
+
+.icon(@icon) {
+  .icon-FontAwesome();
+  content: @icon;
+}
+
+.icon-FontAwesome() {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+}

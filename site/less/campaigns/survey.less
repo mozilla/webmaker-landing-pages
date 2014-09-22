@@ -1,0 +1,175 @@
+.teach-survey, .firefox-2014 {
+  header {
+    margin-bottom: 3rem;
+  }
+
+  p {
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: 1.5;
+    @media screen and (min-width: @screen-sm-min) {
+      font-size: 2rem;
+    }
+  }
+
+  h1 {
+    font-weight: 200;
+    font-size: 5.2rem;
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    margin-bottom: 2rem;
+  }
+
+  fieldset {
+    margin-bottom: 1.6rem;
+  }
+
+  label {
+    cursor: pointer;
+    display: inline;
+    font-size: 2.25rem;
+    font-weight: 300;
+    line-height: 1.5;
+    &[for="opt_in"] {
+      font-size: 1.2rem;
+      padding-right: 3.4rem;
+      @media screen and  (min-width: @screen-sm-min) {
+        line-height: 1.3;
+        max-width: 35em;
+      }
+    }
+    &[for="email"] {
+      color: lighten(@mozilla-charcoal, 35%);
+      display: block;
+      position: relative;
+      span {
+        left: 1.2rem;
+        position: absolute;
+        top: 1.5rem;
+
+        @media screen and (min-width: @screen-sm-min) {
+          top: 2.2rem;
+          left: 2.1rem;
+        }
+      }
+    }
+  }
+  input {
+    border: none;
+    &[type="radio"], &[type="checkbox"] {
+      margin-right: 0.5rem;
+      position: relative;
+      -moz-transform: scale(2);
+      zoom: 2;
+    }
+    &[type="email"] {
+      border: @mozilla-charcoal solid 0.1rem;
+      max-width: 100%;
+      width: 100%;
+      padding: 0.8rem 0.8rem 0.8rem 4rem;
+      @media screen and (min-width: @screen-sm-min) {
+        float: left;
+        max-width: 47rem;
+        padding: 1.5rem 0.8rem 1.6rem 6rem;
+      }
+      @media screen and (min-width: @screen-md-min) {
+        max-width: 56rem;
+      }
+    }
+    &[type="radio"] {
+      cursor: pointer;
+      position: relative;
+      margin-top: 0;
+      top: -0.2rem;
+
+      &::before, &::after {
+        border-radius: 50%;
+        content: ' ';
+        cursor: pointer;
+        font-size: 3.2rem;
+        position: absolute;
+      }
+      &::before {
+        border: solid 0.1rem lighten(@mozilla-charcoal, 50%);
+        box-shadow: inset 0 0 2rem 2rem @white;
+        height: 2.8rem;
+        left: -0.2rem;
+        width: 2.8rem;
+      }
+      &:checked {
+        &::after {
+          background: @lightgrey;
+          box-shadow: inset 0 0 1rem 1rem @brand-primary;
+          height: 1.8rem;
+          width: 1.8rem;
+          left: 0.3rem;
+          top: 0.5rem;
+        }
+      }
+    }
+    &[type="checkbox"] {
+      // TODO match checkbox to this appearance http://snaps.akibraun.com/elx5y.png
+      &::before {
+      }
+      &::after {
+      }
+    }
+    &[type="submit"] {
+      background: @brand-primary;
+      border: none;
+      color: @white;
+      display: block;
+      font-size: 2.2rem;
+      font-weight: 200;
+      margin-top: 1rem;
+      min-height: 4.2rem;
+      transition: background 150ms;
+      width: 100%;
+      @media screen and (min-width: @screen-sm-min) {
+        margin-top: 0;
+        width: 12rem;
+        padding: 1.2rem 0;
+      }
+      &:hover {
+        background: darken(@brand-primary, 4%);
+      }
+    }
+    &[name="opt_in"] {
+      display: inline;
+    }
+  }
+  .radio-buttons {
+    margin-bottom: 3rem;
+    label {
+      margin-left: 1.4rem;
+    }
+  }
+  .email-set {
+    margin: 0 auto 2rem;
+    max-width: 100%;
+    width: 36rem;
+    @media screen and (min-width: @screen-sm-min) {
+      width: 100%;
+      [type="submit"] {
+        float: right;
+      }
+    }
+    @media screen and (min-width: @screen-md-min) {
+      width: 69rem;
+      margin-left: 0;
+    }
+  }
+  .bypass-survey {
+    font-size: 1rem;
+    @media screen and (min-width: @screen-sm-min) {
+      text-align: right;
+    }
+  }
+}
