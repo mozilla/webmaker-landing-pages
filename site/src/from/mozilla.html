@@ -3,41 +3,125 @@ template: sandstone.html
 title: "We are Mozilla"
 description: "Doing good is part of our code."
 ---
-<noscript>
-  <img alt="Webmakers at a maker party" src="/resources/img/sandstone/banner-maker-party.jpg"/>
-</noscript>
-<figure class="banner">
-  <img src="#" alt="Webmakers at a maker party"
-       data-src-1x="/resources/img/sandstone/banner-maker-party.jpg"
-       data-src-2x="/resources/img/sandstone/banner-maker-party@2x.jpg"/>
-</figure>
 
-<div class="container">
-  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-    <p class="cta-copy">
-      <strong>Sign up</strong> for free updates about events near you:
-    </p>
-
-    <div class="moz-form">
-      <form role="form" method="post" action="https://sendto.webmaker.org/page/signup/webmaker-sandstone-snippet">
-        <div class="form-group">
-          <div class="email input-group">
-            <span class="input-group-addon"><span class="fa fa-envelope"></span></span>
-            <input type="email" class="form-control" id="field1" name="email" size="48" placeholder="Your e-mail address" required>
-          </div>
-          <p class="buttonBottom">
-            <button type="submit" class="btn btn-primary">Sign up</button>
-          </p>
-          <div class="accept input-group">
-            <input id="allow_email" class="pull-left input-left" type="checkbox" required>
-            <label for="allow_email" class="help-block">Yes! I want to receive email
-              updates about Mozilla&rsquo;s projects and campaigns and I&rsquo;m
-              okay with you handling this info as you explain in your
-              <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy
-                policy</a>.</label>
-          </div>
+<div class="container mozilla-header">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <section class="row">
+      <figure class="col-xs-12 col-sm-4 col-md-4 hivephoto">
+        <img src="/resources/img/signup/img-sign-up.jpg" alt="Learning the web together" class="img-circle" width="560" height="560"/>
+        <figcaption>
+          <a href="https://www.flickr.com/photos/123150788@N08/14219051289/in/faves-mozilladrumbeat/">
+            <span class="fa fa-camera"></span>
+            harshavardhankuchi
+          </a>
+        </figcaption>
+      </figure>
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <hgroup class="mission">
+          <h1>Mozilla Webmaker</h1>
+          <h2>We teach the web.</h2>
+          <h3>Webmaker is an open source education project with easy to use tools
+            for teaching others the fundamentals of the web.
+            <strong>You can teach the web today.</strong> Sign up for free updates about events near you.</h3>
+        </hgroup>
+        <div class="actions">
+          <button class="create-account" id="create-account-button">
+            Sign up for Webmaker
+            <span class="fa fa-chevron-right fa-smaller"></span>
+          </button>
+          <a href="#" id="log-in-button" class="log-in">or log in if you have an existing account</a>
         </div>
-      </form>
+      </div>
+    </section>
+  </div>
+  <div class="col-xs-12 col-md-11 col-md-offset-1 checklist">
+    <h1>What's here for you?</h1>
+    <div class="wm-row">
+      <h3><i class="fa fa-check"></i> Use Webmaker's online tools to create your own content</h3>
+    </div>
+    <div class="wm-row">
+      <h3><i class="fa fa-check"></i> Find and attend events near you</h3>
+    </div>
+    <div class="wm-row">
+      <h3><i class="fa fa-check"></i> Use Webmaker-vetted tools</h3>
+    </div>
+    <div class="wm-row">
+      <h3><i class="fa fa-star-o"></i> Earn badges for your web literacy skills</h3><span>Needs a Webmaker account</span>
+    </div>
+    <div class="wm-row">
+      <h3><i class="fa fa-star-o"></i> Save and publish with Webmaker Tools</h3><span>Needs a Webmaker account</span>
+    </div>
+    <div class="wm-row">
+      <h3><i class="fa fa-star-o"></i> Create and publish an event</h3><span>Needs a Webmaker account</span>
+    </div>
+    <div class="wm-row">
+      <h3><i class="fa fa-star-o"></i> Create your profile and get your own custom URL</h3><span>Needs a Webmaker account</span>
+    </div>
+  </div>
+</div>
+
+<div
+    class="modal fade"
+    id="webmaker-login-new-user"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="createNewWebmakerUser"
+    aria-hidden="true">
+
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Welcome to Webmaker!</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form">
+          <div class="form-group username-group">
+            <div class="row">
+              <div class="col-sm-6">
+                <label for="username">Choose a username</label>
+              </div>
+              <div class="col-sm-6">
+                <input id="username" name="username" class="form-control" required>
+                <span class="help-block username-taken-error hidden">That
+                  username is taken</span>
+                <span class="help-block username-required-error hidden">You must
+                  choose a username</span>
+                <span class="help-block username-invalid-error hidden">Invalid
+                  username. All usernames must be between 1-20 characters, and
+                  only include &ldquo;-&rdquo; and alphanumeric characters</span>
+              </div>
+            </div>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input name="mailingList" type="checkbox"> Send me email updates
+              about Mozilla Webmaker and other projects
+            </label>
+          </div>
+          <div class="checkbox form-group agree-group">
+            <label>
+              <input name="agreeToTerms" type="checkbox"> I agree to your
+              <a href="https://webmaker.org/en-US/terms">terms</a> and
+              <a href="https://webmaker.org/en-US/privacy">conditions</a>
+            </label>
+            <span class="help-block agree-error hidden">
+              You must agree to our terms and conditions.
+            </span>
+          </div>
+          <input type="hidden" name="supportedLocales" value="en-US"/>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Cancel
+        </button>
+        <button class="create-user btn btn-primary" type="button">Create
+          Account
+        </button>
+      </div>
     </div>
   </div>
 </div>

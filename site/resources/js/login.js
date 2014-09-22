@@ -57,7 +57,7 @@
   webmakerAuth();
   win.webmaker.auth.verify();
 
-  if (doc.getElementById('signup-page-info') !== null) {
+  if (doc.getElementById('webmaker-login-new-user') !== null) {
     init();
   }
 

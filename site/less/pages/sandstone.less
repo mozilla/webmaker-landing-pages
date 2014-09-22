@@ -4,16 +4,16 @@
   color: @black;
   line-height: 1.5;
 
-  a {
-    &:link, &:visited {
-      color: @sandstone-link;
-      text-decoration: none;
-    }
-    &:hover, &:active, &:focus {
-      color: @sandstone-hover;
-      text-decoration: underline;
-    }
-  }
+  // a {
+  //   &:link, &:visited {
+  //     color: @sandstone-link;
+  //     text-decoration: none;
+  //   }
+  //   &:hover, &:active, &:focus {
+  //     color: @sandstone-hover;
+  //     text-decoration: underline;
+  //   }
+  // }
 
   strong, b {
     font-weight: 600;
@@ -35,46 +35,128 @@
     height: 100%;
   }
 
+  .mozilla-header {
+    margin-top: 4rem;
+  }
+
   .mission {
-    margin: 2rem auto;
-    max-width: 26rem;
+    text-align: center;
+    margin-bottom: 2rem;
     @media screen and (min-width: @screen-sm-min) {
       max-width: 100%;
+      text-align: left;
     }
     h1 {
-      color: @mozilla-red;
-      font-size: 3.6rem;
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      @media screen and (min-width: @screen-sm-min) {
+        font-size: 6rem;
+      }
+    }
+    h2 {
+      font-size: 3rem;
       font-weight: 300;
       line-height: 0.9;
       letter-spacing: -0.05em;
-      margin: 0 0 0.05em;
-      text-align: left;
-
+      margin-top: 0;
       @media screen and (min-width: @screen-sm-min) {
-        font-size: 8.4rem;
-        font-weight: bold;
-        text-align: center;
+        font-size: 5rem;
       }
     }
-    .mozilla {
-      .text-hide();
-      background-image: url('/resources/img/sandstone/mozilla-wordmark-red.png');
-      background-repeat: no-repeat;
-      background-position: center top;
-      background-size: 100% auto;
-      display: block;
-      height: 7.1rem;
-      margin: 0 auto;
-      max-width: 100%;
-      width: 26rem;
+    h3{
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1.4;
+      padding: 0.2rem 0;
+    }
+  }
+
+  figure {
+    padding-top: 3rem;
+    text-align: center;
+    img {
+      max-width: 50%;
       @media screen and (min-width: @screen-sm-min) {
-        bottom: -0.4rem;
-        display: inline-block;
-        position: relative;
-        vertical-align: top;
+        max-width: 100%;
       }
     }
   }
+
+  figcaption {
+    a {
+      &:link, &:visited {
+        color: @grey;
+        font-size: 1.2rem;
+      }
+      &:hover, &:active, &:focus {
+        color: @black;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .actions {
+    text-align: center;
+    @media screen and (min-width: @screen-sm-min) {
+      text-align: left;
+    }
+  }
+
+  .create-account {
+    // code taken from Mozilla's Style Guide
+    display: inline-block;
+    padding: 1.6rem 3rem;
+    margin-right: 1rem;
+    font-size: 1.7rem;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+    background: #659324;
+    background-image: linear-gradient(to bottom, #81BC2E, #659324);
+    background-repeat: repeat-x;
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2), 0px -1px 0px 0px rgba(0, 0, 0, 0.3) inset;
+    cursor: pointer;
+    transition: all 0.25s linear;
+    &:hover {
+      box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2), 0px -1px 0px 0px rgba(0, 0, 0, 0.3) inset, 0px 12px 24px 2px #83C822 inset;
+    }
+  }
+
+  .log-in {
+    display: inline-block;
+    text-decoration: underline;
+    color: @mozilla-charcoal;
+    font-size: 1.4rem;
+  }
+
+  .checklist {
+    margin-top: 2rem;
+    @media screen and (min-width: @screen-sm-min) {
+      margin-top: 5rem;
+    }
+    h1 {
+      font-size: 4rem;
+    }
+    h3 {
+      display: inline-block;
+    }
+    span {
+      color: @blue;
+      @media screen and (min-width: @screen-sm-min) {
+        margin-left: 1rem;
+      }
+    }
+    .wm-row {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(72,72,72, 0.2);
+    }
+  }
+
+
   .tagline {
     color: @black;
     font-size: 3rem;
@@ -94,10 +176,6 @@
   .banner {
     max-height: 27rem;
     overflow: hidden;
-  }
-  .cta-copy {
-    margin-top: 1.6rem;
-    text-align: center;
   }
 
   .form-section {
