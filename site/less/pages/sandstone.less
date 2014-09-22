@@ -4,16 +4,16 @@
   color: @black;
   line-height: 1.5;
 
-  a {
-    &:link, &:visited {
-      color: @sandstone-link;
-      text-decoration: none;
-    }
-    &:hover, &:active, &:focus {
-      color: @sandstone-hover;
-      text-decoration: underline;
-    }
-  }
+  // a {
+  //   &:link, &:visited {
+  //     color: @sandstone-link;
+  //     text-decoration: none;
+  //   }
+  //   &:hover, &:active, &:focus {
+  //     color: @sandstone-hover;
+  //     text-decoration: underline;
+  //   }
+  // }
 
   strong, b {
     font-weight: 600;
@@ -90,6 +90,41 @@
         text-decoration: none;
       }
     }
+  }
+
+  .actions {
+    text-align: center;
+    @media screen and (min-width: @screen-sm-min) {
+      text-align: left;
+    }
+  }
+
+  .main-cta {
+    // code taken from Mozilla's Style Guide
+    display: inline-block;
+    padding: 2rem 4rem;
+    font-size: 1.7rem;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+    background: #659324;
+    background-image: linear-gradient(to bottom, #81BC2E, #659324);
+    background-repeat: repeat-x;
+    border-radius: 0.6rem;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2), 0px -1px 0px 0px rgba(0, 0, 0, 0.3) inset;
+    cursor: pointer;
+    transition: all 0.25s linear;
+    &:hover {
+      box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2), 0px -1px 0px 0px rgba(0, 0, 0, 0.3) inset, 0px 12px 24px 2px #83C822 inset;
+    }
+  }
+
+  .sign-in {
+    display: inline-block;
+    margin-left: 1rem;
+    text-decoration: underline;
+    color: @mozilla-charcoal;
+    font-size: 1.4rem;
   }
 
   .tagline {
