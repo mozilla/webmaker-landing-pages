@@ -3,41 +3,50 @@ template: sandstone.html
 title: "We are Mozilla"
 description: "Doing good is part of our code."
 ---
-<noscript>
-  <img alt="Webmakers at a maker party" src="/resources/img/sandstone/banner-maker-party.jpg"/>
-</noscript>
-<figure class="banner">
-  <img src="#" alt="Webmakers at a maker party"
-       data-src-1x="/resources/img/sandstone/banner-maker-party.jpg"
-       data-src-2x="/resources/img/sandstone/banner-maker-party@2x.jpg"/>
-</figure>
 
-<div class="container">
-  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-    <p class="cta-copy">
-      <strong>Sign up</strong> for free updates about events near you:
-    </p>
+<div class="container mozilla-header">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <section class="row">
+      <figure class="col-xs-12 col-sm-4 col-md-4 hivephoto">
+        <img src="/resources/img/makersteps/img-explore-mentor.jpg" alt="Learning the web together" class="img-circle" width="560" height="560"/>
+        <figcaption>
+          <a href="https://secure.flickr.com/photos/newyouthcity/9613074255/">
+            <span class="fa fa-camera"></span>
+            HiveLearningNYC
+          </a>
+        </figcaption>
+      </figure>
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <hgroup class="mission">
+          <h1>Mozilla Webmaker</h1>
+          <h2>We teach the web.</h2>
+          <h3>Webmaker is an open source education project with easy to use tools
+            for teaching others the fundamentals of the web.
+            <strong>You can teach the web today.</strong> Sign up for free updates about events near you.</h3>
+        </hgroup>
 
-    <div class="moz-form">
-      <form role="form" method="post" action="https://sendto.webmaker.org/page/signup/webmaker-sandstone-snippet">
-        <div class="form-group">
-          <div class="email input-group">
-            <span class="input-group-addon"><span class="fa fa-envelope"></span></span>
-            <input type="email" class="form-control" id="field1" name="email" size="48" placeholder="Your e-mail address" required>
-          </div>
-          <p class="buttonBottom">
-            <button type="submit" class="btn btn-primary">Sign up</button>
-          </p>
-          <div class="accept input-group">
-            <input id="allow_email" class="pull-left input-left" type="checkbox" required>
-            <label for="allow_email" class="help-block">Yes! I want to receive email
-              updates about Mozilla&rsquo;s projects and campaigns and I&rsquo;m
-              okay with you handling this info as you explain in your
-              <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy
-                policy</a>.</label>
-          </div>
+        <div class="moz-form">
+          <form role="form" method="post" action="https://sendto.webmaker.org/page/signup/webmaker-sandstone-snippet">
+            <div class="form-group">
+              <div class="email input-group">
+                <span class="input-group-addon"><span class="fa fa-envelope"></span></span>
+                <input type="email" class="form-control" id="field1" name="email" size="48" placeholder="Your e-mail address" required>
+              </div>
+              <p class="buttonBottom">
+                <a class="main-cta">Sign up for Webmaker</a>
+              </p>
+              <div class="accept input-group">
+                <input id="allow_email" class="pull-left input-left" type="checkbox" required>
+                <label for="allow_email" class="help-block">Yes! I want to receive email
+                  updates about Mozilla&rsquo;s projects and campaigns and I&rsquo;m
+                  okay with you handling this info as you explain in your
+                  <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy
+                    policy</a>.</label>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
+      </div>
+    </section>
   </div>
 </div>
