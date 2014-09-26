@@ -5,104 +5,133 @@ description: "Follow these easy steps to put together your Maker Party today"
 ---
 
 <div class="start-page">
-  <div class="container">
-    <ol class="steps">
+  <div class="container wizard-container">
+    <div class="row step-section" id="step-1">
+      <h1>Choose a Webmaker Event</h1>
+      <p class="subheadline">Webmaker Events are fun and easy to organize. All you need is a few laptops, a wi-fi connection, and a group of eager participants! We’ll provide easy to follow instructions.</p>
+      <h6>Step 1. What type of event would you like to host?</h6>
 
-      <li class="step step-1">
-        <div class="type-container clearfix">
-          <div class="type overlay">
-            <i class="fa fa-umbrella"></i>
+      <div class="event col-xs-12 col-md-4">
+        <div class="w-inner">
+          <i class="fa fa-gears fa-5x"></i>
+          <h2>Hack Your High School</h2>
+          <p>Get a group of youth together to remix their schools’ web site. With our X-Ray Goggles tool, it's as easy as going to a school's website and changing some text or adding an image making Justin Bieber the new school mascot.</p>
+          <ol>
+            <li>
+              <i class="fa fa-user"></i> 8-10 participants
+            </li>
+            <li>
+              <i class="fa fa-laptop"></i> 2-4 laptops required
+            </li>
+            <li>
+              <i class="fa fa-star"></i> Great for kids
+            </li>
+          </ol>
+          <fieldset class="hidden meme">
+          <p class="icon hidden">fa-gears</p>
+            <p class="event hidden">Hack Your High School</p>
+            <p class="description hidden">Get a group of youth together to remix their schools’ web site. With our X-Ray Goggles tool, it's as easy as going to a school's website and changing some text or adding an image making Justin Bieber the new school mascot.</p>
+            <input type="hidden" name="title" value="Hack Your High School"/>
+            <input type="hidden" name="description" value="<p>Remix your school’s web site with our Xray Goggles tool. It’s as easy as going to your school’s website and changing some text to announce summer’s coming early, or adding an image making Justin Bieber the new school mascot.</p><p><a class='btn btn-primary btn-lg' href='https://blog.webmaker.org/hack-your-school'>Begin!</a></p>"/>
+            <input type="hidden" name="tags" value=""/>
+          </fieldset>
+          <a href="#" id="meme" class="btn btn-info eventBtn">Create Event</a>
+        </div> <!-- Ends w-inner -->
+      </div> <!-- ends event -->
 
-            <div class="overlay-on-hover">
-              <h3>Hack Your High School</h3>
+      <div class="event col-xs-12 col-md-4">
+        <div class="w-inner">
+          <i class="fa fa-code-fork fa-5x"></i>
+          <h2>YouTube Karaoke</h2>
+          <p>Participants will pick their favorite song from YouTube, lip-sync their own version on camera, and mash the two together to create their very own music video. Who knows? Maybe you'll discover the next YouTube sensation.</p>
+          <ol>
+            <li>
+              <i class="fa fa-user"></i> 20-40 participants
+            </li>
+            <li>
+              <i class="fa fa-laptop"></i> 20 laptops required
+            </li>
+            <li>
+              <i class="fa fa-star"></i> Great for kids
+            </li>
+          </ol>
+          <fieldset class="hidden video">
+            <p class="icon hidden">fa-code-fork</p>
+            <p class="event hidden">YouTube Karaoke</p>
+            <p class="description hidden">Participants will pick their favorite song from YouTube, lip-sync their own version on camera, and mash the two together to create their very own music video. Who knows? Maybe you'll discover the next YouTube sensation.</p>
+            <input type="hidden" name="title" value="YouTube Karaoke"/>
+            <input type="hidden" name="description" value="<p>Pick your favorite song from YouTube, lip-sync your own version on camera, and mash the two together to create your very own music video. Who knows? Maybe you’ll be the next YouTube sensation.</p><p><a href='https://blog.webmaker.org/music_video' class='btn btn-primary btn-lg'>Begin!</a>"/>
+            <input type="hidden" name="tags" value=""/>
+          </fieldset>
+          <a href="#" id="video" class="btn btn-info eventBtn">Create Event</a>
+        </div> <!-- Ends w-inner -->
+      </div> <!-- ends event -->
 
-              <p>
-                Get a group of youth together to remix their schools’ web site.
-                With our Xray Goggles tool, it's as easy as going to a school's
-                website and changing some text to announce Summer's coming early
-                or adding an image making Justin Bieber the new school mascot.
-              </p>
+      <div class="event col-xs-12 col-md-4">
+        <div class="w-inner">
+          <i class="fa fa-flask fa-5x"></i>
+          <h2>Private Eye</h2>
+          <p>Participants will create their own Wizard of Oz moment by pulling back the curtain to see who's watching us on the Web. Turn on our Lightbeam tool and reveal who's tracking you. You'll never look at the Web the same way again.</p>
+          <ol>
+            <li>
+              <i class="fa fa-user"></i> 15-30 participants
+            </li>
+            <li>
+              <i class="fa fa-laptop"></i> 15 laptops required
+            </li>
+            <li>
+              <i class="fa fa-star"></i> Great for adults
+            </li>
+          </ol>
+          <fieldset class="hidden privacy">
+            <p class="icon hidden">fa-flask</p>
+            <p class="event hidden">Private Eye</p>
+            <p class="description hidden">Participants will create their own Wizard of Oz moment by pulling back the curtain to see who's watching us on the Web. Turn on our Lightbeam tool and reveal who's tracking you. You'll never look at the Web the same way again.</p>
+            <input type="hidden" name="title" value="Private Eye"/>
+            <input type="hidden" name="description" value="<p>Create your own Wizard of Oz moment by pulling back the curtain to see who’s watching us on the Web. Turn on our Lightbeam tool, visit a handful of websites, and reveal who’s tracking you. You’ll never look at the Web the same way again.</p><p><a href='https://laura.makes.org/thimble/lightbeam-activity' class='btn btn-primary btn-lg'>Begin!</a></p>"/>
+            <input type="hidden" name="tags" value=""/>
+          </fieldset>
+          <a href="#" id="privacy" class="btn btn-info eventBtn">Create Event</a>
+        </div> <!-- Ends w-inner -->
+      </div> <!-- ends event -->
 
-              <fieldset class="hidden meme">
-                <input type="hidden" name="title" value="Hack Your High School"/>
-                <input type="hidden" name="description" value="<p>Remix your school’s web site with our Xray Goggles tool. It’s as easy as going to your school’s website and changing some text to announce summer’s coming early, or adding an image making Justin Bieber the new school mascot.</p><p><a class='btn btn-primary btn-lg' href='https://blog.webmaker.org/hack-your-school'>Begin!</a></p>"/>
-                <input type="hidden" name="tags" value=""/>
-              </fieldset>
-              <button type="submit" id="meme" class="btn btn-primary">
-                Build Event
-              </button>
-            </div>
-          </div>
-          <div class="type overlay">
-            <i class="fa fa-video-camera"></i>
+    </div> <!-- ends step-1 -->
 
-            <div class="overlay-on-hover">
-              <h3>YouTube Karaoke</h3>
+    <div class="row step-section" id="step-2">
+      <h1>Let's get down to the nitty gritty</h1>
+      <p class="subheadline">We just need a few housekeeping details</p>
+      <h6>Step 2. Add your event details</h6>
 
-              <p>
-                Participants will pick their favorite song from YouTube,
-                lip-sync their own version on camera, and mash the two
-                together to create their very own music video. Who knows?
-                Maybe you'll discover the next YouTube sensation.
-              </p>
-              <fieldset class="hidden video">
-                <input type="hidden" name="title" value="YouTube Karaoke"/>
-                <input type="hidden" name="description" value="<p>Pick your favorite song from YouTube, lip-sync your own version on camera, and mash the two together to create your very own music video. Who knows? Maybe you’ll be the next YouTube sensation.</p><p><a href='https://blog.webmaker.org/music_video' class='btn btn-primary btn-lg'>Begin!</a>"/>
-                <input type="hidden" name="tags" value=""/>
-              </fieldset>
-              <button type="submit" id="video" class="btn btn-primary">
-                Build Event
-              </button>
-            </div>
-          </div>
-          <div class="type overlay">
-            <i class="fa fa-times"></i>
-
-            <div class="overlay-on-hover">
-              <h3>Private Eye</h3>
-
-              <p>
-                Participants will create their own Wizard of Oz moment by
-                pulling back the curtain to see who's watching us on the Web.
-                Turn on our Lightbeam tool, visit a handful of websites, and
-                reveal who's tracking you. You'll never look at the Web the same
-                way again.
-              </p>
-
-              <fieldset class="hidden privacy">
-                <input type="hidden" name="title" value="Private Eye"/>
-                <input type="hidden" name="description" value="<p>Create your own Wizard of Oz moment by pulling back the curtain to see who’s watching us on the Web. Turn on our Lightbeam tool, visit a handful of websites, and reveal who’s tracking you. You’ll never look at the Web the same way again.</p><p><a href='https://laura.makes.org/thimble/lightbeam-activity' class='btn btn-primary btn-lg'>Begin!</a></p>"/>
-                <input type="hidden" name="tags" value=""/>
-              </fieldset>
-              <button type="submit" id="privacy" class="btn btn-primary">
-                Build Event
-              </button>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="step step-2 hidden">
+      <div class="event col-xs-12 col-md-4">
+        <div class="w-inner">
+          <h6 class="selected">You selected</h6>
+          <i class="event-icon fa fa-5x"></i>
+          <h2 class="event-title">Event Title</h2>
+          <p class="event-description">Event Description</p>
+        </div> <!-- Ends .w-inner -->
+      </div> <!-- ends .event -->
+      <div class="event col-xs-12 col-md-4 col-md-offset-1">
         <form action="#" id="sign-in-form">
           <fieldset role="textbox">
-            <a href="/auth/login" class="btn btn-primary btn-lg">Log in</a>
+            <a class="btn btn-info" href="/auth/login" class="btn btn-primary btn-lg">Sign in to Add Event Details</a>
           </fieldset>
         </form>
 
-        <form action="#" method="post" id="start-event-submission">
-          <fieldset role="textbox" class="datepicker">
+        <form action="#" method="post" class="hidden" id="start-event-submission">
+          <fieldset class="datepicker" role="textbox">
             <label for="datepicker">Event Date</label>
-            <input id="datepicker">
+            <input class="form-control" id="datepicker">
           </fieldset>
 
           <fieldset role="textbox">
             <label for="address">Event Location</label>
-            <input type="text" id="address" name="address"/>
+            <input class="form-control" type="text" id="address" name="address" placeholder="Where will you host this event?"/>
           </fieldset>
 
           <fieldset role="textbox">
-            <label for="estimatedAttendees"># of Attendees</label>
-            <select name="estimatedAttendees" id="estimatedAttendees">
-              <option value="0" selected disabled>Select…</option>
+            <label for="estimatedAttendees">Event Size</label>
+            <select class="form-control" name="estimatedAttendees" id="estimatedAttendees">
+              <option value="0" selected disabled>How many participants will attend?</option>
               <option value="5">Under 10</option>
               <option value="15">10-20</option>
               <option value="35">20-50</option>
@@ -113,16 +142,50 @@ description: "Follow these easy steps to put together your Maker Party today"
             </select>
           </fieldset>
           <fieldset role="textbox">
-            <input type="submit" value="Create Event" disabled class="btn btn-primary" id="submit-event"/>
+            <input type="submit" value="Create Your Event" disabled class="btn btn-info" id="submit-event"/>
           </fieldset>
           <input type="hidden" name="beginDate"/>
         </form>
-      </li>
-      <li class="step step-3 hidden">
-      </li>
-    </ol>
-  </div>
-</div>
+      </div>
+    </div> <!-- Ends #step-2 -->
+
+    <div class="row step-section" id="step-3">
+      <h1>Your Event has been created!</h1>
+      <p class="subheadline">We just sent you an email with detailed instructions for how to run your event.</p>
+      <h6>Step 3. Share your event</h6>
+
+      <div class="event col-xs-12 col-md-4">
+        <div class="w-inner">
+          <h6 class="selected">You selected</h6>
+          <i class="event-icon fa fa-5x"></i>
+          <h2 class="event-title">Event Title</h2>
+          <p class="event-description">Event Description</p>
+        </div> <!-- Ends .w-inner -->
+      </div> <!-- ends .event -->
+
+      <div class="col-xs-12 col-md-6 col-md-offset-1">
+        <div class="event-summary">
+          <h5>Event Type</h5>
+          <p class="event-title">Event Title</p>
+
+          <h5>Event Date</h5>
+          <p id="confirmed-event-date"></p>
+
+          <h5>Event Location</h5>
+          <p id="confirmed-event-location"></p>
+
+          <h5>Event Size</h5>
+          <p id="confirmed-event-size">100-200</p>
+
+          <h5>Event Url</h5>
+          <a href="#" id="event-url" class="btn btn-info">https://events.mofostaging.net/events/88</a>
+          <span>Send participants to your personalized Event URL</span>
+        </div>
+      </div>
+    </div> <!-- Ends #step-3 -->
+
+  </div> <!-- ends .container -->
+</div> <!-- ends .start-page -->
 
 
 <div
