@@ -24,42 +24,26 @@
 </head>
 
 <body class="sandstone-landing">
-<!-- Tabzilla here -->
-<a href="/en-US/" id="tabzilla" data-infobar="translation">Mozilla</a>
+  <!-- Tabzilla here -->
+  <a href="/en-US/" id="tabzilla" data-infobar="translation">Mozilla</a>
 
-<div class="container">
-  <div class="col-xs-12 col-md-10 col-md-offset-1">
-    <hgroup class="mission">
-      <h1>We are <span class="mozilla">mozilla</span></h1>
-
-      <h2 class="tagline">Doing good is part of our code</h2>
-    </hgroup>
-    <p>
-      <strong>From July to September,
-        <a href="https://party.webmaker.org/en-US/">Mozilla Webmaker</a> is
-        hosting free events around the world.</strong> Join us to teach and
-      learn everything from coding and web design to protecting online privacy
-      and more.
-    </p>
-  </div>
-</div>
-
-<div id="content_area" role="main">
   {{ contents }}
-</div>
 
-<!-- Tabzilla script file -->
-<script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
+  <!-- Tabzilla script file -->
+  <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
 
-<!-- build:js /resources/js/sandstone.js -->
-<script type="text/javascript" src="/resources/vendors/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="/resources/vendors/cookie-js/cookie.js"></script>
-<script type="text/javascript" src="/resources/vendors/eventEmitter/EventEmitter.js"></script>
-<script type="text/javascript" src="/resources/vendors/webmaker-analytics/analytics.js"></script>
-<script type="text/javascript" src="/resources/vendors/webmaker-auth-client/webmaker-auth-client.js"></script>
-<script type="text/javascript" src="/resources/js/core.js"></script>
-<script type="text/javascript" src="/resources/js/login.js"></script>
-<!-- endbuild -->
+  <!-- Persona -->
+  <script type="text/javascript" src="https://login.persona.org/include.js"></script>
+
+  <!-- build:js /resources/js/sandstone.js -->
+  <script type="text/javascript" src="/resources/vendors/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/resources/vendors/cookie-js/cookie.js"></script>
+  <script type="text/javascript" src="/resources/vendors/eventEmitter/EventEmitter.js"></script>
+  <script type="text/javascript" src="/resources/vendors/webmaker-analytics/analytics.js"></script>
+  <script type="text/javascript" src="/resources/vendors/webmaker-auth-client/webmaker-auth-client.js"></script>
+  <script type="text/javascript" src="/resources/js/core.js"></script>
+  <script type="text/javascript" src="/resources/js/login.js"></script>
+  <!-- endbuild -->
 
 </body>
 </html>
