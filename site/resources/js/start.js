@@ -10,6 +10,7 @@
       staging: 'https://events-api.mofostaging.net/events',
       production: 'https://events-api.webmaker.org/events'
     },
+    formFields = {},
     eventsFrontEnd = {
       dev: 'http://localhost:1981/events/',
       staging: 'https://events.mofostaging.net/events/',
@@ -70,8 +71,7 @@
           return null;
         }
       },
-      $context = $(this),
-      formFields = {};
+      $context = $(this);
 
     $('#submit-event').prop('disabled', true);
 
@@ -119,13 +119,20 @@
     $('#submit-event').prop('disabled', false);
   }
 
+  function updateStep3(eventID) {
+    $('#event-url').prop('href', eventsFrontEnd[environment] + eventID).text(eventsFrontEnd[environment] + eventID);
+    $('#confirmed-event-location').text(formFields.address);
+    $('#confirmed-event-date').text(moment(formFields.beginDate).format('LLL'));
+    $('#confirmed-event-size').text($('#estimatedAttendees').find('option:selected').text());
+  }
+
   function deployPayload(payload) {
     $.ajax(eventsAPI[environment], {
       data: payload,
       contentType: 'application/json',
       error: function () {
         $('#start-event-submission').prepend(
-          '<p class="form-error">Something went wrong with the form submission. Please wait a moment and try again.</p>'
+          '<div class="alert alert-danger">Something went wrong with the form submission. Please wait a moment and try again.</div>'
         );
         $('#submit-event').prop('disabled', false);
       },
@@ -133,8 +140,9 @@
       xhrFields: {
         withCredentials: true
       },
-      success: function (data, textStatus, xhr) {
-        win.location = eventsFrontEnd[environment] + xhr.responseJSON.id;
+      success: function (data) {
+        $('#step-2').fadeOut('slow').next().delay(500).fadeIn('slow');
+        updateStep3(data.id);
       }
     });
   }
@@ -156,26 +164,37 @@
       win.webmaker.auth.login();
     });
 
-    $('button').on('click', function (e) {
+    $('.eventBtn').on('click', function (e) {
       e.preventDefault();
-      $('#start-event-submission').find('.fieldset.hidden').remove();
-      $('.step-2').removeClass('hidden');
-      $('fieldset.hidden.' + e.target.id).appendTo('#start-event-submission');
+
+      var
+        $fieldset = $('fieldset.hidden.' + e.target.id),
+        eventName = $fieldset.find('.event')[0].innerHTML,
+        eventIcon = $fieldset.find('.icon')[0].innerHTML,
+        eventDescription = $fieldset.find('.description')[0].innerHTML;
+
+      $('#step-1').fadeOut('slow').next().delay(500).fadeIn('slow');
+      $('#submit-event').prop('disabled', false);
+      $fieldset.appendTo('#start-event-submission');
+      $('.event-title').text(eventName);
+      $('.event-description').text(eventDescription);
+      $('.event-icon').addClass(eventIcon);
     });
 
-    $('#start-event-submission').on('submit', submitForm);
+    $('#submit-event').on('click', submitForm);
   }
 
   function init() {
     if ($('.start-page').length > 0) {
       setUpWizard();
       findaPlace();
-
+      $('#submit.event').prop('disabled', false);
       win.webmaker.auth.on('login', function () {
         $('#sign-in-form').hide();
-        $('#start-event-submission').find('input[type="submit"]').removeAttr('disabled');
+        $('#start-event-submission').removeClass('hidden');
       });
     }
+
   }
 
   init();
