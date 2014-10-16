@@ -147,6 +147,26 @@
     });
   }
 
+  function showStep2(target, isDeepLink) {
+    var
+      $fieldset = $('fieldset.hidden.' + target),
+      eventName = $fieldset.find('.event')[0].innerHTML,
+      eventIcon = $fieldset.find('.icon')[0].innerHTML,
+      eventDescription = $fieldset.find('.description')[0].innerHTML;
+
+    if (isDeepLink) {
+      $('#step-1').hide().next().show();
+    } else {
+      $('#step-1').fadeOut('slow').next().delay(500).fadeIn('slow');
+    }
+
+    $('#submit-event').prop('disabled', false);
+    $fieldset.appendTo('#start-event-submission');
+    $('.event-title').text(eventName);
+    $('.event-description').text(eventDescription);
+    $('.event-icon').addClass(eventIcon);
+  }
+
   function setUpWizard() {
     $('#datepicker').datetimepicker({
       icons: {
@@ -164,21 +184,8 @@
       win.webmaker.auth.login();
     });
 
-    $('.eventBtn').on('click', function (e) {
-      e.preventDefault();
-
-      var
-        $fieldset = $('fieldset.hidden.' + e.target.id),
-        eventName = $fieldset.find('.event')[0].innerHTML,
-        eventIcon = $fieldset.find('.icon')[0].innerHTML,
-        eventDescription = $fieldset.find('.description')[0].innerHTML;
-
-      $('#step-1').fadeOut('slow').next().delay(500).fadeIn('slow');
-      $('#submit-event').prop('disabled', false);
-      $fieldset.appendTo('#start-event-submission');
-      $('.event-title').text(eventName);
-      $('.event-description').text(eventDescription);
-      $('.event-icon').addClass(eventIcon);
+    $('.eventBtn').on('click', function () {
+      showStep2(this.id);
     });
 
     $('#submit-event').on('click', submitForm);
@@ -195,6 +202,15 @@
       });
     }
 
+    // Check for deep links
+    var hash = window.location.hash;
+
+    // If there's a deep link jump to step 2, otherwise show step 1
+    if (hash) {
+      showStep2(hash.split('#/')[1], true);
+    } else {
+      $('#step-1').show();
+    }
   }
 
   init();
