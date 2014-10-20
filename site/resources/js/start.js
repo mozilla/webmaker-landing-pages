@@ -2,6 +2,7 @@
 (function (doc, win, $) {
 
   var
+    eventTags = ['wizard'],
     autocomplete,
     event = {},
     environment = 'dev',
@@ -100,6 +101,7 @@
 
     formFields.isEventPublic = false;
     formFields.estimatedAttendees = $estimatedAttendees.find('option:selected').val();
+    formFields.tags = eventTags;
 
     deployPayload(JSON.stringify(formFields));
   }
@@ -153,6 +155,8 @@
       eventName = $fieldset.find('.event')[0].innerHTML,
       eventIcon = $fieldset.find('.icon')[0].innerHTML,
       eventDescription = $fieldset.find('.description')[0].innerHTML;
+
+    eventTags.push(target);
 
     if (isDeepLink) {
       $('#step-1').hide().next().show();
