@@ -120,7 +120,13 @@
   }
 
   function updateStep3(eventID) {
-    $('#event-url').prop('href', eventsFrontEnd[environment] + eventID).text(eventsFrontEnd[environment] + eventID);
+    var eventURL = eventsFrontEnd[environment] + eventID;
+
+    $('#event-url').prop('href', eventURL).text(eventURL);
+
+    $('#share-twitter').attr('href', 'https://twitter.com/intent/tweet?text=Check%20out%20this%20event!&url=' + encodeURIComponent(eventURL) + '&via=webmaker&related=mozilla,webmaker');
+    $('#share-facebook').attr('href', 'https://www.facebook.com/sharer.php?u=' + encodeURIComponent(eventURL));
+
     $('#confirmed-event-location').text(formFields.address);
     $('#confirmed-event-date').text(moment(formFields.beginDate).format('LLL'));
     $('#confirmed-event-size').text($('#estimatedAttendees').find('option:selected').text());
