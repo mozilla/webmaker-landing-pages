@@ -1,27 +1,32 @@
 .start-page {
   height: auto;
   min-height: 100%;
-  background: @grey;
   text-rendering: optimizeLegibility;
-  color: white;
+  color: #506B7B;
 
   .container {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
 
+  .step-indicator {
+    margin: auto;
+    display: block;
+  }
+
   h1 {
-    margin: 2rem 0 0.5rem 1.5rem;
-    font-size: 6rem;
-    font-weight: 300;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 400;
     letter-spacing: -0.03rem;
+    line-height: 1.4em;
   }
 
   p.subheadline {
     margin: 0 0 1rem 1.5rem;
-    max-width: 90rem;
     font-size: 1.6rem;
     font-weight: 300;
+    text-align: center;
   }
 
   fieldset[role="textbox"] {
@@ -79,9 +84,9 @@
 
   .wizard-container {
     .w-inner {
-      background: @darkgrey;
       padding: 2.5rem 4rem 2rem 4rem;
       margin-top: 3rem;
+      border: 1px solid #BDC3C7;
       @media screen and (min-width: @screen-md-min) {
         padding: 3rem 2rem 2rem 2rem;
       }
@@ -91,24 +96,9 @@
   .step-section {
     display: none;
     h6 {
-      margin: 5rem 0 0 1.5rem;
-      font-size: 1.8rem;
-      font-weight: 600;
       text-transform: uppercase;
-      &.selected {
-
-        margin: -3em -4rem 2rem -4rem;
-        padding: 1rem;
-        text-align: center;
-        font-size: 1.4rem;
-        font-weight: 400;
-        text-transform: none;
-        background: @lightgrey;
-        color: @darkgrey;
-        @media screen and (min-width: @screen-md-min) {
-          margin: -3rem -2rem 2rem -2rem;
-        }
-      }
+      font-size: 1.4rem;
+      font-weight: 900;
     }
     .btn-info {
       width: 100%;
@@ -118,10 +108,11 @@
       font-weight: 600;
     }
     .event {
-      background: @grey;
       h2, .fa {
         display: block;
-        text-align: center;
+        &.center {
+          text-align: center;
+        }
       }
       p {
         font-size: 1.4rem;
@@ -153,13 +144,58 @@
   }
 
   .event-summary {
+    background: #E9F0F5;
     margin-top: 2.5rem;
+    padding: 2rem;
+
+    .highlighted {
+      background: #27AAE1;
+      padding: 2rem;
+      margin: -2rem -2rem 2rem -2rem;
+      color: #fff;
+
+      h5 {
+        color: #fff;
+        text-transform: uppercase;
+      }
+
+      .btn-info {
+        margin-top: 1rem;
+        background: #fff;
+        color: #506B7B;
+        text-decoration: underline;
+      }
+    }
+
+    .sharing {
+      margin: 1rem 0;
+
+      a {
+        color: #fff;
+        margin-right: 2rem;
+
+        .underline-on-hover {
+          font-style: normal;
+        }
+
+        &:hover, &:active {
+          text-decoration: none;
+
+          .underline-on-hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    h5 {
+      color: #7CA8BF;
+    }
+
     p {
       font-size: 2.4rem;
     }
-    .btn-info {
-      margin-top: 1rem;
-    }
+
     span {
       display: block;
       margin-top: 1rem;
