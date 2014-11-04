@@ -112,6 +112,13 @@ module.exports = function (grunt) {
         expand: true,
         src: ['resources/compiled/**/*'],
         dest: '<%= landingpages.serverTarget %>/'
+      },
+      // Assets for partner landing page template
+      partnerAssets: {
+        cwd: '<%= landingpages.app %>/',
+        expand: true,
+        src: ['resources/compiled/partner.css', 'resources/vendors/makerstrap/dist/makerstrap.min.css'],
+        dest: '<%= landingpages.buildTarget %>/'
       }
     },
     less: {
@@ -238,7 +245,8 @@ module.exports = function (grunt) {
     'cssmin',
     'htmlmin:build',
     'usemin',
-    'autoprefixer:build'
+    'autoprefixer:build',
+    'copy:partnerAssets'
   ]);
 
   grunt.registerTask('dev', [
