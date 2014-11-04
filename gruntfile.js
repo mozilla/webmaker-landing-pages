@@ -117,7 +117,8 @@ module.exports = function (grunt) {
     less: {
       styles: {
         files: {
-          '<%= landingpages.app %>/resources/compiled/core.css': '<%= landingpages.app %>/less/core.less'
+          '<%= landingpages.app %>/resources/compiled/core.css': '<%= landingpages.app %>/less/core.less',
+          '<%= landingpages.app %>/resources/compiled/partner.css': '<%= landingpages.app %>/less/pages/partner.less'
         }
       }
     },

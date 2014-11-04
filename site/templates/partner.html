@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600"/>
+  <link rel="stylesheet" href="/resources/vendors/makerstrap/dist/makerstrap.min.css"/>
+  <link rel="stylesheet" href="/resources/compiled/partner.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" >
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35433268-12']);
+    _gaq.push(['_setDomainName', 'webmaker.org']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+<body class="partner">
+  <div class="wrapper">
+  <!-- Tabzilla here -->
+  <a href="/en-US/" id="tabzilla" data-infobar="translation">Mozilla</a>
+
+  <header>
+    <a href="https://webmaker.org"><img src="/resources/img/logo.png"></a>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <img class="center-block vertical-margin" src="/resources/img/partner/kids.jpg">
+      <h1 class="text-center narrow">{{ challengeHeader }}</h1>
+      <h2 class="text-center">{{ challengeSubHeader }}</h2>
+      <img class="center-block double-vertical-margin" src="/resources/img/partner/3steps.png">
+    </div>
+
+    <div class="row">
+      <h3 class="narrow text-center">Step 1. Choose Your Webmaker Activity</h3>
+      <p class="narrow vertical-margin text-center">Webmaker events are fun and easy to organize. All you need is a few laptops, a wi-fi connection, and a group of eager participants! We'll provide easy to follow instructions.</p>
+    </div>
+
+    <div class="vertical-margin row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="bordered-box">
+          <img class="center-block" src="/resources/img/partner/remix.png">
+          <h4 class="vertical-margin text-center">Remix Your School</h4>
+          <p class="vertical-margin">Assemble a group of students and challenge them to hack their school’s website. Mozilla’s X-Ray Goggles tool makes it easy to alter the images and text on any web page. Replace the principal’s photo with a picture of Justin Beiber or make a funny edit to the school’s official motto and share the remixed version with a custom link.</p>
+
+          <p>We recommend:</p>
+
+          <div class="vertical-margin">
+            <p><i class="fa fa-user"></i> 2-10 Participants</p>
+            <p><i class="fa fa-clock-o"></i> 10-30 Minutes</p>
+            <p><i class="fa fa-star"></i> Great for kids &amp; teenagers</p>
+          </div>
+
+          <a class="btn btn-default btn-lg btn-blue btn-full" href="/event/start/#/meme">Get started</a>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="bordered-box">
+          <img class="center-block" src="/resources/img/partner/music.png">
+          <h4 class="vertical-margin text-center">Music Video Mashup</h4>
+          <p>Gather some aspiring musicians and directors to create an original video made from YouTube clips. Mozilla’s Popcorn Maker tool combines videos, music, and text from around the web into custom mashups. Think Katy Perry’s latest video needs some dancing sloths? Add them in and share the mashup with a custom link.</p>
+
+          <p>We recommend:</p>
+
+          <div class="vertical-margin">
+            <p><i class="fa fa-user"></i> 5-20 Participants</p>
+            <p><i class="fa fa-clock-o"></i> 20-40 Minutes</p>
+            <p><i class="fa fa-star"></i> Great for teenagers</p>
+          </div>
+
+          <a class="btn btn-default btn-lg btn-blue btn-full" href="/event/start/#/video">Get started</a>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="bordered-box">
+          <img class="center-block" src="/resources/img/partner/private.png">
+          <h4 class="vertical-margin text-center">Private Eye</h4>
+          <p>Bring together a group of web lovers and pull back the curtain to reveal who’s watching us online. Mozilla’s Lightbeam tool exposes the trackers who follow us around the Internet. Browse the web and see the hidden relationships between the pages you visit and the third parties that operate behind the scenes. Help others understand the importance of privacy on the web by sharing your custom visualization.</p>
+
+          <p>We recommend:</p>
+
+          <div class="vertical-margin">
+            <p><i class="fa fa-user"></i> 5-30 Participants</p>
+            <p><i class="fa fa-clock-o"></i> 10-20 Minutes</p>
+            <p><i class="fa fa-star"></i> Great for teenagers &amp; adults</p>
+          </div>
+
+          <a class="btn btn-default btn-lg btn-blue btn-full" href="/event/start/#/privacy">Get started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <img class="center-block vertical-margin" src="{{ partnerLogoSrc }}">
+        </div>
+
+        <div class="col-xs-12 col-sm-8">
+          <h5 class="footer-header">Featured Partner</h5>
+
+          <p>{{ partnerCopy }}</p>
+
+          <p><a href="{{ partnerURL }}">Learn more <i class="fa fa-chevron-right"></i></a></p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tabzilla script file -->
+  <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
+</body>
+</html>

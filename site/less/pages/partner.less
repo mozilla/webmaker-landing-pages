@@ -1,0 +1,108 @@
+body.partner {
+  background: #e8eef1;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+
+  > .wrapper {
+    background: #fff;
+    padding: 0 10px 20px 10px;
+  }
+
+  header img {
+    width: 220px;
+  }
+
+  h1 {
+    font-weight: 100;
+    font-size: 3.4rem;
+    color: #4d4e53;
+  }
+
+  h2 {
+    font-weight: 100;
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-weight: 100;
+    font-size: 3rem;
+    color: #506b7b;
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: #506b7b;
+  }
+
+  footer {
+    padding: 40px 0;
+  }
+
+  @media (min-width:768px) {
+    h1 {
+      font-size: 6.8rem;
+    }
+
+    h2 {
+      font-size: 2.6rem;
+    }
+
+    h3 {
+      font-size: 4rem;
+    }
+  }
+}
+
+// UTILITY CLASSES ------------------------------------------------------------
+
+.vertical-margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.double-vertical-margin {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.narrow {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// COMPONENTS -----------------------------------------------------------------
+
+.bordered-box {
+  border: 1px solid #bdc3c7;
+  padding: 30px 15px;
+  margin-bottom: 2rem;
+
+  h4 {
+    font-size: 2.6rem;
+    color: #5d7e8f;
+  }
+}
+
+.btn-blue {
+  background: #27aae1;
+  color: #fff;
+  border: 0;
+  padding: 1em;
+
+  &:hover {
+    background: darken(#27aae1, 20%);
+    color: #fff;
+  }
+}
+
+.btn-full {
+  display: block;
+}
+
+.footer-header {
+  font-size: 1.4rem;
+  color: #9aa8af;
+  text-transform: uppercase;
+}
