@@ -65,13 +65,6 @@
     var
       $estimatedAttendees = $('select[name="estimatedAttendees"]'),
       $address = $('#address'),
-      webmakerLogin = function safeGetWebmakerLogin() {
-        try {
-          return JSON.parse(localStorage['webmaker-login']);
-        } catch (e) {
-          return null;
-        }
-      },
       $context = $(this);
 
     $('#submit-event').prop('disabled', true);
@@ -88,8 +81,8 @@
       return false;
     }
 
-    $context.append('<input type="hidden" name="organizer" value="' + webmakerLogin().email + '" />');
-    $context.append('<input type="hidden" name="organizerID" value="' + webmakerLogin().username + '" />');
+    $context.append('<input type="hidden" name="organizer" value="' + win.webmaker.person.email + '" />');
+    $context.append('<input type="hidden" name="organizerID" value="' + win.webmaker.person.username + '" />');
 
     function compileInputs() {
       formFields[$(this).prop('name')] = $(this).val();
