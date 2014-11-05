@@ -127,7 +127,7 @@ module.exports = function (grunt) {
         browsers: ['last 2 versions']
       },
       build: {
-        src: '<%= landingpages.buildTarget %>/resources/compiled/core.css'
+        src: '<%= landingpages.buildTarget %>/resources/compiled/*.css'
       }
     },
     watch: {
