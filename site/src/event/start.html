@@ -7,11 +7,16 @@ description: "Follow these easy steps to put together your Maker Party today"
 <div class="start-page">
   <div class="container wizard-container">
     <div class="row step-section" id="step-1">
-      <img class="step-indicator" src="/resources/img/steps/step1.png">
+      <ol class="steps">
+        <li><span class="current step" href="#"><span class="number">1</span> Choose</span></li>
+        <li><span class="step"><span class="number">2</span> Details</span></li>
+        <li><span class="step"><span class="number">3</span> Share</span></li>
+      </ol>
+
       <h1>Step 1. Choose Your Webmaker Event</h1>
       <p class="subheadline">Webmaker Activities are fun and easy to organize. All you need is a few laptops, a wi-fi connection, and a group of eager participants! We’ll provide easy to follow instructions.</p>
 
-      <div class="event col-xs-12 col-md-4">
+      <div class="event col-xs-12 col-md-4" data-href="#/meme">
         <div class="w-inner">
           <i class="fa fa-gears fa-5x center"></i>
           <h2 class="center">Remix Your School</h2>
@@ -29,7 +34,7 @@ description: "Follow these easy steps to put together your Maker Party today"
           </ol>
           <fieldset class="hidden meme">
           <p class="icon hidden">fa-gears</p>
-            <p class="event hidden">Hack Your High School</p>
+            <p class="event hidden">Remix Your School</p>
             <p class="description hidden">Get a group of youth together to remix their schools’ web site. With our X-Ray Goggles tool, it's as easy as going to a school's website and changing some text or adding an image making Justin Bieber the new school mascot.</p>
             <input type="hidden" name="title" value="Hack Your High School"/>
             <input type="hidden" name="description" value="<figure class='pull-right'><img src='https://farm4.staticflickr.com/3873/14738450423_e2a475dcea_z.jpg' alt='' class='img-circle'/><figcaption>Credit: HiveNYC</figcaption></figure><h2>Coder Dojo: Hack Your School</h2><p><strong>Let’s hack your school’s web site together.</strong>It’s fun, easy and (don’t worry) you won’t actually break anything! :)</p><p><a class='btn btn-primary btn-lg' href='https://blog.webmaker.org/hack-your-school'>Get Started</a></p>"/>
@@ -39,7 +44,7 @@ description: "Follow these easy steps to put together your Maker Party today"
         </div> <!-- Ends w-inner -->
       </div> <!-- ends event -->
 
-      <div class="event col-xs-12 col-md-4">
+      <div class="event col-xs-12 col-md-4" data-href="#/video">
         <div class="w-inner">
           <i class="fa fa-code-fork fa-5x center"></i>
           <h2 class="center">Music Video Mashup</h2>
@@ -57,7 +62,7 @@ description: "Follow these easy steps to put together your Maker Party today"
           </ol>
           <fieldset class="hidden video">
             <p class="icon hidden">fa-code-fork</p>
-            <p class="event hidden">YouTube Karaoke</p>
+            <p class="event hidden">Music Video Mashup</p>
             <p class="description hidden">Participants will pick their favorite song from YouTube, lip-sync their own version on camera, and mash the two together to create their very own music video. Who knows? Maybe you'll discover the next YouTube sensation.</p>
             <input type="hidden" name="title" value="YouTube Karaoke"/>
             <input type="hidden" name="description" value="<figure class='pull-right'><img src='https://farm4.staticflickr.com/3873/14738450423_e2a475dcea_z.jpg' alt='' class='img-circle'/><figcaption>Credit: HiveNYC</figcaption></figure><h2>Coder Dojo: Make a Music Video</h2><p><strong>Let’s make a music video on the web.</strong> It’s fun, easy, and can take as little as two minutes.</p><p><a href='https://blog.webmaker.org/music_video' class='btn btn-primary btn-lg'>Get Started</a>"/>
@@ -67,7 +72,7 @@ description: "Follow these easy steps to put together your Maker Party today"
         </div> <!-- Ends w-inner -->
       </div> <!-- ends event -->
 
-      <div class="event col-xs-12 col-md-4">
+      <div class="event col-xs-12 col-md-4" data-href="#/privacy">
         <div class="w-inner">
           <i class="fa fa-flask fa-5x center"></i>
           <h2 class="center">Private Eye</h2>
@@ -98,18 +103,23 @@ description: "Follow these easy steps to put together your Maker Party today"
     </div> <!-- ends step-1 -->
 
     <div class="row step-section" id="step-2">
-      <img class="step-indicator" src="/resources/img/steps/step2.png">
+      <ol class="steps">
+        <li><a class="step" href="#/"><span class="number"><i class="fa fa-check"></i></span> Choose</a></li>
+        <li><span class="step current"><span class="number">2</span> Details</span></li>
+        <li><span class="step"><span class="number">3</span> Share</span></li>
+      </ol>
+
       <h1>Step 2. Add Your Event Details </h1>
 
       <div class="event">
         <div>
           <h6 class="selected">You selected</h6>
           <h2 class="event-title">Activity Title</h2>
-          <a href="./">change event</a>
+          <a href="#/">change event</a>
         </div>
       </div> <!-- ends .event -->
       <div class="event">
-        <form action="#" id="sign-in-form">
+        <form id="sign-in-form">
           <fieldset role="textbox">
             <a class="btn btn-info" href="/auth/login" class="btn btn-primary btn-lg">Sign in to Add Activity Details</a>
           </fieldset>
@@ -148,7 +158,12 @@ description: "Follow these easy steps to put together your Maker Party today"
     </div> <!-- Ends #step-2 -->
 
     <div class="row step-section" id="step-3">
-      <img class="step-indicator" src="/resources/img/steps/step3.png">
+      <ol class="steps">
+        <li><span class="step" href="./"><span class="number"><i class="fa fa-check"></i></span> Choose</span></li>
+        <li><span class="step"><span class="number"><i class="fa fa-check"></i></span> Details</span></li>
+        <li><span class="step current"><span class="number">3</span> Share</span></li>
+      </ol>
+
       <h1>Step 3. Share Your Event!</h1>
       <p class="subheadline">We just sent you an email with detailed instructions on how to run your event.</p>
 
