@@ -29,6 +29,10 @@
     environment = 'dev';
   }
 
+  $('[data-href]').on('click', function () {
+    window.location.hash = $(this).attr('data-href');
+  });
+
   function findaPlace() {
     autocomplete = new win.google.maps.places.Autocomplete((doc.getElementById('address')), {
       types: ['geocode']
@@ -205,15 +209,25 @@
       });
     }
 
-    // Check for deep links
-    var hash = window.location.hash;
+    function setPageFromHash() {
+      var hash = window.location.hash;
 
-    // If there's a deep link jump to step 2, otherwise show step 1
-    if (hash) {
-      showStep2(hash.split('#/')[1], true);
-    } else {
-      $('#step-1').show();
+      // If there's a deep link jump to step 2, otherwise show step 1
+      if (hash && hash !== '#/') {
+        showStep2(hash.split('#/')[1], true);
+      } else {
+        $('#step-1').show();
+        $('#step-2').hide();
+      }
     }
+
+    $(window).on('hashchange', function () {
+      if (window.location.hash !== '') {
+        setPageFromHash();
+      }
+    });
+
+    setPageFromHash();
   }
 
   init();
