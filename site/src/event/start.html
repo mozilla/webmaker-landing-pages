@@ -103,93 +103,97 @@ description: "Follow these easy steps to put together your Maker Party today"
     </div> <!-- ends step-1 -->
 
     <div class="row step-section" id="step-2">
-      <ol class="steps">
-        <li><a class="step" href="#/"><span class="number"><i class="fa fa-check"></i></span> Choose</a></li>
-        <li><span class="step current"><span class="number">2</span> Details</span></li>
-        <li><span class="step"><span class="number">3</span> Share</span></li>
-      </ol>
+      <div class="col-md-6 col-md-offset-3">
+        <ol class="steps">
+          <li><a class="step" href="#/"><span class="number"><i class="fa fa-check"></i></span> Choose</a></li>
+          <li><span class="step current"><span class="number">2</span> Details</span></li>
+          <li><span class="step"><span class="number">3</span> Share</span></li>
+        </ol>
 
-      <h1>Step 2. Add Your Event Details </h1>
+        <h1>Step 2. Add Your Event Details </h1>
 
-      <div class="event">
-        <div>
-          <h6 class="selected">You selected</h6>
-          <h2 class="event-title">Activity Title</h2>
-          <a href="#/">change event</a>
+        <div class="event">
+          <div>
+            <h6 class="selected">You selected</h6>
+            <h2 class="event-title">Activity Title</h2>
+            <a href="#/">change event</a>
+          </div>
+        </div> <!-- ends .event -->
+        <div class="event">
+          <form id="sign-in-form">
+            <fieldset role="textbox">
+              <a class="btn btn-info" href="/auth/login" class="btn btn-primary btn-lg">Sign in to Add Activity Details</a>
+            </fieldset>
+          </form>
+
+          <form action="#" method="post" class="hidden" id="start-event-submission">
+            <fieldset class="datepicker" role="textbox">
+              <label for="datepicker">Activity Date</label>
+              <input class="form-control" id="datepicker">
+            </fieldset>
+
+            <fieldset role="textbox">
+              <label for="address">Activity Location</label>
+              <input class="form-control" type="text" id="address" name="address" placeholder="Where will you host this activity?"/>
+            </fieldset>
+
+            <fieldset role="textbox">
+              <label for="estimatedAttendees">Activity Size</label>
+              <select class="form-control" name="estimatedAttendees" id="estimatedAttendees">
+                <option value="0" selected disabled>How many participants will attend?</option>
+                <option value="5">Under 10</option>
+                <option value="15">10-20</option>
+                <option value="35">20-50</option>
+                <option value="75">50-100</option>
+                <option value="150">100-200</option>
+                <option value="350">200-500</option>
+                <option value="500">500+</option>
+              </select>
+            </fieldset>
+            <fieldset role="textbox">
+              <input type="submit" value="Create Your Activity" disabled class="btn btn-info" id="submit-event"/>
+            </fieldset>
+            <input type="hidden" name="beginDate"/>
+          </form>
         </div>
-      </div> <!-- ends .event -->
-      <div class="event">
-        <form id="sign-in-form">
-          <fieldset role="textbox">
-            <a class="btn btn-info" href="/auth/login" class="btn btn-primary btn-lg">Sign in to Add Activity Details</a>
-          </fieldset>
-        </form>
-
-        <form action="#" method="post" class="hidden" id="start-event-submission">
-          <fieldset class="datepicker" role="textbox">
-            <label for="datepicker">Activity Date</label>
-            <input class="form-control" id="datepicker">
-          </fieldset>
-
-          <fieldset role="textbox">
-            <label for="address">Activity Location</label>
-            <input class="form-control" type="text" id="address" name="address" placeholder="Where will you host this activity?"/>
-          </fieldset>
-
-          <fieldset role="textbox">
-            <label for="estimatedAttendees">Activity Size</label>
-            <select class="form-control" name="estimatedAttendees" id="estimatedAttendees">
-              <option value="0" selected disabled>How many participants will attend?</option>
-              <option value="5">Under 10</option>
-              <option value="15">10-20</option>
-              <option value="35">20-50</option>
-              <option value="75">50-100</option>
-              <option value="150">100-200</option>
-              <option value="350">200-500</option>
-              <option value="500">500+</option>
-            </select>
-          </fieldset>
-          <fieldset role="textbox">
-            <input type="submit" value="Create Your Activity" disabled class="btn btn-info" id="submit-event"/>
-          </fieldset>
-          <input type="hidden" name="beginDate"/>
-        </form>
       </div>
     </div> <!-- Ends #step-2 -->
 
     <div class="row step-section" id="step-3">
-      <ol class="steps">
-        <li><span class="step" href="./"><span class="number"><i class="fa fa-check"></i></span> Choose</span></li>
-        <li><span class="step"><span class="number"><i class="fa fa-check"></i></span> Details</span></li>
-        <li><span class="step current"><span class="number">3</span> Share</span></li>
-      </ol>
+      <div class="col-md-6 col-md-offset-3">
+        <ol class="steps">
+          <li><span class="step" href="./"><span class="number"><i class="fa fa-check"></i></span> Choose</span></li>
+          <li><span class="step"><span class="number"><i class="fa fa-check"></i></span> Details</span></li>
+          <li><span class="step current"><span class="number">3</span> Share</span></li>
+        </ol>
 
-      <h1>Step 3. Share Your Event!</h1>
-      <p class="subheadline">We just sent you an email with detailed instructions on how to run your event.</p>
+        <h1>Step 3. Share Your Event!</h1>
+        <p class="subheadline">We just sent you an email with detailed instructions on how to run your event.</p>
 
-      <div>
-        <div class="event-summary">
-          <div class="highlighted">
-            <h5>Event Url</h5>
-            <a target="_blank" href="#" id="event-url" class="btn btn-info"></a>
+        <div>
+          <div class="event-summary">
+            <div class="highlighted">
+              <h5>Event Url</h5>
+              <a target="_blank" href="#" id="event-url" class="btn btn-info"></a>
 
-            <div class="sharing">
-              <a id="share-twitter" target="_blank" href="#"><i class="fa fa-twitter"></i> <i class="underline-on-hover">Share on Twitter</i></a>
-              <a id="share-facebook" target="_blank" href="#"><i class="fa fa-facebook-square"></i> <i class="underline-on-hover">Share on Facebook</i></a>
+              <div class="sharing">
+                <a id="share-twitter" target="_blank" href="#"><i class="fa fa-twitter"></i> <i class="underline-on-hover">Share on Twitter</i></a>
+                <a id="share-facebook" target="_blank" href="#"><i class="fa fa-facebook-square"></i> <i class="underline-on-hover">Share on Facebook</i></a>
+              </div>
             </div>
+
+            <h5>Event Type</h5>
+            <p class="event-title">Event Title</p>
+
+            <h5>Event Date</h5>
+            <p id="confirmed-event-date"></p>
+
+            <h5>Event Location</h5>
+            <p id="confirmed-event-location"></p>
+
+            <h5>Event Size</h5>
+            <p id="confirmed-event-size">100-200</p>
           </div>
-
-          <h5>Event Type</h5>
-          <p class="event-title">Event Title</p>
-
-          <h5>Event Date</h5>
-          <p id="confirmed-event-date"></p>
-
-          <h5>Event Location</h5>
-          <p id="confirmed-event-location"></p>
-
-          <h5>Event Size</h5>
-          <p id="confirmed-event-size">100-200</p>
         </div>
       </div>
     </div> <!-- Ends #step-3 -->
