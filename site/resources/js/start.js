@@ -37,21 +37,9 @@
     autocomplete = new win.google.maps.places.Autocomplete((doc.getElementById('address')), {
       types: ['geocode']
     });
-    geolocate();
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
       updateEventAddress();
     });
-  }
-
-  function geolocate() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        var geolocation = new win.google.maps.LatLng(
-          position.coords.latitude, position.coords.longitude);
-        autocomplete.setBounds(new google.maps.LatLngBounds(geolocation,
-          geolocation));
-      });
-    }
   }
 
   function updateEventAddress() {
