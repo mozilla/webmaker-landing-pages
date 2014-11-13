@@ -186,15 +186,26 @@
     $('#submit-event').on('click', submitForm);
   }
 
+  function loginHandler(user) {
+    if (user && user.username) {
+      $('#sign-in-form').hide();
+      $('#start-event-submission').removeClass('hidden');
+    } else {
+      $('#sign-in-form').show();
+      $('#start-event-submission').addClass('hidden');
+    }
+  }
+
   function init() {
     if ($('.start-page').length > 0) {
       setUpWizard();
       findaPlace();
       $('#submit.event').prop('disabled', false);
-      win.webmaker.auth.on('login', function () {
-        $('#sign-in-form').hide();
-        $('#start-event-submission').removeClass('hidden');
-      });
+
+      loginHandler(win.webmaker.person);
+      win.webmaker.auth.on('verified', loginHandler);
+      win.webmaker.auth.on('login', loginHandler);
+      win.webmaker.auth.on('logout', loginHandler);
     }
 
     function setPageFromHash() {
