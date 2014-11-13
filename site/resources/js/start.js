@@ -2,6 +2,7 @@
 (function (doc, win, $) {
 
   var
+    eventTags = ['wizard'],
     autocomplete,
     event = {},
     environment = 'dev',
@@ -28,25 +29,17 @@
     environment = 'dev';
   }
 
+  $('[data-href]').on('click', function () {
+    window.location.hash = $(this).attr('data-href');
+  });
+
   function findaPlace() {
     autocomplete = new win.google.maps.places.Autocomplete((doc.getElementById('address')), {
       types: ['geocode']
     });
-    geolocate();
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
       updateEventAddress();
     });
-  }
-
-  function geolocate() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        var geolocation = new win.google.maps.LatLng(
-          position.coords.latitude, position.coords.longitude);
-        autocomplete.setBounds(new google.maps.LatLngBounds(geolocation,
-          geolocation));
-      });
-    }
   }
 
   function updateEventAddress() {
@@ -64,13 +57,6 @@
     var
       $estimatedAttendees = $('select[name="estimatedAttendees"]'),
       $address = $('#address'),
-      webmakerLogin = function safeGetWebmakerLogin() {
-        try {
-          return JSON.parse(localStorage['webmaker-login']);
-        } catch (e) {
-          return null;
-        }
-      },
       $context = $(this);
 
     $('#submit-event').prop('disabled', true);
@@ -87,8 +73,8 @@
       return false;
     }
 
-    $context.append('<input type="hidden" name="organizer" value="' + webmakerLogin().email + '" />');
-    $context.append('<input type="hidden" name="organizerID" value="' + webmakerLogin().username + '" />');
+    $context.append('<input type="hidden" name="organizer" value="' + win.webmaker.person.email + '" />');
+    $context.append('<input type="hidden" name="organizerID" value="' + win.webmaker.person.username + '" />');
 
     function compileInputs() {
       formFields[$(this).prop('name')] = $(this).val();
@@ -100,6 +86,7 @@
 
     formFields.isEventPublic = false;
     formFields.estimatedAttendees = $estimatedAttendees.find('option:selected').val();
+    formFields.tags = eventTags;
 
     deployPayload(JSON.stringify(formFields));
   }
@@ -120,7 +107,13 @@
   }
 
   function updateStep3(eventID) {
-    $('#event-url').prop('href', eventsFrontEnd[environment] + eventID).text(eventsFrontEnd[environment] + eventID);
+    var eventURL = eventsFrontEnd[environment] + eventID;
+
+    $('#event-url').prop('href', eventURL).text(eventURL);
+
+    $('#share-twitter').attr('href', 'https://twitter.com/intent/tweet?text=Check%20out%20this%20event!&url=' + encodeURIComponent(eventURL) + '&via=webmaker&related=mozilla,webmaker');
+    $('#share-facebook').attr('href', 'https://www.facebook.com/sharer.php?u=' + encodeURIComponent(eventURL));
+
     $('#confirmed-event-location').text(formFields.address);
     $('#confirmed-event-date').text(moment(formFields.beginDate).format('LLL'));
     $('#confirmed-event-size').text($('#estimatedAttendees').find('option:selected').text());
@@ -147,6 +140,28 @@
     });
   }
 
+  function showStep2(target, isDeepLink) {
+    var
+      $fieldset = $('fieldset.hidden.' + target),
+      eventName = $fieldset.find('.event')[0].innerHTML,
+      eventIcon = $fieldset.find('.icon')[0].innerHTML,
+      eventDescription = $fieldset.find('.description')[0].innerHTML;
+
+    eventTags.push(target);
+
+    if (isDeepLink) {
+      $('#step-1').hide().next().show();
+    } else {
+      $('#step-1').fadeOut('slow').next().delay(500).fadeIn('slow');
+    }
+
+    $('#submit-event').prop('disabled', false);
+    $fieldset.appendTo('#start-event-submission');
+    $('.event-title').text(eventName);
+    $('.event-description').text(eventDescription);
+    $('.event-icon').addClass(eventIcon);
+  }
+
   function setUpWizard() {
     $('#datepicker').datetimepicker({
       icons: {
@@ -164,24 +179,21 @@
       win.webmaker.auth.login();
     });
 
-    $('.eventBtn').on('click', function (e) {
-      e.preventDefault();
-
-      var
-        $fieldset = $('fieldset.hidden.' + e.target.id),
-        eventName = $fieldset.find('.event')[0].innerHTML,
-        eventIcon = $fieldset.find('.icon')[0].innerHTML,
-        eventDescription = $fieldset.find('.description')[0].innerHTML;
-
-      $('#step-1').fadeOut('slow').next().delay(500).fadeIn('slow');
-      $('#submit-event').prop('disabled', false);
-      $fieldset.appendTo('#start-event-submission');
-      $('.event-title').text(eventName);
-      $('.event-description').text(eventDescription);
-      $('.event-icon').addClass(eventIcon);
+    $('.eventBtn').on('click', function () {
+      showStep2(this.id);
     });
 
     $('#submit-event').on('click', submitForm);
+  }
+
+  function loginHandler(user) {
+    if (user && user.username) {
+      $('#sign-in-form').hide();
+      $('#start-event-submission').removeClass('hidden');
+    } else {
+      $('#sign-in-form').show();
+      $('#start-event-submission').addClass('hidden');
+    }
   }
 
   function init() {
@@ -189,12 +201,32 @@
       setUpWizard();
       findaPlace();
       $('#submit.event').prop('disabled', false);
-      win.webmaker.auth.on('login', function () {
-        $('#sign-in-form').hide();
-        $('#start-event-submission').removeClass('hidden');
-      });
+
+      loginHandler(win.webmaker.person);
+      win.webmaker.auth.on('verified', loginHandler);
+      win.webmaker.auth.on('login', loginHandler);
+      win.webmaker.auth.on('logout', loginHandler);
     }
 
+    function setPageFromHash() {
+      var hash = window.location.hash;
+
+      // If there's a deep link jump to step 2, otherwise show step 1
+      if (hash && hash !== '#/') {
+        showStep2(hash.split('#/')[1], true);
+      } else {
+        $('#step-1').show();
+        $('#step-2').hide();
+      }
+    }
+
+    $(window).on('hashchange', function () {
+      if (window.location.hash !== '') {
+        setPageFromHash();
+      }
+    });
+
+    setPageFromHash();
   }
 
   init();

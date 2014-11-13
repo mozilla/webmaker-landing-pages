@@ -9,7 +9,7 @@
     "webmaker-analytics": "~0.1.0",
     "masonry": "~3.1.5",
     "imagesloaded": "~3.1.8",
-    "webmaker-auth-client": "~0.1.11",
+    "webmaker-login-ux": "1.1.5",
     "moment": "~2.8.3",
     "eonasdan-bootstrap-datetimepicker": "~3.1.3"
   },

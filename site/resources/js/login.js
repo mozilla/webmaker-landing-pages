@@ -1,4 +1,4 @@
-/* global WebmakerAuthClient */
+/* global WebmakerLogin */
 (function (doc, win, $) {
   "use strict";
 
@@ -22,42 +22,49 @@
   }
 
   function webmakerAuth() {
-    var
-      auth = new WebmakerAuthClient({
-        host: '',
-        paths: {
-          authenticate: '/auth/authenticate',
-          checkUsername: '/auth/check-username',
-          create: '/auth/create',
-          logout: '/auth/logout',
-          verify: '/auth/verify'
-        },
-        audience: window.location.origin,
-        prefix: 'webmaker-', // for local storage
-        timeout: 10,
-        handleNewUserUI: true // Do you want to auto-open/close the new user UI?
-      });
+    var auth = win.webmaker.auth = new WebmakerLogin({
+      showCTA: false,
+      paths: {
+        authenticate: "/auth/authenticate",
+        verify: "/auth/verify",
+        logout: "/auth/logout"
+      }
+    });
 
-    auth.on('login', function (userData, message) {
+    function login(userData) {
       win.webmaker.person = userData;
       continueSignupPath();
-    });
+    }
 
-    auth.on('logout', function () {
+    function logout() {
       win.webmaker.person = {};
+    }
+
+    auth.on('login', login);
+
+    auth.on('verified', function (userData) {
+      if (!userData) {
+        return logout();
+      }
+      login(userData);
     });
 
-    win.webmaker.auth = auth;
+    auth.on('logout', logout);
   }
 
   function init() {
-    $login.add($signup).on('click', win.webmaker.auth.login);
+    $login.on('click', function () {
+      win.webmaker.auth.login();
+    });
+
+    $signup.on('click', function () {
+      win.webmaker.auth.create();
+    });
   }
 
   webmakerAuth();
-  win.webmaker.auth.verify();
 
-  if (doc.getElementById('webmaker-login-new-user') !== null) {
+  if (doc.getElementById('log-in-button') !== null) {
     init();
   }
 

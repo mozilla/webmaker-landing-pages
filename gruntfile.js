@@ -117,7 +117,8 @@ module.exports = function (grunt) {
     less: {
       styles: {
         files: {
-          '<%= landingpages.app %>/resources/compiled/core.css': '<%= landingpages.app %>/less/core.less'
+          '<%= landingpages.app %>/resources/compiled/core.css': '<%= landingpages.app %>/less/core.less',
+          '<%= landingpages.app %>/resources/compiled/partner.css': '<%= landingpages.app %>/less/pages/partner.less'
         }
       }
     },
@@ -126,7 +127,7 @@ module.exports = function (grunt) {
         browsers: ['last 2 versions']
       },
       build: {
-        src: '<%= landingpages.buildTarget %>/resources/compiled/core.css'
+        src: '<%= landingpages.buildTarget %>/resources/compiled/*.css'
       }
     },
     watch: {

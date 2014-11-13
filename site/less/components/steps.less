@@ -1,0 +1,48 @@
+.steps {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+
+  li {
+    text-align: center;
+    padding-right: 3.7rem;
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 28px, #9fb2bc 28px, #9fb2bc 30px, #9fb2bc 32px, #ffffff 32px, #ffffff 100%);
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  .step {
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+
+    color: #9fb2bc;
+
+    &.current {
+      color: #5d7e8e;
+      font-weight: 900;
+
+      .number {
+        border: 4px solid #27aae1;
+        color: #27aae1;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .number {
+    background: #fff;
+    margin-bottom: 1rem;
+    border: 4px solid #9fb2bc;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    text-align: center;
+    line-height: 5.2rem;
+    display: block;
+    font-size: 1.8rem;
+  }
+}
