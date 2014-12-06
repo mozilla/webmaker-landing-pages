@@ -1,4 +1,4 @@
-# Webmaker Landing Pages
+# Webmaker Landing Pages [![Build Status](https://travis-ci.org/mozilla/webmaker-landing-pages.svg?branch=master)](https://travis-ci.org/mozilla/webmaker-events-2)
 
 ### TL;DR
 
