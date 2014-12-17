@@ -28,9 +28,26 @@ on `grunt`.
 
 - `grunt` Cleans and verifies code.
 - `grunt validate` Read-only version of above.
-- `grunt build` Builds the static site in `/build/`.
-- `grunt dev` Builds the site into a temp directory, watches the folder, and
-launches the server.
+- `grunt dev` Builds the site into a temp directory, watches the folder, and launches the server.
+- `grunt build` Builds the static site in `/build/`, generating these pages:
+    - `/event/start/`
+    - `/for/learners/`
+    - `/for/mentors/`
+    - `/for/pam/`
+    - `/from/firefox-2014/`
+    - `/from/mozilla/`
+    - `/from/net-neutrality/`
+    - `/get-started/`
+    - `/make/lightson/`
+    - `/partner/`
+    - `/pledge/teach-the-web/`
+    - `/pledge/teach-the-web/thank-you/`
+    - `/sample-makersteps/`
+    - `/signup/`
+    - `/signup/hourofcode2014/`
+    - `/signup/learners/`
+    - `/signup/lightson/`
+    - `/signup/mentors/`
 
 ### To Deploy
 
