@@ -49,6 +49,6 @@
     "express": "^4.8.3",
     "habitat": "^1.1.0",
     "morgan": "^1.2.2",
-    "webmaker-auth": "0.2.1"
+    "webmaker-auth": "1.0.2"
   }
 }
